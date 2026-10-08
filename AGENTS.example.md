@@ -22,9 +22,9 @@ This repository is a product application, not a marketing website.
 
 Use `product-ui` for application UI design and implementation.
 
-When visual direction is undefined and there is no applicable `DESIGN.md`, use UI UX Pro Max if available to generate 2–3 materially different, product-appropriate visual directions. Recommend one, then pause before visual implementation and let the user choose.
+When visual direction is undefined and there is no applicable `DESIGN.md`, use UI UX Pro Max if available to propose 2–3 materially different, product-appropriate directions. **Build actual browser-previewable HTML/CSS Style Demos** for A/B/C using the same representative product screen/data. Prefer `design-exploration/style-comparison.html` with a working switcher or side-by-side view. Provide actual rendered previews/screenshots when tooling is available, briefly recommend one, and **pause for the user's visual selection**. A purely text-based style menu is not sufficient.
 
-For a new multi-page product or full-product redesign, after the visual direction is chosen, build only the application shell plus one representative core page (or one short representative flow when necessary). Render it with realistic data/states and pause for user review before scaling the design across the product.
+For a new multi-page product or full-product redesign, after the user chooses among Style Demos, build only the real application shell plus one representative core Product Demo page (or one short representative flow when necessary). Render it with realistic data/states and pause for user review before scaling the design across the product.
 
 After demo approval, persist accepted visual and interaction rules into `DESIGN.md` and expand in coherent batches. Do not ask for approval after every routine page; pause again only for materially new patterns, major design-system deviations, or large module boundaries.
 
@@ -51,3 +51,8 @@ After substantial UI implementation:
 ## Completion
 
 UI work is not complete solely because it compiles. Review the rendered UI at realistic viewport sizes and with realistic content/data volume.
+
+
+## Intelligent UI interoperability
+
+GPT-6 Intelligent UI is available in supported ChatGPT Chat sessions, not as a direct Codex tool. Do not attempt to invoke it as an internal dependency. Generate real HTML/CSS demos locally; use a portable visual decision record when the user chooses a style in ChatGPT.
