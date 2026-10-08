@@ -1,12 +1,20 @@
 # Companion Skill Integrations
 
-`product-ui` owns product interaction decisions. Companion skills add specialized capability; they do not replace the product model. **Invoke the installed original companion Skill** rather than incorporating its prompt content into product-ui. Apply `external-skill-protocol.md` for availability checks, mode-specific original references, execution evidence, and honest reporting.
+`product-ui` owns product interaction decisions. Companion skills add specialized capability; they do not replace the product model.
+
+**Apply `references/project-entry-routing.md` before this companion table:**
+- `NEW_BUILD`: original UI UX Pro Max only when visual direction undefined; shadcn if applicable; Hallmark/Impeccable after Product Demo.
+- `EXISTING_IMPROVE`: **read-only audit before any source edits**. Original Hallmark audit and original Impeccable inspection only when they can run without writing; report findings, wait for user approval, then one pilot page. UI UX Pro Max and Style Demo are **not** default.
+- `EXISTING_REDESIGN`: inventory old system/flow first; explicit visual reset allows UI UX Pro Max and HTML Style Demos even if the old project has `DESIGN.md`.
+- `EXISTING_REBUILD`: baseline API/feature parity and reversible migration first; visual exploration only if new direction is needed; external QA after replacement pilot.
+ **Invoke the installed original companion Skill** rather than incorporating its prompt content into product-ui. Apply `external-skill-protocol.md` for availability checks, mode-specific original references, execution evidence, and honest reporting.
 
 ## Routing table
 
 | Condition | Companion | Action |
 |---|---|---|
-| New product / no established visual direction | UI UX Pro Max + product-ui HTML preview | Generate 2–3 materially different directions and a browser-previewable Style Demo Gallery; then pause for user visual selection |
+| New project or explicitly redesigned existing project / no accepted new visual direction | UI UX Pro Max + product-ui HTML preview | Generate 2–3 real HTML Style Demos, then pause for user visual selection |
+| Existing project / audit and improve | product-ui + Hallmark / Impeccable when available | **Read-only evidence report** and P0/P1/P2 pilot recommendation; pause before edits; no new visual system |
 | Applicable `DESIGN.md` exists | UI UX Pro Max | Do not re-explore by default; follow `DESIGN.md` |
 | Project uses shadcn/ui | shadcn component library + independent shadcn agent Skill (if installed) | Inspect `components.json`; independently verify original Skill before agent invocation |
 | Project does not use shadcn/ui | shadcn skill | Do not introduce it solely because product-ui mentions it |
@@ -36,7 +44,7 @@ Use it for 0→1 visual decisions such as:
 - coherent initial visual language across surfaces
 
 Do not use it to:
-- override an accepted `DESIGN.md` without a redesign request
+- override an accepted `DESIGN.md` during optimization (an **explicit redesign** can supersede it after user approval)
 - restyle one isolated page into a different product
 - repeatedly regenerate color/type choices every task
 
@@ -58,7 +66,7 @@ Read `references/visual-style-demos.md` for the deliverable and quality bar.
 Do not ask vague open-ended questions such as “What style do you like?” before professional shortlisting.
 
 Skip the visual-direction checkpoint when:
-- an applicable `DESIGN.md` already establishes the visual system;
+- an applicable `DESIGN.md` already establishes the desired visual system **and this is not an explicit redesign**;
 - the user already supplied a concrete style, reference product, screenshot, design file, or visual direction;
 - the user explicitly delegates the visual choice to the agent.
 
