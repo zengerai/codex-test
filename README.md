@@ -77,6 +77,8 @@ design-exploration/
   previews/               ← actual screenshots when browser capture is available
 ```
 
+A working starter is provided at `templates/style-comparison.html`. Codex should adapt it to the actual product rather than blindly reusing the example styles.
+
 The gallery can switch among visual systems or show them side by side. It should illustrate a real product screen (ToB workbench/table/forms or ToC core utility), not a landing page. Short text descriptions supplement the visuals.
 
 **Two distinct reviews:**
@@ -215,4 +217,6 @@ references/
   states.md
   accessibility.md
   review-checklist.md
+templates/
+  style-comparison.html  ← optional working A/B/C preview starter
 ```
