@@ -2,6 +2,22 @@
 
 All notable changes to `product-ui` are recorded here.
 
+## 2.1.0 — 2026-10-08
+
+### Added
+- **Visual Direction Checkpoint** for new products and explicit full-product redesigns with no accepted visual direction.
+- UI UX Pro Max must shortlist **2–3 materially different, product-appropriate visual directions**, recommend one, then pause for user selection before visual implementation.
+- **Demo Checkpoint** after visual direction selection: build only the application shell plus one representative core page (or one representative flow when a single page is insufficient), render it with realistic data/states, and pause for user review before scaling the design across the product.
+- **Expansion Checkpoints** only when later work introduces a materially new pattern, major design-system deviation, or a large batch/module boundary—avoiding page-by-page approval fatigue.
+- Explicit checkpoint skip rules when the user has already provided a clear visual reference, an applicable `DESIGN.md` exists, or the user explicitly requests autonomous/one-shot execution.
+- Evaluation cases for style selection, representative demo approval, existing visual references, delegated design decisions, and batch expansion.
+
+### Changed
+- Subjective visual style is now a user-owned 0→1 decision by default; product interaction/IA decisions remain agent-owned unless materially ambiguous.
+- A new multi-page product should no longer be implemented end-to-end before the user sees the first representative screen.
+- UI UX Pro Max is now an exploration/shortlisting tool before approval, not an autonomous final-style selector.
+- Accepted visual direction and demo learnings should be consolidated into `DESIGN.md` before broad implementation.
+
 ## 2.0.0 — 2026-10-08
 
 ### Added
