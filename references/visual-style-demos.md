@@ -12,6 +12,8 @@ Recommended deliverable:
 
 The file must open in a browser without a backend or authentication. Use existing project tooling when appropriate; otherwise prefer a self-contained HTML/CSS/JS preview with no external runtime dependencies.
 
+Optional starter: `templates/style-comparison.html` demonstrates a working A/B/C selector. **Adapt its content, typography, style tokens, and layout to the user's real product**; do not treat its three themes as the required candidates for every project.
+
 A screenshot or image can supplement the gallery, but do not use an AI-generated image as the authoritative preview if the intent is to develop real HTML UI.
 
 ## Layout
