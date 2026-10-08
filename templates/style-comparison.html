@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Product UI — Style Comparison Starter</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; background: #e9edf1; color: #26323f; }
+  .preview-tools { display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; align-items: center; padding: 14px 18px; background: #fff; border-bottom: 1px solid #dce2e7; }
+  .preview-tools h1 { font-size: 15px; margin: 0; }
+  .preview-tools p { font-size: 12px; margin: 2px 0 0; color: #657180; }
+  .picker { display: flex; flex-wrap: wrap; gap: 6px; }
+  .picker button { border: 1px solid #cbd5df; border-radius: 8px; padding: 9px 13px; background: #fff; color: #26323f; cursor: pointer; font: inherit; font-size: 13px; }
+  .picker button[aria-pressed="true"] { background: #1a2632; color: #fff; border-color: #1a2632; }
+  .picker button:focus-visible { outline: 3px solid #5c9bf5; outline-offset: 2px; }
+  .preview-description { background: #fff; border-bottom: 1px solid #e4e8ec; padding: 8px 18px; color: #4b5967; font-size: 13px; }
+  .stage { padding: 18px; }
+  .app { --surface: #fff; --canvas: #f8f9fb; --ink: #161b22; --muted: #69717c; --line: #dde1e6; --accent: #2758b5; --tint: #ebf2ff; --corner: 6px; --unit: 10px; --shadow: none; --font: system-ui, sans-serif; max-width: 1350px; margin: auto; display: grid; grid-template-columns: 205px minmax(0,1fr); min-height: 610px; border: 1px solid var(--line); border-radius: var(--corner); overflow: hidden; background: var(--canvas); color: var(--ink); font-family: var(--font); box-shadow: 0 10px 30px #18253312; }
+  .app[data-style="a"] { --surface: #fff; --canvas: #f8f9fb; --ink: #161b22; --muted: #66707a; --line: #dde1e6; --accent: #2758b5; --tint: #ebf2ff; --corner: 5px; --unit: 9px; --shadow: none; }
+  .app[data-style="b"] { --surface: #fff; --canvas: #f2f6fa; --ink: #182b3d; --muted: #647a8e; --line: #dce7ee; --accent: #156fba; --tint: #e9f4ff; --corner: 13px; --unit: 13px; --shadow: 0 2px 10px #24496a0b; }
+  .app[data-style="c"] { --surface: #fffefa; --canvas: #f7f5ed; --ink: #333b33; --muted: #707a70; --line: #e0e3d7; --accent: #316a54; --tint: #e9f2e8; --corner: 15px; --unit: 12px; --shadow: none; --font: ui-sans-serif, system-ui, sans-serif; }
+  aside { padding: 20px 11px; border-right: 1px solid var(--line); background: var(--surface); }
+  .brand { font-weight: 750; font-size: 15px; padding: 0 12px 22px; letter-spacing: -.02em; }
+  .brand span { display: inline-block; color: var(--accent); margin-right: 6px; }
+  .nav-title { text-transform: uppercase; font-size: 10px; color: var(--muted); padding: 4px 12px 8px; letter-spacing: .08em; }
+  .nav-item { margin: 2px 0; padding: 10px 12px; color: var(--muted); font-size: 13px; border-radius: var(--corner); }
+  .nav-item.active { background: var(--tint); color: var(--accent); font-weight: 700; }
+  main { min-width: 0; padding: calc(var(--unit) * 2 + 6px); }
+  .crumb { color: var(--muted); font-size: 12px; margin-bottom: 20px; }
+  .heading { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 18px; }
+  .heading h2 { font-size: 23px; letter-spacing: -.04em; margin: 0 0 5px; }
+  .heading p { color: var(--muted); font-size: 13px; margin: 0; }
+  .primary { display: inline-block; background: var(--accent); color: white; font-weight: 600; padding: 10px 15px; font-size: 12px; border-radius: var(--corner); }
+  .panel { background: var(--surface); border: 1px solid var(--line); border-radius: var(--corner); box-shadow: var(--shadow); overflow: hidden; }
+  .filters { display: flex; align-items: center; flex-wrap: wrap; gap: 9px; padding: calc(var(--unit) + 4px); border-bottom: 1px solid var(--line); }
+  .field { display: inline-flex; align-items: center; color: var(--muted); border: 1px solid var(--line); background: var(--surface); padding: 9px 12px; border-radius: var(--corner); font-size: 12px; min-width: 110px; }
+  .field.search { min-width: 240px; flex: 1 1 190px; }
+  .summary { padding: 12px calc(var(--unit) + 4px); color: var(--muted); font-size: 12px; }
+  .table-wrap { overflow-x: auto; }
+  table { width: 100%; min-width: 650px; border-collapse: collapse; text-align: left; font-size: 12px; }
+  th { text-align: left; color: var(--muted); font-weight: 600; background: var(--canvas); padding: var(--unit) 14px; border-bottom: 1px solid var(--line); }
+  td { border-bottom: 1px solid var(--line); padding: calc(var(--unit) + 3px) 14px; }
+  tbody tr:last-child td { border-bottom: 0; }
+  .doc { font-weight: 650; }
+  .small { color: var(--muted); font-size: 11px; margin-top: 3px; }
+  .pill { background: var(--tint); color: var(--accent); border-radius: 999px; padding: 4px 8px; font-weight: 600; white-space: nowrap; }
+  .footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; padding: 13px 16px; font-size: 12px; color: var(--muted); border-top: 1px solid var(--line); }
+  .hint { font-size: 12px; color: #586575; max-width: 1350px; margin: 10px auto 0; }
+  .app[data-style="a"] .heading h2 { font-size: 21px; }
+  .app[data-style="b"] .heading h2 { font-size: 27px; font-weight: 750; }
+  .app[data-style="c"] .heading h2 { font-size: 25px; font-weight: 600; letter-spacing: -.02em; }
+  .app[data-style="c"] .nav-item.active { border-left: 3px solid var(--accent); }
+  @media (max-width: 680px) {
+    .stage { padding: 8px; }
+    .app { grid-template-columns: 1fr; }
+    aside { padding: 12px; border-right: none; border-bottom: 1px solid var(--line); }
+    .brand { padding: 0; }
+    .nav-title,.nav-item { display: none; }
+    main { padding: 17px 12px; }
+    .heading h2 { font-size: 22px; }
+  }
+</style>
+</head>
+<body>
+<header class="preview-tools">
+  <div><h1>视觉方向对比 · Style Demo</h1><p>同一核心页面，切换比较视觉语言。仅供风格确认，不是完整业务实现。</p></div>
+  <div class="picker" role="group" aria-label="选择视觉方案">
+    <button type="button" data-style-choice="a" aria-pressed="true">A · 紧凑专业</button>
+    <button type="button" data-style-choice="b" aria-pressed="false">B · 清晰精致</button>
+    <button type="button" data-style-choice="c" aria-pressed="false">C · 温和自然</button>
+  </div>
+</header>
+<div class="preview-description" id="styleDescription" role="status">A：紧凑、弱装饰、高信息密度，适合高频工作台。</div>
+<div class="stage">
+  <div class="app" id="preview" data-style="a">
+    <aside>
+      <div class="brand"><span>◈</span>文档工作台</div>
+      <div class="nav-title">业务处理</div>
+      <div class="nav-item">总览</div>
+      <div class="nav-item active">文件处理</div>
+      <div class="nav-item">客户资料</div>
+      <div class="nav-item">处理历史</div>
+      <div class="nav-title" style="margin-top:22px">系统</div>
+      <div class="nav-item">设置</div>
+    </aside>
+    <main>
+      <div class="crumb">工作台 / 文件处理</div>
+      <div class="heading">
+        <div><h2>文件处理</h2><p>集中查看、筛选和处理待归档的业务文件。</p></div>
+        <span class="primary">＋ 导入文件</span>
+      </div>
+      <div class="panel">
+        <div class="filters">
+          <span class="field search">⌕ &nbsp;搜索文件名称或客户</span>
+          <span class="field">全部状态 ▾</span>
+          <span class="field">最近 30 天 ▾</span>
+        </div>
+        <div class="summary">全部文件 &nbsp;<strong>128</strong> &nbsp;·&nbsp; 待核对 <strong>24</strong></div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>文件名称</th><th>所属客户</th><th>识别类型</th><th>状态</th><th>更新时间</th></tr></thead>
+            <tbody>
+              <tr><td><div class="doc">2026_10_增值税发票.pdf</div><div class="small">PDF · 2.4 MB</div></td><td>晨星科技</td><td>发票</td><td><span class="pill">待核对</span></td><td>今天 10:24</td></tr>
+              <tr><td><div class="doc">银行流水_9月.xlsx</div><div class="small">Excel · 142 KB</div></td><td>远山贸易</td><td>银行流水</td><td><span class="pill">已完成</span></td><td>今天 09:18</td></tr>
+              <tr><td><div class="doc">合同扫描件_034.pdf</div><div class="small">PDF · 7.1 MB</div></td><td>春禾咨询</td><td>合同</td><td><span class="pill">待核对</span></td><td>昨天 16:42</td></tr>
+              <tr><td><div class="doc">费用明细_202609.xlsx</div><div class="small">Excel · 85 KB</div></td><td>晨星科技</td><td>费用单据</td><td><span class="pill">处理中</span></td><td>昨天 11:03</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="footer"><span>显示 1–4 项 · 示例数据</span><span>第 1 / 32 页</span></div>
+      </div>
+    </main>
+  </div>
+  <p class="hint">这是可修改的教学骨架。请根据真实产品重新设计三种方案，不要直接将本模板的颜色或结构当作最终方案。</p>
+</div>
+<script>
+(() => {
+  const preview = document.getElementById('preview');
+  const description = document.getElementById('styleDescription');
+  const texts = {
+    a: 'A：紧凑、弱装饰、高信息密度，适合高频工作台。',
+    b: 'B：更强的层级、清晰表面、较宽松的节奏，适合现代 SaaS。',
+    c: 'C：柔和对比、自然色彩和轻量边框，适合亲和型工具。'
+  };
+  for (const btn of document.querySelectorAll('[data-style-choice]')) {
+    btn.addEventListener('click', () => {
+      const style = btn.getAttribute('data-style-choice');
+      if (!Object.prototype.hasOwnProperty.call(texts, style)) return;
+      preview.dataset.style = style;
+      description.textContent = texts[style];
+      for (const candidate of document.querySelectorAll('[data-style-choice]')) {
+        candidate.setAttribute('aria-pressed', String(candidate === btn));
+      }
+    });
+  }
+})();
+</script>
+</body>
+</html>
