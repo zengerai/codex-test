@@ -17,11 +17,14 @@ Use when:
 - the user has not explicitly delegated the choice.
 
 Process:
-1. use UI UX Pro Max if available;
-2. shortlist 2–3 materially different, product-appropriate directions;
-3. describe each concretely;
-4. recommend one;
-5. pause and let the user choose.
+1. use UI UX Pro Max if available to shortlist 2–3 materially different, product-appropriate directions;
+2. **build actual previewable HTML/CSS Style Demos** of the same representative product UI for each direction; avoid a text-only style list;
+3. preserve the same representative page, content, and important features across A/B/C so the comparison is fair;
+4. provide a side-by-side or working switchable comparison, ideally `design-exploration/style-comparison.html`, and actual browser screenshots when available;
+5. briefly explain the differentiators and recommend one;
+6. **stop and let the user choose visually** (A/B/C, hybrid, or changes).
+
+Read `visual-style-demos.md`. If browser capture is unavailable, still deliver the working HTML and explain how to open it. Do not claim it was rendered when it wasn't.
 
 Skip when:
 - applicable `DESIGN.md` exists;
@@ -35,8 +38,8 @@ Use by default for:
 - full-product redesigns;
 - a new product area that introduces a broad new visual/interaction language.
 
-After visual direction is selected:
-1. build the application shell plus **one representative core page**;
+After the user has visually selected a Style Demo:
+1. build the real application shell plus **one representative core page**;
 2. use one short representative flow instead if a single page cannot demonstrate the core interaction;
 3. use realistic data;
 4. include important states;
@@ -69,6 +72,15 @@ Pause again only when:
 - mobile adaptation materially changes the interaction;
 - a new module family (e.g. analytics after CRUD) introduces different composition;
 - a large batch boundary is reached and feedback can still prevent expensive rework.
+
+## Distinguish the two demos
+
+- **Style Demo Gallery**: 2–3 quick HTML/CSS previews for **choosing the visual language**. These need not connect to a backend. Compare similar actual app UI with clear aesthetic differences.
+- **Product Demo**: one **real** representative app page/flow built in the target project after visual selection, with realistic data, states, and key interactions.
+
+Do not call a static image or a few color swatches a sufficient product Style Demo when HTML preview is feasible.
+
+Do not build the full Product Demo before the user selects visual direction, and do not expand the whole product before they approve the Product Demo.
 
 ## One-shot override
 
