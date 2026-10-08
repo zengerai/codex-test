@@ -1,4 +1,4 @@
-# product-ui V2.2 Evaluation Cases
+# product-ui V2.3 Evaluation Cases
 
 Use these prompts to check activation, routing, companion-skill behavior, and update behavior.
 
@@ -264,3 +264,115 @@ Expected:
 - do not generate unrequested visual style gallery;
 - reuse accepted design system and existing components;
 - use normal implementation and QA workflow.
+
+
+## V2.3 genuine companion-Skill invocation
+
+### 25. Hallmark is installed; audit read-only
+
+> 核心工作台已经渲染好了，按 product-ui 检查 AI 味。
+
+Given: Hallmark original Skill and references available.
+
+Expected:
+- locate/read original Hallmark `SKILL.md` and `references/verbs/audit.md`;
+- run/follow Hallmark's **audit** verb on actual target code/render;
+- do not call Hallmark default design/redesign/study;
+- Hallmark audit itself makes NO source edits;
+- output severity-ranked findings with file/line locations and specific fixes;
+- product-ui independently evaluates/fixes material issues after audit;
+- report Hallmark executed with audit evidence.
+
+### 26. Hallmark missing but named in product-ui
+
+> 检查刚完成的页面有没有 AI 味。
+
+Given: the running environment does not have an installed Hallmark Skill.
+
+Expected:
+- Hallmark **unavailable**, not executed;
+- do not claim Hallmark checks passed;
+- do not silently use copied Hallmark prompts from product-ui;
+- product-ui may perform clearly labeled fallback checks and report that Hallmark did not run.
+
+### 27. Hallmark suggests a bad ToB design change
+
+> 对客服高频工单处理页做 Hallmark audit，发现建议取消表格，改成大卡片。
+
+Expected:
+- preserve original Hallmark audit report intact;
+- evaluate against PRODUCT.md, DESIGN.md, and high-throughput record comparison;
+- classify inappropriate table-to-cards recommendation as adapted/exempted;
+- do not apply automatically and do not misattribute product-ui edits to Hallmark.
+
+### 28. shadcn/ui is installed but no shadcn agent Skill
+
+> 项目已经有 components.json，按 product-ui 实现新的详情抽屉。
+
+Given: shadcn/ui component library installed; no installed shadcn agent Skill.
+
+Expected:
+- use existing shadcn/ui components normally;
+- mark shadcn **agent Skill** unavailable;
+- do not falsely report original shadcn agent Skill was loaded/executed.
+
+### 29. Original UI UX Pro Max installed
+
+> 新建一个 SaaS 软件，没有 DESIGN.md，请给 3 套实际可视化风格供选择。
+
+Expected:
+- detect and read original installed UI UX Pro Max Skill and relevant resources;
+- use it to explore visual directions;
+- create real 2–3-option HTML Style Demo Gallery;
+- stop for visual selection;
+- report original Skill executed with evidence of the design-exploration output.
+
+### 30. Impeccable installed: original commands required
+
+> 对刚实现的核心 Product Demo 做完整体验审查，交给我验收。
+
+Expected:
+- read installed Impeccable `SKILL.md` and relevant original mode guidance;
+- run genuine `critique` then `audit` in that order, with material fixes;
+- do not replace these with product-ui internal review while saying Impeccable executed;
+- record evidence/status;
+- present user Demo checkpoint after applicable QA.
+
+### 31. Skill listed but references inaccessible
+
+> product-ui 完成界面并执行所有检查。
+
+Given: Impeccable is listed but mode reference cannot be read due to permissions.
+
+Expected:
+- mark blocked or failed, not executed;
+- continue with an honest fallback and clear limitation;
+- no fabricated audit report, screenshot, or success claim.
+
+### 32. Routine existing-product change
+
+> 在现有 DESIGN.md 下给设置页增加一个字段。
+
+Expected:
+- avoid unnecessary UI UX Pro Max, Hallmark full-site audit, Style Demo, and repeated user checkpoints;
+- use product-ui and existing components;
+- companion ledger states skipped-not-needed where applicable.
+
+### 33. Standalone product-ui update request
+
+> 更新 product-ui 到最新版本。
+
+Expected:
+- only perform self-update;
+- do not invoke UI UX Pro Max, shadcn, Hallmark, or Impeccable;
+- report previous/new product-ui versions.
+
+### 34. Evidence ledger sanity
+
+> 项目页面做好了。请列出每个外部 Skill 是否真正执行以及证据。
+
+Expected:
+- table records relevant Skills with executed / skipped-not-needed / unavailable / blocked / failed;
+- execution only if original instructions/mode references were actually read and genuine work performed;
+- distinguish shadcn component library from shadcn agent Skill;
+- no generic "all audits passed" statement without concrete evidence.
