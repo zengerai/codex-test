@@ -1,6 +1,6 @@
 ---
 name: product-ui
-description: Orchestrate the design, visual HTML style comparison, staged approval, implementation, and review of real ToB and ToC product interfaces. Use for SaaS, admin, workflow, data-heavy systems, dashboards, settings, CRUD, utilities, and app surfaces. For new products/full redesigns, first generate 2–3 actual, browser-previewable HTML/CSS Style Demos for user comparison (not only text descriptions), then validate one representative Product Demo before broad implementation unless the user explicitly requests autonomous one-shot execution. Coordinates product-UI reasoning with UI UX Pro Max for undefined visual direction, shadcn for implementation when present, and Impeccable for critique/audit after implementation. Also use when the user explicitly asks to update or sync the product-ui skill. Do not use as the primary framework for landing pages, portfolios, company homepages, or marketing-first sites.
+description: Orchestrate the design, visual HTML style comparison, staged approval, implementation, and review of real ToB and ToC product interfaces. Use for SaaS, admin, workflow, data-heavy systems, dashboards, settings, CRUD, utilities, and app surfaces. For new products/full redesigns, first generate 2–3 actual, browser-previewable HTML/CSS Style Demos for user comparison (not only text descriptions), then validate one representative Product Demo before broad implementation unless the user explicitly requests autonomous one-shot execution. Coordinates original installed Skills: UI UX Pro Max for undefined visual direction, shadcn agent Skill when applicable, Hallmark audit for AI-slop findings, and Impeccable critique/audit. Verify original Skill instructions and report actual execution status instead of merely naming external Skills. Also use when the user explicitly asks to update or sync the product-ui skill. Do not use as the primary framework for landing pages, portfolios, company homepages, or marketing-first sites.
 ---
 
 # Product UI Orchestrator
@@ -58,7 +58,18 @@ Read `references/design-system-governance.md` when any of these sources exist or
 
 ## Companion-skill orchestration
 
-Read `references/integrations.md` before invoking companion skills.
+Read `references/integrations.md` and **`references/external-skill-protocol.md`** before invoking any companion Skill.
+
+### Mandatory original-skill execution protocol
+
+For each relevant companion:
+1. **Detect availability** from the active Codex Skills registry / installed original `SKILL.md`. Do not infer availability from a README mention or the product-ui instructions themselves.
+2. **Read the installed original `SKILL.md`**, plus the original mode-specific reference files needed for this task. Do not copy external Skills' full prompts into product-ui.
+3. **Invoke/follow the original Skill in its supported mode** and verify observable work: generated preview, component decisions, audit report, commands or screenshots. A phrase such as “use Hallmark” alone is not proof of dispatch.
+4. **Record status** as executed, skipped-not-needed, unavailable, blocked, or failed. Report the meaningful evidence, not imaginary completion.
+5. If unavailable, use product-ui's existing design/review workflow as an explicitly identified fallback when practical. Never claim a missing Skill ran.
+
+The project using shadcn/ui **does not imply** a shadcn agent Skill is installed; check those separately. Do not install or auto-update third-party Skills without user permission.
 
 ### UI UX Pro Max
 Use UI UX Pro Max when:
@@ -89,15 +100,26 @@ If `DESIGN.md` exists and is applicable, it is the visual source of truth unless
 
 ### shadcn
 If the project uses shadcn/ui, has `components.json`, or the user explicitly requires shadcn:
-- use the shadcn skill for implementation decisions;
 - inspect existing project components first;
+- if the independent **shadcn agent Skill** is installed, read its original `SKILL.md` and use its documented component workflow;
+- otherwise use installed shadcn/ui components and docs normally, while recording that the **agent Skill** was unavailable;
 - search/reuse/compose shadcn primitives before creating custom primitives;
 - custom components may wrap or compose primitives when the product behavior requires it.
 
 If the project does not use shadcn, follow its existing component system. Do not introduce shadcn solely because this skill mentions it.
 
+### Hallmark — AI-slop audit only
+
+For a substantial, rendered Product Demo or major new UI module, invoke the **independently installed Hallmark** in its **`audit`** mode when available. Read the installed Hallmark `SKILL.md` and its original `references/verbs/audit.md` plus required audit references.
+
+**Hallmark audit must be read-only.** Produce ranked findings with evidence, severity, file/line locations where available, and corrections. Do not run its default design or `redesign` mode as part of an audit. After the audit, product-ui may separately implement validated corrections.
+
+Preserve accepted `DESIGN.md`, ToB operational density, repeated table conventions, and user-approved direction. Mark inappropriate recommendations as exempted/adapted rather than blindly applying them. Read **`references/hallmark-audit.md`**.
+
 ### Impeccable
-For substantial UI implementation or redesign, post-implementation review is part of the definition of done when Impeccable is available:
+For substantial UI implementation or redesign, post-implementation review is part of the definition of done when Impeccable is available.
+
+Read the **installed original Impeccable `SKILL.md` and mode guidance** first, then:
 1. render and inspect the UI with realistic data;
 2. run Impeccable `critique`;
 3. fix material hierarchy, usability, consistency, and interaction issues;
@@ -106,7 +128,9 @@ For substantial UI implementation or redesign, post-implementation review is par
 
 Use Impeccable `polish` only after functionality, hierarchy, density, and consistency are correct. Polish is optional; critique and audit are the default QA stages.
 
-If a named companion skill is unavailable, do not pretend it ran. Continue using `product-ui` and the project's existing tools, and state the missing dependency only if it materially affects the result.
+If a named companion skill is unavailable, do not pretend it ran. Continue using `product-ui` and the project's existing tools, but record the missing or blocked dependency in the companion execution summary.
+
+For substantial Product Demos: render/review → Hallmark read-only audit → product-ui fixes → Impeccable critique → fixes → Impeccable audit → fixes → ask for user demo approval.
 
 ## Approval checkpoint policy
 
@@ -118,10 +142,10 @@ ChatGPT's GPT-6 Intelligent UI may help users compare visual directions **in Cha
 
 Default staged validation for new multi-page work:
 1. **Visual Style Demo Gallery** — shortlist 2–3 product-appropriate directions, implement the same representative screen in actual HTML/CSS for each, render/review the previews, and let the user choose.
-2. **Representative Product Demo Checkpoint** — after style choice, build only the real app shell + one representative core page/flow, render with realistic data/states, then pause for user review.
+2. **Representative Product Demo Checkpoint** — after style choice, build only the real app shell + one representative core page/flow, render with realistic data/states, run available Hallmark/Impeccable reviews and material fixes, then pause for user review.
 3. **Expansion** — after Product Demo approval, finalize `DESIGN.md` and expand in coherent batches.
 4. **Expansion Checkpoints** — pause again only for materially new reusable patterns, major design-system changes, or large module boundaries where feedback can prevent costly rework.
-5. **Final QA** — rendered review plus Impeccable critique/audit when available.
+5. **Final QA** — rendered review plus Hallmark audit and Impeccable critique/audit for substantial changes when available, with an honest execution-status summary.
 
 Do **not** ask the user to approve every routine page. The purpose is to validate high-cost decisions early without creating approval fatigue.
 
@@ -138,7 +162,7 @@ Inspect enough of the existing project to answer:
 - Does `PRODUCT.md` exist?
 - Does `DESIGN.md` exist?
 - Is shadcn/ui installed (`components.json`, shadcn components, or explicit project docs)?
-- Are UI UX Pro Max and Impeccable available?
+- Are the original UI UX Pro Max, shadcn agent Skill, Hallmark, and Impeccable Skill installations available and readable?
 
 Do not start by inventing a new visual language.
 
@@ -254,7 +278,7 @@ Read `references/states.md`.
 
 ### Phase 7 — Implement through the project's component system
 
-If shadcn is present, use the shadcn skill and project components.
+If shadcn/ui is present, use its components and inspect the existing project implementations. Use the **separate original shadcn agent Skill only if it is installed and readable**, and record if it was not.
 Otherwise use the project's established component library and primitives.
 
 Before creating a new primitive:
@@ -282,9 +306,9 @@ The demo should exercise the product's important visual/interaction decisions, s
 - important states;
 - responsive behavior where relevant.
 
-Use realistic data and render/review the demo.
+Use realistic data and render/review the demo. **Before user approval**, complete the applicable original Hallmark audit and Impeccable critique/audit stages from Phases 8–9, with any justified fixes.
 
-Then **pause and ask the user to confirm or request changes before applying the pattern broadly**.
+Then **pause and ask the user to confirm or request changes before applying the pattern broadly**. Report briefly which original Skills actually ran, which were unavailable, and which evidence was observed.
 
 Do not implement the entire product before this checkpoint unless:
 - the user explicitly requested autonomous/one-shot execution; or
@@ -311,16 +335,20 @@ Review with:
 
 Use browser/computer-use tooling when available. If unavailable, use the strongest rendered/screenshot/test workflow available and do not claim visual verification that did not occur.
 
-### Phase 9 — Critique and audit
+### Phase 9 — Hallmark anti-slop review and Impeccable QA
 
-When Impeccable is available and the change is substantial:
-- run critique;
-- fix material findings;
-- run audit;
-- fix material findings;
-- optionally polish when additional visual refinement is justified.
+For a substantial Product Demo / UI redesign or when explicitly requested:
 
-Do not run polish as a substitute for product reasoning or usability fixes.
+1. **Hallmark `audit`** if installed: read its original Skill + audit references, inspect concrete sources/rendered evidence, emit the original ranked **read-only** anti-slop report; do not edit while auditing.
+2. product-ui evaluates Hallmark findings against product tasks, accepted visual direction, and appropriate ToB density; fixes validated findings separately.
+3. **Impeccable `critique`** if installed: read its original Skill + critique guidance, run the genuine mode, fix material findings.
+4. **Impeccable `audit`** if installed: read its original Skill + audit guidance, run the genuine mode, fix material findings.
+5. Optional `polish` only when justified and not in place of audit/critique.
+6. Report real status/evidence for each relevant companion, including unavailable/blocked/failed ones. Never claim review occurred when original instructions were not loaded or no audit was performed.
+
+Avoid redundant full-site reviews for a small isolated change. For each approval checkpoint, complete relevant reviews **before** asking for the next user go-ahead.
+
+Read `references/external-skill-protocol.md` and `references/hallmark-audit.md`.
 
 ### Phase 10 — Completion check
 
@@ -333,7 +361,9 @@ Do not call substantial UI work complete until relevant items are true:
 - responsive behavior was inspected;
 - accessibility basics were checked;
 - rendered UI was reviewed;
-- material critique/audit findings were addressed when those tools are available.
+- material Hallmark AI-slop findings were evaluated (accepted/adapted/exempted) when Hallmark actually ran;
+- material Impeccable critique/audit findings were addressed when those modes actually ran;
+- original-skill use was reported honestly using observed status and evidence.
 
 ## Default behavior for ToB
 
@@ -394,7 +424,7 @@ Before implementation, provide or establish:
 
 Then follow staged implementation:
 - for a new multi-page product/full redesign, deliver **visual HTML/CSS Style Demos**, not only a written style menu; stop first for visual-direction choice when applicable;
-- after direction approval, implement only the representative **Product Demo** and stop for review;
+- after direction approval, implement only the representative **Product Demo**, run available genuine Hallmark/Impeccable reviews, and stop for user review;
 - after demo approval, expand the product in coherent batches;
 - skip these pauses only when the user explicitly requests autonomous/one-shot execution or the work is routine extension of an established design system.
 
