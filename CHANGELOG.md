@@ -2,6 +2,22 @@
 
 All notable changes to `product-ui` are recorded here.
 
+## 2.3.0 — 2026-10-08
+
+### Added
+- **Hallmark original Skill integration**: audit-only, read-only AI-slop inspection after rendering a substantive Product Demo and before user Demo approval.
+- `references/hallmark-audit.md`: original Hallmark `SKILL.md` / `references/verbs/audit.md` loading, evidence-ranked findings, product-ui acceptance/adaptation/exemption and separation of audit from code fixes.
+- **Unified original-Skill invocation contract** for UI UX Pro Max, shadcn agent Skill, Hallmark, and Impeccable.
+- `references/external-skill-protocol.md`: installation detection, mode-specific original file loading, execution evidence, fallback rules, and concise status reporting (executed / skipped-not-needed / unavailable / blocked / failed).
+- 10 additional EVALS covering Hallmark audit behavior, shadcn library vs agent Skill, original Impeccable/Pro Max loading, missing permissions, and evidence reporting.
+
+### Changed
+- No external Skill's full prompt catalog is copied into product-ui; upstream capabilities stay independently installed and upgradeable.
+- **shadcn/ui is explicitly distinguished from shadcn agent Skill**; both are checked independently.
+- Impeccable `critique` and `audit` are now required to load the installed original mode guidance before claiming successful execution.
+- Substantial Product Demo review order is now: render → Hallmark read-only audit → product-ui justified fixes → Impeccable critique → fixes → Impeccable audit → fixes → user Demo checkpoint.
+- Product UI design rules and existing V2.2 HTML Style Demo, user visual choice, Product Demo approval, and `DESIGN.md` governance remain intact.
+
 ## 2.2.0 — 2026-10-08
 
 ### Added
