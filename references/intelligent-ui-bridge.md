@@ -45,6 +45,12 @@ Next step: build and review one representative Product Demo
 
 Codex should not assume a ChatGPT conversation's interactive widget state is available in its local environment.
 
+### Optional repository-backed handoff
+
+If the user has connected an accessible GitHub repository and explicitly approves writing the selection, the ChatGPT-side assistant may commit the agreed visual decision to a known project path such as `design-exploration/visual-decision.md`. Codex can then fetch/pull that repository and read the decision file.
+
+This is **file-based collaboration through GitHub**, not a direct Intelligent UI → Codex API or automatic transfer of widget state. Do not write to any project repo without an explicit target and user intent; do not overwrite existing design decisions without reviewing them.
+
 ## When not to use this bridge
 
 - When the user is already reviewing the HTML gallery in Codex/browser.
