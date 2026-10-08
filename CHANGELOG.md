@@ -2,6 +2,24 @@
 
 All notable changes to `product-ui` are recorded here.
 
+## 2.4.0 — 2026-10-08
+
+### Added
+- **Project lifecycle routing**: distinguish `NEW_BUILD`, `EXISTING_IMPROVE`, `EXISTING_REDESIGN`, and `EXISTING_REBUILD` before visual exploration.
+- `references/project-entry-routing.md`: starting-point and intent detection, default existing-product optimization behavior, explicit visual/replacement routes, preservation rules, one-shot limits and approval checkpoints.
+- `references/existing-project-audit.md`: read-only current-state inventory and UI quality report, P0/P1/P2 issue rubric, pilot selection, before/after evidence and existing-app regression protection.
+- New **existing-project approval gates**: audit report approval (before any edits) → one representative pilot improvement → user before/after approval → staged rollout.
+- Safe replacement checklist for rebuilding front ends: routes/features/permissions/API contracts, preserve/replace/deprecate matrix, reversible rollout/rollback and explicit consent before destructive cutover.
+- Evaluation cases 35–48 covering new scaffold vs existing UI, no DESIGN.md, user-specified redesign, framework migration, small targeted edits, audit-only behavior and default route.
+
+### Changed
+- Existing project + ambiguous "优化" now **defaults to `EXISTING_IMPROVE`**: inspect and report first, **do not modify source** during the initial audit, and do not automatically invoke UI UX Pro Max to choose new styles.
+- An existing visual system remains valid even without `DESIGN.md`; infer its conventions from CSS, components and rendered screens.
+- Explicit existing-product **redesign** can supersede previous `DESIGN.md` only through visual choice and Product Demo approval; existing functionality and contracts are preserved.
+- Explicit **frontend rebuild** is treated as a preservation/migration task rather than a blank new project, even if the replacement is created in a new repository.
+- New build and full visual redesign retain the V2.2 browser-previewable Style Demo Gallery and V2.3 Hallmark / Impeccable original-Skill QA.
+- Small, precisely requested existing-product changes bypass unnecessary full-project audit/approval ceremonies.
+
 ## 2.3.0 — 2026-10-08
 
 ### Added
