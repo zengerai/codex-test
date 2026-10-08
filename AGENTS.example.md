@@ -22,7 +22,13 @@ This repository is a product application, not a marketing website.
 
 Use `product-ui` for application UI design and implementation.
 
-When visual direction is undefined and there is no applicable `DESIGN.md`, use UI UX Pro Max if available to establish the initial design direction. Once accepted, persist the direction into `DESIGN.md`.
+When visual direction is undefined and there is no applicable `DESIGN.md`, use UI UX Pro Max if available to generate 2–3 materially different, product-appropriate visual directions. Recommend one, then pause before visual implementation and let the user choose.
+
+For a new multi-page product or full-product redesign, after the visual direction is chosen, build only the application shell plus one representative core page (or one short representative flow when necessary). Render it with realistic data/states and pause for user review before scaling the design across the product.
+
+After demo approval, persist accepted visual and interaction rules into `DESIGN.md` and expand in coherent batches. Do not ask for approval after every routine page; pause again only for materially new patterns, major design-system deviations, or large module boundaries.
+
+Skip these checkpoints when the user supplied a clear visual reference or explicitly requests autonomous/one-shot execution. Routine product interaction/IA decisions do not require user approval by default.
 
 If the project uses shadcn/ui, use the shadcn Skill and existing project components before creating custom primitives.
 
