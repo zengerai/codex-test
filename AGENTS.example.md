@@ -18,11 +18,21 @@ This repository is a product application, not a marketing website.
 - `DESIGN.md` is the source of truth for accepted visual design and UI conventions.
 - Do not create a second design language for one page.
 
+## Entry mode (mandatory)
+
+Before UI work choose:
+- `NEW_BUILD`: greenfield; visual A/B/C HTML Style Demos when no accepted direction; one Product Demo; user approval before expanding.
+- `EXISTING_IMPROVE`: **default for existing product + “优化”**; read-only audit with P0/P1/P2 issues and one pilot recommendation; **stop for user approval before edits**; then pilot with before/after comparison; stop for approval before broad rollout.
+- `EXISTING_REDESIGN`: explicit visual overhaul; baseline existing UI/behavior and preserve contracts; new Style Demo choices when visual reset unspecified; one approved Product Demo.
+- `EXISTING_REBUILD`: explicit frontend replacement; map screens/features/routes/data/API contracts and migration/rollback; reversible new implementation; no destructive cutover without user authorization.
+
+Existing visual conventions remain binding for optimization even without `DESIGN.md`. A small isolated edit should use proportionate inspection rather than triggering whole-project audit. Follow `references/project-entry-routing.md` and `references/existing-project-audit.md`.
+
 ## Skill workflow
 
 Use `product-ui` for application UI design and implementation.
 
-When visual direction is undefined and there is no applicable `DESIGN.md`, use UI UX Pro Max if available to propose 2–3 materially different, product-appropriate directions. **Build actual browser-previewable HTML/CSS Style Demos** for A/B/C using the same representative product screen/data. Prefer `design-exploration/style-comparison.html` with a working switcher or side-by-side view. Provide actual rendered previews/screenshots when tooling is available, briefly recommend one, and **pause for the user's visual selection**. A purely text-based style menu is not sufficient.
+When route is `NEW_BUILD` or **explicit** `EXISTING_REDESIGN`/visual-reset `EXISTING_REBUILD`, and the requested visual direction is undefined, use UI UX Pro Max if available to propose 2–3 materially different, product-appropriate directions. **Build actual browser-previewable HTML/CSS Style Demos** for A/B/C using the same representative product screen/data. Prefer `design-exploration/style-comparison.html` with a working switcher or side-by-side view. Provide actual rendered previews/screenshots when tooling is available, briefly recommend one, and **pause for the user's visual selection**. A purely text-based style menu is not sufficient.
 
 For a new multi-page product or full-product redesign, after the user chooses among Style Demos, build only the real application shell plus one representative core Product Demo page (or one short representative flow when necessary). Render it with realistic data/states and pause for user review before scaling the design across the product.
 
