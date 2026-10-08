@@ -23,15 +23,9 @@ HTML/CSS Style Demo Gallery (same app content in A/B/C)
     ↓
 USER CHOOSES visually ← Style Demo Checkpoint
     ↓
+shadcn agent Skill (only if installed and project uses shadcn/ui)
+    ↓
 Real App shell + 1 representative core Product Demo page
-    ↓
-USER REVIEWS rendered UI ← Product Demo Checkpoint
-    ↓
-DESIGN.md        (accepted direction/patterns become source of truth)
-    ↓
-shadcn           (when the project actually uses shadcn/ui)
-    ↓
-expand implementation
     ↓
 render / browser review
     ↓
@@ -39,29 +33,33 @@ Hallmark audit     (original installed Skill, read-only)
     ↓
 product-ui evaluates + fixes grounded findings
     ↓
-Impeccable critique
+Impeccable critique + fixes
     ↓
-fix material issues
+Impeccable audit + fixes
     ↓
-Impeccable audit
+USER REVIEWS rendered Product Demo ← Approval Checkpoint
     ↓
-fix material issues
+DESIGN.md        (accepted direction/patterns become source of truth)
+    ↓
+expand implementation in batches
+    ↓
+re-run relevant review stages for material changes
     ↓
 optional polish
 ```
 
 The companion skills are conditional, not blindly invoked on every task.
 
-## V2.1 staged approval model
+## Staged approval model (V2.3)
 
 For a **new multi-page product** or an **explicit full-product redesign**, `product-ui` should not run from brief to final UI in one uninterrupted pass unless the user explicitly asks for autonomous/one-shot execution.
 
 Default checkpoints:
 
 1. **Visual Direction Checkpoint** — when no accepted visual direction exists, use UI UX Pro Max if available to generate 2–3 materially different, product-appropriate directions; **build and show actual HTML/CSS Style Demos** using the same representative product UI; recommend one, then pause for the user to choose visually. A purely written style menu is not sufficient.
-2. **Product Demo Checkpoint** — after direction selection, implement only the real application shell plus **one representative core page** (or one representative flow if a single page is insufficient), using realistic data and key states. Render/review it, then pause for the user to confirm the direction before expanding it across the product.
+2. **Product Demo Checkpoint** — after direction selection, implement only the real application shell plus **one representative core page** (or one representative flow if a single page is insufficient), using realistic data and key states. Render/review, complete applicable original Hallmark audit + Impeccable critique/audit with material fixes, then pause for the user to confirm the direction before expanding the product.
 3. **Expansion Checkpoint** — after demo approval, continue in coherent batches. Pause again only when introducing a materially new UI pattern, a major design-system deviation, or after a large module/batch where feedback can still prevent costly rework.
-4. **Final QA** — run rendered review and, when available, Impeccable critique → fixes → audit → fixes. Polish remains optional.
+4. **Final QA** — recheck materially changed modules with original Hallmark audit (when relevant and available), Impeccable critique → fixes → audit → fixes. Polish remains optional. Report real Skill execution status.
 
 Skip unnecessary checkpoints when:
 - an applicable `DESIGN.md` and mature existing UI already establish the direction;
