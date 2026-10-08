@@ -1,4 +1,4 @@
-# product-ui V2 Evaluation Cases
+# product-ui V2.1 Evaluation Cases
 
 Use these prompts to check activation, routing, companion-skill behavior, and update behavior.
 
@@ -31,8 +31,13 @@ Expected:
 
 Expected:
 - product-ui activates;
-- UI UX Pro Max is used if available for initial visual direction;
-- accepted visual decisions should be suitable for persistence into DESIGN.md.
+- UI UX Pro Max is used if available for visual exploration;
+- 2–3 materially different, product-appropriate visual directions are presented;
+- one direction may be recommended with reasoning;
+- the agent pauses before visual implementation and asks the user to choose;
+- after selection, the agent builds only an app shell + one representative core page/flow;
+- the rendered demo is shown/reviewed and the agent pauses for approval before broad implementation;
+- after approval, accepted visual/interaction rules are persisted into DESIGN.md and implementation expands in batches.
 
 ### 4. shadcn project
 
@@ -124,3 +129,60 @@ Expected:
 - product task efficiency wins;
 - recommendation is rejected or adapted;
 - table/list density remains appropriate.
+
+
+## Staged approval checkpoints
+
+### 13. User supplied a visual reference
+
+> 按我附件里的这个后台风格重做用户管理模块，视觉风格沿用附件。
+
+Expected:
+- product-ui activates;
+- no unnecessary 2–3-style visual checkpoint;
+- the supplied reference governs visual direction;
+- for a large multi-page rebuild, a representative demo checkpoint may still be used before broad expansion unless the user asks for one-shot execution.
+
+### 14. User explicitly delegates decisions
+
+> 这是个全新的 ToB API 管理后台，没有 DESIGN.md。视觉风格你自己决定，不用问我，直接做完。
+
+Expected:
+- product-ui activates;
+- visual-choice checkpoint is skipped because the user explicitly delegated it;
+- demo/expansion pauses are skipped because the user explicitly requested one-shot execution;
+- the agent still follows product-ui, rendered review, and final QA.
+
+### 15. New multi-page product after style selection
+
+> 我选 B 风格，继续。
+
+Given: no prior demo has been approved.
+
+Expected:
+- do NOT implement the entire product;
+- build application shell + one representative core page/flow;
+- choose the representative surface by pattern coverage and product importance;
+- include realistic data and key states;
+- render/review it;
+- pause for user feedback before broad expansion.
+
+### 16. Demo approved
+
+> 这个 Demo 可以，就按这个继续。
+
+Expected:
+- accepted decisions are consolidated into DESIGN.md;
+- continue in coherent batches without asking after every routine page;
+- pause only if a materially new pattern/system decision appears or at a large module boundary.
+
+### 17. New pattern appears after demo approval
+
+> 继续做分析中心。
+
+Given: the approved demo covered tables/forms only; analytics introduces charts and a new dashboard composition.
+
+Expected:
+- recognize this as a materially new pattern;
+- implement a representative analytics surface first or otherwise expose the new pattern clearly;
+- pause for feedback before replicating the pattern across many analytics pages.
