@@ -1,4 +1,4 @@
-# Hallmark Audit Integration — V2.3
+# Hallmark Audit Integration — V2.4
 
 Hallmark is an **optional, independent, upstream-maintained** Skill.
 
@@ -15,6 +15,8 @@ After a representative Product Demo or substantial UI redesign has real source a
 
 Also use for significant new UI modules or when the user expressly asks for an AI-slop review.
 
+**Existing-product audit first:** when the route is `EXISTING_IMPROVE`, Hallmark's original audit may run during the **initial read-only baseline** on the existing UI, before any pilot is approved. The entire review stage (including product-ui) remains **read-only**: report findings and STOP for user approval before applying fixes. The usual post-Product-Demo "fix after audit" step applies only after implementation is authorized.
+
 Do not run for every tiny edit or during the A/B/C Style Demo **choice** itself unless the user asks for it; avoid overloading a quick selection stage.
 
 ## Exact operation: Hallmark audit, not redesign
@@ -26,7 +28,7 @@ Do not run for every tiny edit or during the A/B/C Style Demo **choice** itself 
 5. Run/follow **`hallmark audit <target>`** as an agent-skill verb. This is **not** a promise that a shell binary called `hallmark` exists.
 6. Preserve the audit mode's **read-only behavior**: generate ranked findings; do not change application code during the Hallmark audit itself.
 7. Report each actual finding with severity, file/line location when available, the observed anti-pattern, and a concrete proposed correction. State how the evidence was observed. If a visual inference is uncertain without a screenshot, label it uncertain.
-8. **Only after the audit ends**, product-ui evaluates findings against user-approved `DESIGN.md`, `PRODUCT.md`, and workflow needs. Fix validated issues through the normal implementation process; do not attribute those edits to the Hallmark audit verb.
+8. **Only after the audit ends and only after the user has approved an implementation scope**, product-ui evaluates findings against user-approved `DESIGN.md`, `PRODUCT.md`, and workflow needs. Fix validated issues through the normal implementation process; do not attribute those edits to the Hallmark audit verb.
 9. Optionally rerun Hallmark audit on materially changed targets after fixes; avoid an unbounded loop.
 
 ## Keep the product efficient
