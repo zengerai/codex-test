@@ -2,6 +2,22 @@
 
 All notable changes to `product-ui` are recorded here.
 
+## 2.2.0 — 2026-10-08
+
+### Added
+- **Visual Style Demo Gallery** as the default output of the Visual Direction Checkpoint for new products/full UI redesigns.
+- Real, browser-previewable HTML/CSS comparisons (normally `design-exploration/style-comparison.html`) for 2–3 materially different visual languages using the same representative product content.
+- Guidance for rendered screenshots, working style selectors, realistic sample content, and honest reporting when browser capture is unavailable.
+- `references/visual-style-demos.md` defining the gallery's deliverable, fair comparison rules, quality bar, and stop-for-selection behavior.
+- `references/intelligent-ui-bridge.md` explaining optional ChatGPT GPT-6 Intelligent UI comparison and a portable decision handoff without assuming native Codex integration.
+- Evaluation cases covering HTML previews, style differentiation, genuine rendering, hybrid choices, and Intelligent UI capability limits.
+
+### Changed
+- Text-only A/B/C descriptions no longer satisfy a required visual-direction checkpoint.
+- Style Demo and Product Demo are explicitly separate approvals: the former validates aesthetic direction; the latter validates one real functional product page.
+- The user selects the visual direction **after seeing actual previewable UI**; only then may Codex build the representative Product Demo.
+- Existing `DESIGN.md`, concrete user reference, and explicit one-shot/autonomous overrides still skip unnecessary approvals.
+
 ## 2.1.0 — 2026-10-08
 
 ### Added
