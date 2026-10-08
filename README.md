@@ -170,6 +170,7 @@ scripts/
   update.sh
 references/
   integrations.md
+  approval-checkpoints.md
   design-system-governance.md
   browser-review.md
   product-type-routing.md
