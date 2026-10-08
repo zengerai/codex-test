@@ -2,9 +2,9 @@
 
 A Codex/agent Skill for designing, implementing, and reviewing **real product interfaces** rather than marketing websites.
 
-Version: **2.3.0**
+Version: **2.4.0**
 
-## What V2.3 does
+## What V2.4 does
 
 `product-ui` is now an orchestrator:
 
@@ -50,14 +50,29 @@ optional polish
 
 The companion skills are conditional, not blindly invoked on every task.
 
-## Staged approval model (V2.3)
+## Project modes in V2.4
 
-For a **new multi-page product** or an **explicit full-product redesign**, `product-ui` should not run from brief to final UI in one uninterrupted pass unless the user explicitly asks for autonomous/one-shot execution.
+The very first decision is whether this is a **new product** or an **existing product**, and whether the user wants **improvement** or **explicit redesign/rebuild**.
+
+| Mode | Typical prompt | First deliverable | Approval gate |
+|---|---|---|---|
+| `NEW_BUILD` | 开发一个新的 SaaS 产品 | 2–3 runnable HTML Style Demos when style undefined | Choose visual direction; then approve one real Product Demo |
+| `EXISTING_IMPROVE` | 用 product-ui 优化当前前端 | **Read-only audit report** with P0/P1/P2 findings and one pilot recommendation | **Approve audit/pilot before changes**; then approve before/after pilot |
+| `EXISTING_REDESIGN` | 把这个已有系统的 UI 全面重新设计 | Existing UI/flow inventory, new HTML Style Demos | Choose new direction; then approve replacement Product Demo |
+| `EXISTING_REBUILD` | 将已有前端整体重写/迁移框架 | Behavior/API/route inventory, preservation & migration plan | Approve high-cost scope/style, one replacement Product Demo and staged migration |
+
+**Existing project + unspecified "优化" defaults to `EXISTING_IMPROVE`.** Do not modify source during the first audit, and do not launch UI UX Pro Max simply because `DESIGN.md` is missing; first recover the real visual system from code and rendered UI.
+
+A small precisely scoped request (e.g. a button or filter issue) does not require a whole-project audit/approval ceremony. A user-authorized one-shot request can skip unnecessary approval pauses, but it does not authorize destructive rewrites or breaking existing APIs.
+
+## Staged approval model (V2.4)
+
+For `NEW_BUILD`, `EXISTING_REDESIGN` and visual-reset `EXISTING_REBUILD`, use the staged style selection and Product Demo checkpoints. For `EXISTING_IMPROVE`, **replace the first style checkpoint with read-only audit approval**, followed by before/after pilot approval. Do not run from brief to all-pages production UI in one uninterrupted pass unless the user explicitly asks for autonomous/one-shot execution.
 
 Default checkpoints:
 
-1. **Visual Direction Checkpoint** — when no accepted visual direction exists, use UI UX Pro Max if available to generate 2–3 materially different, product-appropriate directions; **build and show actual HTML/CSS Style Demos** using the same representative product UI; recommend one, then pause for the user to choose visually. A purely written style menu is not sufficient.
-2. **Product Demo Checkpoint** — after direction selection, implement only the real application shell plus **one representative core page** (or one representative flow if a single page is insufficient), using realistic data and key states. Render/review, complete applicable original Hallmark audit + Impeccable critique/audit with material fixes, then pause for the user to confirm the direction before expanding the product.
+1. **Visual Direction Checkpoint** (new build / explicit redesign only) — when no accepted visual direction exists, use UI UX Pro Max if available to generate 2–3 materially different, product-appropriate directions; **build and show actual HTML/CSS Style Demos** using the same representative product UI; recommend one, then pause for the user to choose visually. A purely written style menu is not sufficient.
+2. **Product Demo Checkpoint** — after direction selection or after approval of the existing-UI audit/pilot scope, implement only the real application shell plus **one representative core page** (or one representative flow if a single page is insufficient), using realistic data and key states. Render/review, complete applicable original Hallmark audit + Impeccable critique/audit with material fixes, then pause for the user to confirm the direction before expanding the product.
 3. **Expansion Checkpoint** — after demo approval, continue in coherent batches. Pause again only when introducing a materially new UI pattern, a major design-system deviation, or after a large module/batch where feedback can still prevent costly rework.
 4. **Final QA** — recheck materially changed modules with original Hallmark audit (when relevant and available), Impeccable critique → fixes → audit → fixes. Polish remains optional. Report real Skill execution status.
 
@@ -69,7 +84,7 @@ Skip unnecessary checkpoints when:
 
 The agent should not ask for approval on every page. The purpose is to validate high-cost decisions early, not create approval fatigue.
 
-## V2.2 deliverable
+## V2.2 retained: visual comparison
 
 For new product visual exploration, the expected first artifact is a **working, browser-previewable comparison**, normally:
 
@@ -227,6 +242,8 @@ references/
   intelligent-ui-bridge.md
   external-skill-protocol.md
   hallmark-audit.md
+  project-entry-routing.md
+  existing-project-audit.md
   design-system-governance.md
   browser-review.md
   product-type-routing.md
