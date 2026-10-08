@@ -1,6 +1,6 @@
 ---
 name: product-ui
-description: Orchestrate the design, visual HTML style comparison, staged approval, implementation, and review of real ToB and ToC product interfaces. Use for SaaS, admin, workflow, data-heavy systems, dashboards, settings, CRUD, utilities, and app surfaces. For new products/full redesigns, first generate 2–3 actual, browser-previewable HTML/CSS Style Demos for user comparison (not only text descriptions), then validate one representative Product Demo before broad implementation unless the user explicitly requests autonomous one-shot execution. Coordinates original installed Skills: UI UX Pro Max for undefined visual direction, shadcn agent Skill when applicable, Hallmark audit for AI-slop findings, and Impeccable critique/audit. Verify original Skill instructions and report actual execution status instead of merely naming external Skills. Also use when the user explicitly asks to update or sync the product-ui skill. Do not use as the primary framework for landing pages, portfolios, company homepages, or marketing-first sites.
+description: Route both new-product builds and existing-product UI work, including audit-first optimization, explicit visual redesign, and full frontend rebuild. Orchestrate design, visual HTML style comparison, staged user approval, implementation, and evidence-based review of real ToB and ToC product interfaces. Use for new SaaS/admin/workflow/data-heavy products and for optimizing, auditing, redesigning, or rebuilding existing frontend projects. For new products/full redesigns, first generate 2–3 actual, browser-previewable HTML/CSS Style Demos for user comparison (not only text descriptions), then validate one representative Product Demo before broad implementation unless the user explicitly requests autonomous one-shot execution. Coordinates original installed Skills: UI UX Pro Max for undefined visual direction, shadcn agent Skill when applicable, Hallmark audit for AI-slop findings, and Impeccable critique/audit. Verify original Skill instructions and report actual execution status instead of merely naming external Skills. Also use when the user explicitly asks to update or sync the product-ui skill. Do not use as the primary framework for landing pages, portfolios, company homepages, or marketing-first sites.
 ---
 
 # Product UI Orchestrator
@@ -42,6 +42,25 @@ Always preserve this order:
 
 Never sacrifice a higher-priority item to improve a lower-priority item.
 
+## Mandatory project lifecycle routing (V2.4)
+
+**Before the visual exploration phases, choose one project entry route** by inspecting existing UI and explicit user intent. Read `references/project-entry-routing.md`.
+
+| Route | Intent and starting point | Mandatory first behavior |
+|---|---|---|
+| `NEW_BUILD` | New product / scaffold with no established UI | Product structure → HTML A/B/C Style Demo choice if visual direction undefined → one real Product Demo → user approval → expand |
+| `EXISTING_IMPROVE` | Existing UI to optimize, inspect, or remove AI feel | **READ-ONLY audit and P0/P1/P2 optimization plan; STOP for user approval before editing** → one pilot page → before/after review → STOP for pilot approval → expand |
+| `EXISTING_REDESIGN` | User explicitly requests substantial **visual redesign** of an existing product | Inventory and current-state baseline; if new style unspecified, HTML A/B/C Style Demos → user choice → one real Product Demo → approval → staged rollout |
+| `EXISTING_REBUILD` | User explicitly requests rebuilding/replacing an existing frontend (including new stack/repo) | Inventory screens/features/routes/API contracts; preserve vs replace matrix and migration/rollback plan → optional visual Style Demo → one real replacement Product Demo → approval → staged migration |
+
+**Existing UI + ambiguous “优化” always routes `EXISTING_IMPROVE`, not redesign.** Existing code without `DESIGN.md` can still have an established visual system: infer it from source, tokens, components and rendered UI. An empty scaffold is not an established UI.
+
+A **small, precise, single-component fix** is not a request for full-project read-only audit; scope inspection and implementation to that edit with proportional QA. An **explicit redesign** overrides the rule to preserve existing visual tokens, but never silently overrides product behavior. "重建" is not permission to delete source, break APIs, or skip regression checks.
+
+Explicit autonomous/one-shot instructions can waive approval pauses, **not** preservation, backend/data safety, or honest Skill review. Unless explicit destructive removal is authorized, keep existing implementation recoverable.
+
+**Routing is required even when the user simply says “用 product-ui 优化当前项目”.**
+
 ## Source-of-truth precedence
 
 Before design work, inspect the project for persistent context.
@@ -54,7 +73,7 @@ Use this precedence:
 5. `product-ui` — product interaction patterns and routing
 6. companion skills — specialized exploration, implementation, or review
 
-Read `references/design-system-governance.md` when any of these sources exist or conflict.
+Read `references/design-system-governance.md` when any of these sources exist or conflict. For `EXISTING_REDESIGN` and `EXISTING_REBUILD` with an explicit visual reset, treat the existing `DESIGN.md` as a baseline to preserve for comparison until the user approves its replacement.
 
 ## Companion-skill orchestration
 
@@ -73,7 +92,7 @@ The project using shadcn/ui **does not imply** a shadcn agent Skill is installed
 
 ### UI UX Pro Max
 Use UI UX Pro Max when:
-- this is a new product or genuinely new visual system, and
+- this is a new product, explicit existing-product visual redesign, or genuinely new visual system, and
 - `DESIGN.md` does not establish the visual direction, and
 - visual/design-system exploration is materially useful.
 
@@ -96,7 +115,7 @@ Skip this visual-direction checkpoint when:
 - the user explicitly delegates the choice (“你自己决定”, “choose for me”, “直接做完”, “one-shot”, “autopilot”, or equivalent).
 
 Do not use UI UX Pro Max to casually redesign an established product.
-If `DESIGN.md` exists and is applicable, it is the visual source of truth unless the user explicitly asks for a redesign.
+If `DESIGN.md` exists and is applicable, it is the visual source of truth for `NEW_BUILD` extensions and `EXISTING_IMPROVE`. **An explicit `EXISTING_REDESIGN` / visual-reset `EXISTING_REBUILD` request can supersede it**, but only through the requested visual selection, pilot approval, and design-system update stages.
 
 ### shadcn
 If the project uses shadcn/ui, has `components.json`, or the user explicitly requires shadcn:
@@ -134,7 +153,9 @@ For substantial Product Demos: render/review → Hallmark read-only audit → pr
 
 ## Approval checkpoint policy
 
-Read `references/approval-checkpoints.md` and `references/visual-style-demos.md` for new products, full-product redesigns, or large new product areas.
+Read `references/project-entry-routing.md` first. Read `references/approval-checkpoints.md` and `references/visual-style-demos.md` for new products, full-product redesigns, or large new product areas. Read `references/existing-project-audit.md` for existing-product optimization, baseline evidence, or rebuild safeguards.
+
+**For `EXISTING_IMPROVE`, the first checkpoint is AUDIT REPORT APPROVAL (no edits yet), not a visual-style selection.** After the user selects improvements, change only one representative pilot page and stop for before/after approval before applying changes elsewhere.
 
 The first checkpoint must show actual visual previews (HTML/CSS, with screenshots when available). Merely describing “Linear-like / Stripe-like / Notion-like” options in text is not sufficient.
 
@@ -149,22 +170,30 @@ Default staged validation for new multi-page work:
 
 Do **not** ask the user to approve every routine page. The purpose is to validate high-cost decisions early without creating approval fatigue.
 
-Skip approval pauses when the user explicitly requests autonomous/one-shot execution. Existing mature products with an applicable `DESIGN.md` normally do not need these checkpoints for routine pages.
+Skip approval pauses when the user explicitly requests autonomous/one-shot execution. Existing mature products with an applicable `DESIGN.md` normally do not need **new-build visual style checkpoints** for routine pages. Do not apply the new-build gallery/demo path to existing optimization without an explicit redesign request.
 
 ## Main workflow
 
-### Phase 0 — Inspect before designing
+### Phase 0 — Inspect and route before designing
+
+**First decide `NEW_BUILD`, `EXISTING_IMPROVE`, `EXISTING_REDESIGN`, or `EXISTING_REBUILD`** by applying `references/project-entry-routing.md`, and report the selected route briefly.
 
 Inspect enough of the existing project to answer:
 - What product is this?
 - Who is the primary user?
 - What existing navigation/layout/component conventions exist?
 - Does `PRODUCT.md` exist?
-- Does `DESIGN.md` exist?
+- Does `DESIGN.md` exist? If absent, do established visual conventions exist in code/screenshots?
+- Is this an audit/optimization, explicit visual redesign, or replacement frontend request?
+- Are existing API, routing, auth and workflow contracts in scope for preservation?
 - Is shadcn/ui installed (`components.json`, shadcn components, or explicit project docs)?
 - Are the original UI UX Pro Max, shadcn agent Skill, Hallmark, and Impeccable Skill installations available and readable?
 
 Do not start by inventing a new visual language.
+
+**When route is `EXISTING_IMPROVE`: perform `references/existing-project-audit.md` first as a strictly read-only inventory and UI review.** Produce baseline evidence and P0/P1/P2 findings; include original Hallmark/Impeccable review only in supported **non-mutating report-only modes**, record genuine execution status, and **STOP for user approval before any source edit**. Do not fall through to Phases 1–10 as though this were a new project.
+
+**When route is `EXISTING_REDESIGN` or `EXISTING_REBUILD`: inspect actual screens, features and behavioral/API contracts first; protect original working code, then use the style and pilot checkpoints where applicable.**
 
 ### Phase 1 — Classify product and surface
 
@@ -241,10 +270,15 @@ Do not load every reference by default.
 
 ### Phase 5 — Establish or preserve visual direction
 
-If an applicable `DESIGN.md` exists:
-- follow it;
+If route is `EXISTING_IMPROVE` or the existing accepted visual direction is being retained:
+- preserve the existing system, whether documented in `DESIGN.md` or inferred from the UI;
 - do not ask UI UX Pro Max to generate a replacement visual system;
 - extend existing tokens/patterns conservatively when a gap exists.
+
+If route is `EXISTING_REDESIGN` or `EXISTING_REBUILD` **and the user explicitly requests visual replacement**:
+- preserve the original `DESIGN.md` and UI as baseline/current-state evidence, not as a constraint on the newly approved style;
+- if no new style was specified, generate and present 2–3 previewable HTML/CSS Style Demos using actual representative product content;
+- stop for user visual selection before implementing the replacement Product Demo.
 
 If visual direction is genuinely undefined:
 - use UI UX Pro Max if available to shortlist 2–3 materially different, product-appropriate directions;
@@ -289,9 +323,20 @@ Before creating a new primitive:
 
 Do not introduce a new UI library just for one page without an explicit architectural reason.
 
+#### Approved pilot for existing-project optimization
+
+For `EXISTING_IMPROVE`, **do not implement anything during the initial read-only audit**. After the user confirms issues and pilot scope:
+1. change **one representative page or contained shared component only**;
+2. preserve business behavior, routes, API/data contracts and accepted visual direction;
+3. render a true before/after comparison (real screenshots when available; never fabricate);
+4. run proportional source/render QA, read-only Hallmark audit and original Impeccable stages when available;
+5. **STOP for user pilot approval before extending changes to additional page families**.
+
+For `EXISTING_REBUILD`, use an isolated branch/worktree or reversible area when practical, preserve the existing front end, and check screen/feature/API parity before migration. No destructive cutover without explicit permission.
+
 #### Representative Demo Checkpoint
 
-For a new multi-page product or full-product redesign, the first implementation pass should normally be **only**:
+For `NEW_BUILD`, `EXISTING_REDESIGN`, or `EXISTING_REBUILD`, the first substantial implementation pass should normally be **only**:
 - the application shell/navigation needed to understand the product, plus
 - one representative core page, or one short representative flow when a single page is insufficient.
 
@@ -338,6 +383,8 @@ Use browser/computer-use tooling when available. If unavailable, use the stronge
 ### Phase 9 — Hallmark anti-slop review and Impeccable QA
 
 For a substantial Product Demo / UI redesign or when explicitly requested:
+
+**Important: `EXISTING_IMPROVE` baseline audit is non-mutating.** Run original audit/reporting guidance only where read-only execution is supported. Do not perform fixes until user authorizes the pilot; never claim a Skill ran when its original mode was unavailable.
 
 1. **Hallmark `audit`** if installed: read its original Skill + audit references, inspect concrete sources/rendered evidence, emit the original ranked **read-only** anti-slop report; do not edit while auditing.
 2. product-ui evaluates Hallmark findings against product tasks, accepted visual direction, and appropriate ToB density; fixes validated findings separately.
@@ -422,8 +469,11 @@ Before implementation, provide or establish:
 11. Visual-system source (`DESIGN.md`, existing product, or new exploration)
 12. Implementation-system source (shadcn or project component system)
 
-Then follow staged implementation:
-- for a new multi-page product/full redesign, deliver **visual HTML/CSS Style Demos**, not only a written style menu; stop first for visual-direction choice when applicable;
+Then follow the **chosen route**:
+- `NEW_BUILD`: for a new multi-page product, deliver **visual HTML/CSS Style Demos** if visual direction undefined; stop for choice;
+- `EXISTING_IMPROVE`: inventory and audit **read-only** → report P0/P1/P2 and pilot recommendation → STOP for user plan approval → one pilot page → before/after comparison → STOP for user pilot approval → approved page-family rollout; no visual-direction shortlist by default;
+- `EXISTING_REDESIGN`: baseline existing product, visually explore only when direction truly changing → visual choice → one Product Demo → user approval → gradual UI replacement;
+- `EXISTING_REBUILD`: inventory/preservation/migration plan and replacement boundaries → visual checkpoint if needed → one compatible Product Demo → user approval → staged cutover, not uncontrolled deletion;
 - after direction approval, implement only the representative **Product Demo**, run available genuine Hallmark/Impeccable reviews, and stop for user review;
 - after demo approval, expand the product in coherent batches;
 - skip these pauses only when the user explicitly requests autonomous/one-shot execution or the work is routine extension of an established design system.
