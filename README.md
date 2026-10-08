@@ -2,7 +2,7 @@
 
 A Codex/agent Skill for designing, implementing, and reviewing **real product interfaces** rather than marketing websites.
 
-Version: **2.0.0**
+Version: **2.1.0**
 
 ## What V2 does
 
@@ -17,11 +17,19 @@ classify task / page / density / workflow
     ↓
 UI UX Pro Max   (only when visual direction is undefined)
     ↓
-DESIGN.md       (becomes the visual source of truth)
+2–3 visual directions + recommendation
     ↓
-shadcn          (when the project actually uses shadcn/ui)
+USER CHOOSES     ← Visual Direction Checkpoint
     ↓
-implementation
+App shell + 1 representative core page
+    ↓
+USER REVIEWS     ← Demo Checkpoint
+    ↓
+DESIGN.md        (accepted direction/patterns become source of truth)
+    ↓
+shadcn           (when the project actually uses shadcn/ui)
+    ↓
+expand implementation
     ↓
 render / browser review
     ↓
@@ -37,6 +45,25 @@ optional polish
 ```
 
 The companion skills are conditional, not blindly invoked on every task.
+
+## V2.1 staged approval model
+
+For a **new multi-page product** or an **explicit full-product redesign**, `product-ui` should not run from brief to final UI in one uninterrupted pass unless the user explicitly asks for autonomous/one-shot execution.
+
+Default checkpoints:
+
+1. **Visual Direction Checkpoint** — when no accepted visual direction exists, use UI UX Pro Max if available to generate 2–3 materially different, product-appropriate directions; recommend one, then pause for the user to choose.
+2. **Demo Checkpoint** — after direction selection, implement only the application shell plus **one representative core page** (or one representative flow if a single page is insufficient), using realistic data and key states. Render/review it, then pause for the user to confirm the direction before expanding it across the product.
+3. **Expansion Checkpoint** — after demo approval, continue in coherent batches. Pause again only when introducing a materially new UI pattern, a major design-system deviation, or after a large module/batch where feedback can still prevent costly rework.
+4. **Final QA** — run rendered review and, when available, Impeccable critique → fixes → audit → fixes. Polish remains optional.
+
+Skip unnecessary checkpoints when:
+- an applicable `DESIGN.md` and mature existing UI already establish the direction;
+- the user supplied a clear screenshot/design/reference and only wants faithful continuation;
+- the task is a small isolated change rather than a new surface family;
+- the user explicitly says “直接做完 / 不用问我 / 你自己决定 / one-shot / autopilot”.
+
+The agent should not ask for approval on every page. The purpose is to validate high-cost decisions early, not create approval fatigue.
 
 ## Best for
 
