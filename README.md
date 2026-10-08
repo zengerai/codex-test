@@ -2,9 +2,9 @@
 
 A Codex/agent Skill for designing, implementing, and reviewing **real product interfaces** rather than marketing websites.
 
-Version: **2.1.0**
+Version: **2.2.0**
 
-## What V2 does
+## What V2.2 does
 
 `product-ui` is now an orchestrator:
 
@@ -17,13 +17,15 @@ classify task / page / density / workflow
     ↓
 UI UX Pro Max   (only when visual direction is undefined)
     ↓
-2–3 visual directions + recommendation
+2–3 differentiated directions
     ↓
-USER CHOOSES     ← Visual Direction Checkpoint
+HTML/CSS Style Demo Gallery (same app content in A/B/C)
     ↓
-App shell + 1 representative core page
+USER CHOOSES visually ← Style Demo Checkpoint
     ↓
-USER REVIEWS     ← Demo Checkpoint
+Real App shell + 1 representative core Product Demo page
+    ↓
+USER REVIEWS rendered UI ← Product Demo Checkpoint
     ↓
 DESIGN.md        (accepted direction/patterns become source of truth)
     ↓
@@ -52,8 +54,8 @@ For a **new multi-page product** or an **explicit full-product redesign**, `prod
 
 Default checkpoints:
 
-1. **Visual Direction Checkpoint** — when no accepted visual direction exists, use UI UX Pro Max if available to generate 2–3 materially different, product-appropriate directions; recommend one, then pause for the user to choose.
-2. **Demo Checkpoint** — after direction selection, implement only the application shell plus **one representative core page** (or one representative flow if a single page is insufficient), using realistic data and key states. Render/review it, then pause for the user to confirm the direction before expanding it across the product.
+1. **Visual Direction Checkpoint** — when no accepted visual direction exists, use UI UX Pro Max if available to generate 2–3 materially different, product-appropriate directions; **build and show actual HTML/CSS Style Demos** using the same representative product UI; recommend one, then pause for the user to choose visually. A purely written style menu is not sufficient.
+2. **Product Demo Checkpoint** — after direction selection, implement only the real application shell plus **one representative core page** (or one representative flow if a single page is insufficient), using realistic data and key states. Render/review it, then pause for the user to confirm the direction before expanding it across the product.
 3. **Expansion Checkpoint** — after demo approval, continue in coherent batches. Pause again only when introducing a materially new UI pattern, a major design-system deviation, or after a large module/batch where feedback can still prevent costly rework.
 4. **Final QA** — run rendered review and, when available, Impeccable critique → fixes → audit → fixes. Polish remains optional.
 
@@ -64,6 +66,29 @@ Skip unnecessary checkpoints when:
 - the user explicitly says “直接做完 / 不用问我 / 你自己决定 / one-shot / autopilot”.
 
 The agent should not ask for approval on every page. The purpose is to validate high-cost decisions early, not create approval fatigue.
+
+## V2.2 deliverable
+
+For new product visual exploration, the expected first artifact is a **working, browser-previewable comparison**, normally:
+
+```text
+design-exploration/
+  style-comparison.html   ← A/B/C gallery, same representative screen
+  previews/               ← actual screenshots when browser capture is available
+```
+
+The gallery can switch among visual systems or show them side by side. It should illustrate a real product screen (ToB workbench/table/forms or ToC core utility), not a landing page. Short text descriptions supplement the visuals.
+
+**Two distinct reviews:**
+
+- **Style Demo**: choose a visual language from comparable working HTML/CSS previews.
+- **Product Demo**: after choosing the style, validate the first real application page and interactions before scaling.
+
+### GPT-6 Intelligent UI: optional complement, not a Codex dependency
+
+OpenAI's October 7, 2026 release introduced Intelligent UI to supported **ChatGPT Chat** experiences. It can help compare options interactively in ChatGPT, but it is **not a callable Codex Skill or guaranteed renderer inside Codex App**. The primary V2.2 workflow works entirely with browser-previewable HTML/CSS created by Codex. For optional ChatGPT-based visual comparison, transfer the selected direction with a portable decision note; do not assume automatic state/code transfer.
+
+See `references/visual-style-demos.md` and `references/intelligent-ui-bridge.md`.
 
 ## Best for
 
@@ -171,6 +196,8 @@ scripts/
 references/
   integrations.md
   approval-checkpoints.md
+  visual-style-demos.md
+  intelligent-ui-bridge.md
   design-system-governance.md
   browser-review.md
   product-type-routing.md
