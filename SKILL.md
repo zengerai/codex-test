@@ -1,6 +1,6 @@
 ---
 name: product-ui
-description: Orchestrate the design, implementation, and review of real ToB and ToC product interfaces. Use for SaaS, admin, workflow, data-heavy systems, dashboards, settings, CRUD, utilities, and app surfaces. Coordinates product-UI reasoning with UI UX Pro Max for undefined visual direction, shadcn for implementation when present, and Impeccable for critique/audit after implementation. Also use when the user explicitly asks to update or sync the product-ui skill. Do not use as the primary framework for landing pages, portfolios, company homepages, or marketing-first sites.
+description: Orchestrate the design, staged validation, implementation, and review of real ToB and ToC product interfaces. Use for SaaS, admin, workflow, data-heavy systems, dashboards, settings, CRUD, utilities, and app surfaces. For new products/full redesigns, validate high-cost decisions through visual-direction and representative-demo checkpoints before broad implementation unless the user explicitly requests autonomous one-shot execution. Coordinates product-UI reasoning with UI UX Pro Max for undefined visual direction, shadcn for implementation when present, and Impeccable for critique/audit after implementation. Also use when the user explicitly asks to update or sync the product-ui skill. Do not use as the primary framework for landing pages, portfolios, company homepages, or marketing-first sites.
 ---
 
 # Product UI Orchestrator
@@ -66,7 +66,21 @@ Use UI UX Pro Max when:
 - `DESIGN.md` does not establish the visual direction, and
 - visual/design-system exploration is materially useful.
 
-Do not use it to casually redesign an established product.
+For a new product or explicit full-product redesign with no accepted visual direction:
+1. generate **2–3 materially different, product-appropriate visual directions**;
+2. keep each compatible with the same product task, density, platform, and user context;
+3. recommend one direction with reasoning;
+4. **pause before visual implementation and ask the user to select a direction**;
+5. after selection, proceed to a representative Demo Checkpoint rather than implementing the whole product.
+
+Do not ask a vague open-ended “what style do you like?” question before professional shortlisting.
+
+Skip this visual-direction checkpoint when:
+- an applicable `DESIGN.md` already establishes the direction;
+- the user already supplied a concrete style, reference product, screenshot, design file, or visual direction;
+- the user explicitly delegates the choice (“你自己决定”, “choose for me”, “直接做完”, “one-shot”, “autopilot”, or equivalent).
+
+Do not use UI UX Pro Max to casually redesign an established product.
 If `DESIGN.md` exists and is applicable, it is the visual source of truth unless the user explicitly asks for a redesign.
 
 ### shadcn
@@ -89,6 +103,21 @@ For substantial UI implementation or redesign, post-implementation review is par
 Use Impeccable `polish` only after functionality, hierarchy, density, and consistency are correct. Polish is optional; critique and audit are the default QA stages.
 
 If a named companion skill is unavailable, do not pretend it ran. Continue using `product-ui` and the project's existing tools, and state the missing dependency only if it materially affects the result.
+
+## Approval checkpoint policy
+
+Read `references/approval-checkpoints.md` for new products, full-product redesigns, or large new product areas.
+
+Default staged validation for new multi-page work:
+1. **Visual Direction Checkpoint** — shortlist 2–3 product-appropriate directions and let the user choose when no accepted direction exists.
+2. **Representative Demo Checkpoint** — build only the app shell + one representative core page/flow, render it with realistic data/states, then pause for user review.
+3. **Expansion** — after approval, update `DESIGN.md` and expand in coherent batches.
+4. **Expansion Checkpoints** — pause again only for materially new reusable patterns, major design-system changes, or large module boundaries where feedback can prevent costly rework.
+5. **Final QA** — rendered review plus Impeccable critique/audit when available.
+
+Do **not** ask the user to approve every routine page. The purpose is to validate high-cost decisions early without creating approval fatigue.
+
+Skip approval pauses when the user explicitly requests autonomous/one-shot execution. Existing mature products with an applicable `DESIGN.md` normally do not need these checkpoints for routine pages.
 
 ## Main workflow
 
@@ -187,8 +216,14 @@ If an applicable `DESIGN.md` exists:
 
 If visual direction is genuinely undefined:
 - use UI UX Pro Max if available;
-- establish an initial direction appropriate to product type, density, platform, and user context;
-- convert accepted decisions into durable project rules (`DESIGN.md`) rather than repeatedly re-exploring them.
+- generate 2–3 materially different, product-appropriate directions;
+- recommend one with reasoning;
+- **pause for user selection before visual implementation** unless the user explicitly delegated the choice;
+- do not write the full product UI before this checkpoint.
+
+If the user already supplied a clear visual reference/style, treat that as the selected direction and skip the style shortlist.
+
+After a direction is selected, proceed to the representative Demo Checkpoint before broad implementation.
 
 ### Phase 6 — Define states before implementation
 
@@ -218,6 +253,37 @@ Before creating a new primitive:
 4. create a custom primitive only for a real behavior/design-system gap.
 
 Do not introduce a new UI library just for one page without an explicit architectural reason.
+
+#### Representative Demo Checkpoint
+
+For a new multi-page product or full-product redesign, the first implementation pass should normally be **only**:
+- the application shell/navigation needed to understand the product, plus
+- one representative core page, or one short representative flow when a single page is insufficient.
+
+Choose the demo surface by product importance and reusable-pattern coverage, not by ease of implementation.
+
+The demo should exercise the product's important visual/interaction decisions, such as:
+- density and spacing;
+- navigation;
+- typography/surface hierarchy;
+- table/list/form patterns;
+- filters/actions;
+- important states;
+- responsive behavior where relevant.
+
+Use realistic data and render/review the demo.
+
+Then **pause and ask the user to confirm or request changes before applying the pattern broadly**.
+
+Do not implement the entire product before this checkpoint unless:
+- the user explicitly requested autonomous/one-shot execution; or
+- this is an established product with mature visual/component rules and only routine extension work.
+
+After demo approval:
+- consolidate accepted visual and interaction decisions into `DESIGN.md`;
+- expand in coherent batches;
+- do not ask after every routine page;
+- pause again only when a materially new reusable pattern, major design-system change, or high-cost module boundary appears.
 
 ### Phase 8 — Render and verify
 
@@ -315,7 +381,13 @@ Before implementation, provide or establish:
 11. Visual-system source (`DESIGN.md`, existing product, or new exploration)
 12. Implementation-system source (shadcn or project component system)
 
-Then implement unless the user requested design only.
+Then follow staged implementation:
+- for a new multi-page product/full redesign, stop first at the visual-direction checkpoint when applicable;
+- after direction approval, implement only the representative demo and stop for review;
+- after demo approval, expand the product in coherent batches;
+- skip these pauses only when the user explicitly requests autonomous/one-shot execution or the work is routine extension of an established design system.
+
+Do not interpret “continue” after style selection as permission to implement the entire product before the demo checkpoint.
 
 ## Self-update
 
