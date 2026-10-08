@@ -1,6 +1,6 @@
 ---
 name: product-ui
-description: Orchestrate the design, staged validation, implementation, and review of real ToB and ToC product interfaces. Use for SaaS, admin, workflow, data-heavy systems, dashboards, settings, CRUD, utilities, and app surfaces. For new products/full redesigns, validate high-cost decisions through visual-direction and representative-demo checkpoints before broad implementation unless the user explicitly requests autonomous one-shot execution. Coordinates product-UI reasoning with UI UX Pro Max for undefined visual direction, shadcn for implementation when present, and Impeccable for critique/audit after implementation. Also use when the user explicitly asks to update or sync the product-ui skill. Do not use as the primary framework for landing pages, portfolios, company homepages, or marketing-first sites.
+description: Orchestrate the design, visual HTML style comparison, staged approval, implementation, and review of real ToB and ToC product interfaces. Use for SaaS, admin, workflow, data-heavy systems, dashboards, settings, CRUD, utilities, and app surfaces. For new products/full redesigns, first generate 2–3 actual, browser-previewable HTML/CSS Style Demos for user comparison (not only text descriptions), then validate one representative Product Demo before broad implementation unless the user explicitly requests autonomous one-shot execution. Coordinates product-UI reasoning with UI UX Pro Max for undefined visual direction, shadcn for implementation when present, and Impeccable for critique/audit after implementation. Also use when the user explicitly asks to update or sync the product-ui skill. Do not use as the primary framework for landing pages, portfolios, company homepages, or marketing-first sites.
 ---
 
 # Product UI Orchestrator
@@ -69,9 +69,13 @@ Use UI UX Pro Max when:
 For a new product or explicit full-product redesign with no accepted visual direction:
 1. generate **2–3 materially different, product-appropriate visual directions**;
 2. keep each compatible with the same product task, density, platform, and user context;
-3. recommend one direction with reasoning;
-4. **pause before visual implementation and ask the user to select a direction**;
-5. after selection, proceed to a representative Demo Checkpoint rather than implementing the whole product.
+3. build an actual **HTML/CSS Style Demo Gallery** showing each direction with comparable sample application UI, the same product content, and meaningful visual differences;
+4. render/verify the gallery when browser tools are available and provide viewable previews or actual screenshots; prose-only style comparisons do NOT fulfill this checkpoint;
+5. recommend one direction with reasoning;
+6. **pause for the user's visual selection** (A/B/C or a hybrid) before implementing the first real Product Demo;
+7. after selection, proceed to the representative Product Demo Checkpoint rather than implementing the whole product.
+
+Read `references/visual-style-demos.md` for Style Demo Gallery requirements.
 
 Do not ask a vague open-ended “what style do you like?” question before professional shortlisting.
 
@@ -106,12 +110,16 @@ If a named companion skill is unavailable, do not pretend it ran. Continue using
 
 ## Approval checkpoint policy
 
-Read `references/approval-checkpoints.md` for new products, full-product redesigns, or large new product areas.
+Read `references/approval-checkpoints.md` and `references/visual-style-demos.md` for new products, full-product redesigns, or large new product areas.
+
+The first checkpoint must show actual visual previews (HTML/CSS, with screenshots when available). Merely describing “Linear-like / Stripe-like / Notion-like” options in text is not sufficient.
+
+ChatGPT's GPT-6 Intelligent UI may help users compare visual directions **in ChatGPT Chat**, but it is not a native callable Codex dependency. Read `references/intelligent-ui-bridge.md` only when cross-product comparison or handoff is requested.
 
 Default staged validation for new multi-page work:
-1. **Visual Direction Checkpoint** — shortlist 2–3 product-appropriate directions and let the user choose when no accepted direction exists.
-2. **Representative Demo Checkpoint** — build only the app shell + one representative core page/flow, render it with realistic data/states, then pause for user review.
-3. **Expansion** — after approval, update `DESIGN.md` and expand in coherent batches.
+1. **Visual Style Demo Gallery** — shortlist 2–3 product-appropriate directions, implement the same representative screen in actual HTML/CSS for each, render/review the previews, and let the user choose.
+2. **Representative Product Demo Checkpoint** — after style choice, build only the real app shell + one representative core page/flow, render with realistic data/states, then pause for user review.
+3. **Expansion** — after Product Demo approval, finalize `DESIGN.md` and expand in coherent batches.
 4. **Expansion Checkpoints** — pause again only for materially new reusable patterns, major design-system changes, or large module boundaries where feedback can prevent costly rework.
 5. **Final QA** — rendered review plus Impeccable critique/audit when available.
 
@@ -215,15 +223,18 @@ If an applicable `DESIGN.md` exists:
 - extend existing tokens/patterns conservatively when a gap exists.
 
 If visual direction is genuinely undefined:
-- use UI UX Pro Max if available;
-- generate 2–3 materially different, product-appropriate directions;
-- recommend one with reasoning;
-- **pause for user selection before visual implementation** unless the user explicitly delegated the choice;
-- do not write the full product UI before this checkpoint.
+- use UI UX Pro Max if available to shortlist 2–3 materially different, product-appropriate directions;
+- build a **previewable HTML/CSS Style Demo Gallery** with actual rendered application UI for all options (same content and semantic structure where practical, distinct design language);
+- prefer `design-exploration/style-comparison.html`, a working A/B/C switcher or side-by-side layout;
+- render and screenshot real browser previews when tools allow; otherwise provide the HTML file and an honest note on how to inspect it;
+- recommend one direction with reasoning, then **STOP and ask the user to choose** unless the user explicitly delegated the choice;
+- do not accept unrendered code, bare token lists, or text-only descriptions as the completed visual checkpoint.
+
+Read `references/visual-style-demos.md`.
 
 If the user already supplied a clear visual reference/style, treat that as the selected direction and skip the style shortlist.
 
-After a direction is selected, proceed to the representative Demo Checkpoint before broad implementation.
+After a direction is selected, implement the representative **Product Demo** and pause again before broad implementation. The Style Demo Gallery is a fast visual comparison; the Product Demo is functional application code.
 
 ### Phase 6 — Define states before implementation
 
@@ -382,8 +393,8 @@ Before implementation, provide or establish:
 12. Implementation-system source (shadcn or project component system)
 
 Then follow staged implementation:
-- for a new multi-page product/full redesign, stop first at the visual-direction checkpoint when applicable;
-- after direction approval, implement only the representative demo and stop for review;
+- for a new multi-page product/full redesign, deliver **visual HTML/CSS Style Demos**, not only a written style menu; stop first for visual-direction choice when applicable;
+- after direction approval, implement only the representative **Product Demo** and stop for review;
 - after demo approval, expand the product in coherent batches;
 - skip these pauses only when the user explicitly requests autonomous/one-shot execution or the work is routine extension of an established design system.
 
