@@ -44,8 +44,10 @@ After the user has visually selected a Style Demo:
 3. use realistic data;
 4. include important states;
 5. render/review the demo;
-6. show/summarize what the demo establishes;
-7. pause for confirmation before scaling.
+6. run original Hallmark `audit` (read-only) if installed, followed by product-ui evaluation/separate fixes;
+7. run original Impeccable `critique` and `audit` (with material fixes) if installed;
+8. report actual companion execution status and show/summarize what the demo establishes;
+9. pause for confirmation before scaling.
 
 ### Choosing the representative page
 
@@ -122,7 +124,9 @@ A checkpoint is not a final QA substitute.
 
 After broader implementation:
 - render/review the relevant surfaces;
-- run Impeccable critique if available;
+- run Hallmark `audit` read-only where warranted and available;
+- evaluate and separately fix grounded Hallmark findings;
+- run original Impeccable critique if available;
 - fix material findings;
 - run Impeccable audit if available;
 - fix material findings;
