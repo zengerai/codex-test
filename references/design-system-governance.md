@@ -29,7 +29,9 @@ Use for:
 - responsive rules
 - common UI patterns
 
-Once established and accepted, `DESIGN.md` is the visual source of truth.
+Once established and accepted, `DESIGN.md` is the visual source of truth **for optimization and routine extension**. For an explicitly authorized comprehensive visual redesign, it becomes the **current-state baseline** until the user approves the replacement direction and Product Demo.
+
+If `DESIGN.md` does not exist but the app contains consistent CSS tokens/components/screens, infer and document the **existing** visual system before proposing any new system. No `DESIGN.md` is not permission to redesign.
 
 ## AGENTS.md
 
@@ -61,3 +63,14 @@ If the user explicitly requests a redesign:
 - use product-ui to preserve product-task correctness;
 - UI UX Pro Max may explore the new visual direction;
 - after approval, rewrite/update `DESIGN.md` so there is again one source of truth.
+
+## Project mode rules (V2.4)
+
+| Route | Existing design treatment | Documentation action |
+|---|---|---|
+| NEW_BUILD | Follow a clear reference or choose from HTML Style Demos | Record accepted visual choices after selection / Product Demo approval |
+| EXISTING_IMPROVE | Preserve current system from DESIGN.md or inferred code | Extract current-state rules; only update accepted incremental changes |
+| EXISTING_REDESIGN | Preserve a copy of the current state for comparison | Replace active rules **only after** user selects new style and approves one Product Demo |
+| EXISTING_REBUILD | Inventory both current UI and behavior/contracts | Carry forward accepted design if requested; otherwise follow approved redesign route and migration plan |
+
+Do not overwrite source files or established design decisions during a read-only existing-project audit. New design systems should never silently replace accepted ones merely because the agent found a more fashionable trend.
