@@ -1,6 +1,6 @@
 # Companion Skill Integrations
 
-`product-ui` owns product interaction decisions. Companion skills add specialized capability; they do not replace the product model.
+`product-ui` owns product interaction decisions. Companion skills add specialized capability; they do not replace the product model. **Invoke the installed original companion Skill** rather than incorporating its prompt content into product-ui. Apply `external-skill-protocol.md` for availability checks, mode-specific original references, execution evidence, and honest reporting.
 
 ## Routing table
 
@@ -8,11 +8,24 @@
 |---|---|---|
 | New product / no established visual direction | UI UX Pro Max + product-ui HTML preview | Generate 2–3 materially different directions and a browser-previewable Style Demo Gallery; then pause for user visual selection |
 | Applicable `DESIGN.md` exists | UI UX Pro Max | Do not re-explore by default; follow `DESIGN.md` |
-| Project uses shadcn/ui | shadcn skill | Use it for component discovery, composition, and implementation |
+| Project uses shadcn/ui | shadcn component library + independent shadcn agent Skill (if installed) | Inspect `components.json`; independently verify original Skill before agent invocation |
 | Project does not use shadcn/ui | shadcn skill | Do not introduce it solely because product-ui mentions it |
-| Substantial UI implemented/redesigned | Impeccable | critique → fix → audit → fix |
+| Substantial Product Demo / UI redesign after rendering | Hallmark (original) | **audit only, report-only** → product-ui dispositions and separate fixes |
+| Substantial UI implemented/redesigned | Impeccable (original) | read installed skill + critique reference → critique → fix → read audit reference → audit → fix |
 | UI already correct and needs final refinement | Impeccable | polish may be used selectively |
-| Companion skill unavailable | product-ui | Continue with existing project rules; never claim the companion ran |
+| Companion Skill missing/unreadable | product-ui | Report unavailable/blocked; fallback with explicit label; never claim the companion ran |
+
+## Mandatory original-skill contract
+
+**Read `references/external-skill-protocol.md` before external Skill use.** Use these steps for UI UX Pro Max, shadcn agent Skill, Hallmark, and Impeccable:
+
+1. Confirm whether the Skill is installed/available **in the current Codex environment**; an upstream URL or product-ui mention does not install it.
+2. Read the original installed `SKILL.md`, plus the original mode-specific references required for the task.
+3. Invoke/follow that original Skill's supported workflow, and observe an artifact or credible execution evidence.
+4. Mark each considered companion **executed / skipped-not-needed / unavailable / blocked / failed** and cite a concrete result in the final work summary.
+5. Never copy an upstream Skill's entire instructions into product-ui, and never silently claim an equivalent internal checklist is that external Skill.
+
+Agent Skills are **agent-discovered instructions**, not guaranteed function calls from product-ui. Prefer the runtime's actual Skill invocation mechanism; verify original materials were loaded and followed. Do not install/update third-party Skills without permission.
 
 ## UI UX Pro Max boundary
 
@@ -26,6 +39,8 @@ Do not use it to:
 - override an accepted `DESIGN.md` without a redesign request
 - restyle one isolated page into a different product
 - repeatedly regenerate color/type choices every task
+
+Read the actual installed UI UX Pro Max `SKILL.md` and its design-system/search references before starting the supported exploration workflow. If unavailable, use product-ui visual exploration as a **fallback** without claiming UI UX Pro Max ran.
 
 ### Visual Direction Checkpoint
 
@@ -90,12 +105,16 @@ When the user wants to compare directions here in ChatGPT, Intelligent UI may pr
 
 ## shadcn boundary
 
-When shadcn is present:
+**Separate the library from the agent Skill:** a project with shadcn/ui components does not prove `shadcn` the agent Skill is installed.
+
+When shadcn/ui is present:
 1. inspect `components.json` and existing project components;
-2. reuse existing product components first;
-3. use shadcn documentation/skill to find appropriate primitives;
-4. compose primitives into product-specific components;
-5. create custom behavior only where the library genuinely does not fit.
+2. independently verify whether a shadcn agent Skill is installed;
+3. if installed, read its original `SKILL.md` and relevant references and use the documented workflow;
+4. if not installed, use normal component-library/docs access and mark the agent Skill unavailable (not executed);
+5. reuse existing product components first;
+6. compose existing primitives before hand-rolling new complex components;
+7. create custom behavior only where the library genuinely does not fit.
 
 Examples:
 - detail side panel → prefer Sheet/Drawer composition over a hand-rolled fixed overlay;
@@ -106,7 +125,23 @@ Examples:
 
 shadcn is an implementation system, not the product-information architecture.
 
+## Hallmark boundary
+
+For substantial Product Demos, after real rendered review and before user Demo approval, invoke the **independently installed Hallmark's original** `audit` verb (if available):
+
+1. read original `SKILL.md` and `references/verbs/audit.md` plus required audit references;
+2. audit target UI source, `DESIGN.md`, and any available rendered evidence;
+3. produce the original severity-ranked **read-only** report; no edits during audit;
+4. independently assess findings using product-ui; fix only grounded, appropriate findings separately;
+5. report audit status/evidence. If absent, say **Hallmark audit not performed**.
+
+Do **not** run Hallmark default design, redesign, or study modes for this integration. Do not let Hallmark's novelty preferences override dense ToB tables or an accepted consistent component system.
+
+Read `references/hallmark-audit.md`.
+
 ## Impeccable boundary
+
+Read original installed Impeccable `SKILL.md` and the documented command-specific guidance. The current integration uses **genuine critique and audit modes**, not copied prompt fragments.
 
 Default QA stages for meaningful UI changes:
 1. `critique` — hierarchy, usability, clarity, aesthetics, product fit
@@ -129,5 +164,5 @@ If tools disagree, resolve in this order:
 3. established visual system (`DESIGN.md`)
 4. product-task efficiency (`product-ui`)
 5. component-system conventions (shadcn/project library)
-6. review suggestions (Impeccable)
+6. review suggestions (Hallmark, Impeccable)
 7. decorative preference
