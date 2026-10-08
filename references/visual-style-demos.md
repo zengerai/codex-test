@@ -4,7 +4,7 @@ This reference owns the Visual Direction Checkpoint presentation.
 
 ## Default output: visual, not text-only
 
-For a **new product** or an **explicit major UI redesign** with no accepted visual direction, generate 2–3 differentiated, product-appropriate directions, then produce **actual previewable HTML/CSS**, not just style names, prose, token tables, or unrendered code snippets.
+For a **new product** or an **explicit major UI redesign of an existing product** with no accepted **new** visual direction, generate 2–3 differentiated, product-appropriate directions, then produce **actual previewable HTML/CSS**, not just style names, prose, token tables, or unrendered code snippets.
 
 Recommended deliverable:
 
@@ -105,7 +105,7 @@ A Style Demo Gallery tests *appearance*. A Product Demo validates *real product 
 ## Exceptions
 
 Skip the Style Demo Gallery if:
-- an applicable and accepted `DESIGN.md` already governs the UI;
+- an applicable and accepted `DESIGN.md` governs the **requested** direction and the user is **not explicitly requesting a comprehensive visual redesign**;
 - a concrete reference design clearly determines the visual direction and the user asks to follow it;
 - the user explicitly says to choose without asking, run one-shot, or work autonomously;
 - the task is a small existing-product change with no new visual direction.
