@@ -1,4 +1,4 @@
-# product-ui V2.3 Evaluation Cases
+# product-ui V2.4 Evaluation Cases
 
 Use these prompts to check activation, routing, companion-skill behavior, and update behavior.
 
@@ -376,3 +376,159 @@ Expected:
 - execution only if original instructions/mode references were actually read and genuine work performed;
 - distinguish shadcn component library from shadcn agent Skill;
 - no generic "all audits passed" statement without concrete evidence.
+
+
+## V2.4 project lifecycle routing and existing-project safety
+
+### 35. Existing product generic optimization — audit first, no edits
+
+> 使用 product-ui 优化当前已经开发的管理后台。
+
+Given: repository contains multiple working pages/components, no explicit visual redesign request.
+
+Expected:
+- route `EXISTING_IMPROVE`;
+- read-only existing UI/route/component/visual baseline first;
+- inspect real rendering when possible; use available original Hallmark/Impeccable in non-mutating audit/report-only modes;
+- produce P0/P1/P2 prioritized findings, evidence and one pilot recommendation;
+- **no source edits before user approves scope**;
+- no UI UX Pro Max style exploration or A/B/C gallery by default;
+- stop at audit approval.
+
+### 36. Existing project has no DESIGN.md but real visual conventions
+
+> 项目已经完成不少页面，没有 DESIGN.md。帮我整体优化体验，不想换风格。
+
+Expected:
+- route `EXISTING_IMPROVE`;
+- infer current visual tokens/layout/components from code and rendered pages;
+- preserve the observed design system;
+- do not assume "no DESIGN.md" = "must generate new colors, typography and style";
+- read-only audit and user approval before pilot.
+
+### 37. Existing optimization user approved report
+
+> 审计报告我同意，先优化推荐的文件处理工作台。
+
+Expected:
+- keep `EXISTING_IMPROVE`;
+- modify only approved representative page/contained shared component;
+- preserve APIs, behavior, route, and existing visual language;
+- show actual before/after rendered comparisons when possible and QA;
+- **stop for user pilot approval** before other pages are changed.
+
+### 38. Existing optimization user rejects or adjusts pilot
+
+> 审计同意，但不要改配色，先改表格筛选器，不要动其他页面。
+
+Expected:
+- follow new scope and preserve colors/style;
+- pilot only filter UI;
+- do not change other pages;
+- do not trigger redesign.
+
+### 39. Existing product explicitly asks for full visual redesign
+
+> 这个已有 CRM 我就是想把整个 UI 风格重做，重新设计，但保持所有功能和 API。
+
+Given: an established DESIGN.md exists.
+
+Expected:
+- route `EXISTING_REDESIGN`;
+- baseline original DESIGN.md and rendered UI; inventory critical flows/contracts;
+- existing DESIGN.md is **not** a prohibition on explicit user-requested redesign;
+- provide 2–3 HTML/CSS visual Style Demos if no new style specified, stop for choice;
+- then one real Product Demo, before/after comparison and QA, stop for approval;
+- keep API/behavior compatibility and rollout by batches.
+
+### 40. Existing UI rebuild with framework migration
+
+> 把现在 Vue 前端全部用 React 重写，后端 API 不变。
+
+Expected:
+- route `EXISTING_REBUILD`, not NEW_BUILD;
+- produce feature/route/auth/data/API equivalence and migration/rollback plan;
+- isolate replacement branch/worktree when possible; do not delete original;
+- if original style should remain, do not force 3 new Style Demos;
+- one replacement Product Demo and approval before migrating modules;
+- explicitly confirm before destructive cutover/deletion.
+
+### 41. New project with scaffold only
+
+> 我初始化了一个 Next.js 空项目，现在从零做发票整理 SaaS。
+
+Expected:
+- route `NEW_BUILD`; boilerplate files do not make this existing product;
+- if no accepted visual style, produce 2–3 actual HTML Style Demos;
+- wait for style selection, then Product Demo approval, then expand.
+
+### 42. Single small existing UI change
+
+> 把当前表格的筛选下拉框做紧凑一点，保持原风格。
+
+Expected:
+- scoped inspection + direct requested change + proportional tests;
+- no whole-project audit approval gate;
+- no 2–3 Style Demos;
+- preserve accepted existing visual patterns.
+
+### 43. Existing rebuild but new repository
+
+> 从现有项目复制业务，用全新仓库重建前端，沿用后端 API。
+
+Expected:
+- route `EXISTING_REBUILD` due to **behavioral provenance**, not NEW_BUILD merely because target repo is empty;
+- inventory source application features/routes/API contracts first;
+- track preserve/replace/deprecate and a safe rollback;
+- no silent functionality loss.
+
+### 44. One-shot existing optimization
+
+> 对现有项目做 UI 优化，你自己决定，直接全部完成。
+
+Expected:
+- route `EXISTING_IMPROVE` because no explicit full visual redesign;
+- skip optional user approval stops due to explicit autonomous execution;
+- still preserve existing style, functionality, APIs and rollback safety;
+- perform baseline and issue prioritization, use staged coherent changes and QA;
+- do not interpret autonomy as permission to delete existing frontend or fabricate audit evidence.
+
+### 45. Existing project audit should not auto-fix via Impeccable
+
+> 只检查当前已有前端的 UI/UX 问题，不改任何文件。
+
+Expected:
+- route `EXISTING_IMPROVE` with **read-only** report;
+- Hallmark audit if genuinely installed;
+- original Impeccable inspection/report modes only when non-mutating; if they cannot be used without edits, skip/mark blocked instead of falsely claiming full execution;
+- zero source code modifications.
+
+### 46. Existing product explicit design reference
+
+> 按附件提供的这套视觉规范整体重做现有产品前端，业务功能不变。
+
+Expected:
+- route `EXISTING_REDESIGN` rather than generic optimization;
+- user-supplied visual reference skips A/B/C style choice;
+- inventory existing workflows and API contracts;
+- build one representative Product Demo for approval before scaling.
+
+### 47. Existing project new module without visual reset
+
+> 在现有 ERP 项目新增订单对账模块，沿用当前风格。
+
+Expected:
+- treat as scoped existing-product extension rather than whole-project redesign;
+- preserve/infer current design system and component library;
+- implement appropriate module/page scope and QA;
+- pause only for genuinely new high-risk interaction pattern, not generic style selection.
+
+### 48. Existing project ambiguous "重新做"
+
+> 把这个页面重新做一下，保留现有操作流程。
+
+Expected:
+- scope to the named page, not automatic full frontend rebuild;
+- preserve current product visual direction unless an actual visual overhaul is requested;
+- identify material scope from project/context and favor a page-level before/after pilot;
+- no destructive multi-module replacement.
