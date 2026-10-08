@@ -2,6 +2,8 @@
 
 Use checkpoints to validate **high-cost decisions early** without forcing the user to approve every routine page.
 
+**Choose a project route first** using `project-entry-routing.md`. A new product, an existing project's targeted improvement, an existing visual redesign, and a replacement frontend do **not** share the same first checkpoint.
+
 ## Principle
 
 Pause when feedback can prevent large rework.
@@ -11,7 +13,7 @@ Do not pause merely because another page was completed.
 ## Checkpoint A — Visual Direction
 
 Use when:
-- the product is new or being fully redesigned;
+- the product is new or **explicitly** being visually redesigned/rebuilt;
 - no applicable `DESIGN.md` or mature visual system exists;
 - the user has not already supplied a concrete visual direction;
 - the user has not explicitly delegated the choice.
@@ -27,9 +29,24 @@ Process:
 Read `visual-style-demos.md`. If browser capture is unavailable, still deliver the working HTML and explain how to open it. Do not claim it was rendered when it wasn't.
 
 Skip when:
-- applicable `DESIGN.md` exists;
+- applicable `DESIGN.md` exists **and the user is NOT requesting an explicit visual redesign**;
 - a screenshot/design/reference already establishes direction;
 - user says to choose for them or run autonomously.
+
+## Checkpoint O — Existing project optimization audit (before any edits)
+
+For `EXISTING_IMPROVE`, this is the **first mandatory checkpoint**, not visual-direction selection:
+
+1. inspect existing routes, components, UI conventions, key workflows and actual screenshots when possible;
+2. do a strictly **read-only** code/render quality review, with original Hallmark/Impeccable **report-only** modes when they are available and non-mutating;
+3. report P0/P1/P2 issues, evidence, risk, visual conventions to preserve and one recommended pilot page;
+4. **STOP for user approval of audit priorities and pilot scope before modifying source**;
+5. after approval, implement one pilot only; show actual before/after and proportional QA;
+6. **STOP again for user pilot approval before applying across pages**.
+
+No UI UX Pro Max and no new Style Demo Gallery by default, even if an existing product has no `DESIGN.md`. Read `existing-project-audit.md`.
+
+For a small specifically requested UI fix, scope inspection to that fix and apply directly without a full audit ceremony.
 
 ## Checkpoint B — Representative Demo
 
@@ -105,10 +122,12 @@ Still:
 
 ## Existing products
 
-For an established product with a stable `DESIGN.md` and component system:
-- do not add checkpoints just because the skill supports them;
-- implement routine new pages directly;
-- pause only for materially new product/interaction/visual patterns.
+For an established product with a stable visual system and component library:
+- for a **small explicit edit**, implement it directly with proportional tests;
+- for broad **optimization** requests, still perform the audit-first and approved-pilot checkpoints;
+- for **explicit redesign**, current `DESIGN.md` is baseline evidence, not a prohibition on style exploration;
+- for **frontend rebuild**, preserve critical feature/API contracts and original source until the new implementation has been accepted;
+- do not add new-build style checkpoints merely because this Skill supports them.
 
 ## User feedback after a checkpoint
 
