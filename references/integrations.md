@@ -6,7 +6,7 @@
 
 | Condition | Companion | Action |
 |---|---|---|
-| New product / no established visual direction | UI UX Pro Max | Explore an appropriate visual system and design direction |
+| New product / no established visual direction | UI UX Pro Max | Generate 2–3 materially different product-appropriate directions, recommend one, then pause for user selection |
 | Applicable `DESIGN.md` exists | UI UX Pro Max | Do not re-explore by default; follow `DESIGN.md` |
 | Project uses shadcn/ui | shadcn skill | Use it for component discovery, composition, and implementation |
 | Project does not use shadcn/ui | shadcn skill | Do not introduce it solely because product-ui mentions it |
@@ -26,6 +26,56 @@ Do not use it to:
 - override an accepted `DESIGN.md` without a redesign request
 - restyle one isolated page into a different product
 - repeatedly regenerate color/type choices every task
+
+### Visual Direction Checkpoint
+
+For a new product or explicit full-product redesign with no accepted visual direction:
+1. use UI UX Pro Max to generate **2–3 materially different** visual directions;
+2. keep all directions compatible with the same product task, density, platform, and user context;
+3. explain each direction in concrete UI terms: layout character, density, typography feel, surfaces, component treatment, and suitable product references when helpful;
+4. recommend one direction and explain why;
+5. **pause before visual implementation and ask the user to select a direction**;
+6. after selection, move to the Demo Checkpoint rather than implementing the entire product.
+
+Do not ask vague open-ended questions such as “What style do you like?” before professional shortlisting.
+
+Skip the visual-direction checkpoint when:
+- an applicable `DESIGN.md` already establishes the visual system;
+- the user already supplied a concrete style, reference product, screenshot, design file, or visual direction;
+- the user explicitly delegates the visual choice to the agent.
+
+### Demo Checkpoint
+
+For a new multi-page product or full-product redesign, after the visual direction is selected:
+1. implement the **application shell + one representative core page**;
+2. if one page cannot demonstrate the important interaction model, implement one short representative flow instead;
+3. use realistic data and include the most important normal/loading/empty/error or interaction states relevant to that page;
+4. render/review the demo at appropriate viewport sizes;
+5. summarize what the demo establishes: density, navigation, typography, surface treatment, table/form patterns, interaction model, and states;
+6. **pause and ask the user to confirm or request changes before applying the design broadly**.
+
+Choose the representative page by information value, not convenience. Prefer a page that exercises the product's core interaction and the largest number of reusable patterns.
+
+Do not implement every page before this checkpoint unless the user explicitly asks for one-shot/autonomous execution.
+
+### Expansion Checkpoints
+
+After demo approval:
+- consolidate accepted visual and interaction decisions into `DESIGN.md`;
+- expand in coherent page/module batches;
+- do **not** ask for approval after every routine page;
+- pause again only when a materially new pattern appears, the design system must change, or a large batch/module boundary makes feedback economically valuable.
+
+Examples of reasons to pause again:
+- first complex data table after a form-only demo;
+- first analytics/dashboard module when the demo did not cover charts;
+- first mobile adaptation that materially changes interaction;
+- a new workflow pattern such as split-pane review or multi-step approval;
+- a design-system change that would affect many existing pages.
+
+Skip staged checkpoints when the user explicitly requests “直接做完”, “不用问我”, “你自己决定”, “one-shot”, “autopilot”, or equivalent autonomous execution.
+
+The checkpoint model applies to **high-cost subjective or systemic decisions**. Routine IA/product decisions should still be made autonomously unless materially ambiguous.
 
 Once accepted, persist decisions into the project's durable design documentation.
 
