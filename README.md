@@ -2,9 +2,9 @@
 
 A Codex/agent Skill for designing, implementing, and reviewing **real product interfaces** rather than marketing websites.
 
-Version: **2.2.0**
+Version: **2.3.0**
 
-## What V2.2 does
+## What V2.3 does
 
 `product-ui` is now an orchestrator:
 
@@ -34,6 +34,10 @@ shadcn           (when the project actually uses shadcn/ui)
 expand implementation
     ↓
 render / browser review
+    ↓
+Hallmark audit     (original installed Skill, read-only)
+    ↓
+product-ui evaluates + fixes grounded findings
     ↓
 Impeccable critique
     ↓
@@ -92,6 +96,28 @@ OpenAI's October 7, 2026 release introduced Intelligent UI to supported **ChatGP
 
 See `references/visual-style-demos.md` and `references/intelligent-ui-bridge.md`.
 
+## V2.3 — original Skill integrations
+
+The project is a **Skill orchestrator, not a Skill collector**. UI UX Pro Max, the independent shadcn agent Skill, Hallmark, and Impeccable must remain **separately installed and independently updateable**. Their prompt catalogs and references are **not copied** into product-ui.
+
+For each relevant Skill, Codex should:
+
+1. Detect the original installed Skill; do not infer installation from a link or a component dependency.
+2. Read the original `SKILL.md` and required original mode references.
+3. Invoke/follow the installed version's **actual workflow**.
+4. Verify output or findings.
+5. Report **executed / skipped-not-needed / unavailable / blocked / failed** with evidence.
+
+### Where Hallmark fits
+
+After rendering a real Product Demo, run **Hallmark `audit` only** when it is installed. This mode produces a **read-only, ranked AI-slop findings report**. product-ui then evaluates findings against the accepted `PRODUCT.md` / `DESIGN.md` / ToB information-density requirements and separately fixes justified issues. Do not allow an anti-slop review to undo the user's chosen style or replace efficient data tables with decorative cards.
+
+Continue with the original Impeccable `critique → fixes → audit → fixes` flow when available, then ask the user to approve the Product Demo before expanding the UI.
+
+**shadcn/ui is a component library, not proof of an installed shadcn agent Skill.** Check both separately. If any Skill is missing, do not claim it ran; continue with labeled fallback behavior when appropriate.
+
+The main documents are `references/external-skill-protocol.md` and `references/hallmark-audit.md`.
+
 ## Best for
 
 - ToB SaaS / admin / ERP / CRM / operations consoles
@@ -130,7 +156,8 @@ For ToC tools:
 Recommended environment:
 - **UI UX Pro Max** — 0→1 visual/design-system exploration when no established `DESIGN.md` exists.
 - **shadcn skill** — implementation/component composition when the project uses shadcn/ui.
-- **Impeccable** — post-implementation critique/audit; polish is optional and last.
+- **Hallmark** — original, independently installed `audit` mode for read-only AI-slop findings.
+- **Impeccable** — original post-implementation critique/audit; polish is optional and last.
 
 `product-ui` still works without them. It must never claim a companion ran when it is unavailable.
 
@@ -200,6 +227,8 @@ references/
   approval-checkpoints.md
   visual-style-demos.md
   intelligent-ui-bridge.md
+  external-skill-protocol.md
+  hallmark-audit.md
   design-system-governance.md
   browser-review.md
   product-type-routing.md
