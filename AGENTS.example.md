@@ -32,13 +32,29 @@ Skip these checkpoints when the user supplied a clear visual reference or explic
 
 If the project uses shadcn/ui, use the shadcn Skill and existing project components before creating custom primitives.
 
+## Companion Skill verification
+
+When product-ui routes to UI UX Pro Max, an independent shadcn agent Skill, Hallmark, or Impeccable:
+
+- Confirm the Skill is actually available in this Codex environment.
+- Read the **installed original `SKILL.md` and task-specific mode reference**; do not use a copied summary.
+- Follow the original documented mode and retain observable evidence.
+- Report executed / skipped-not-needed / unavailable / blocked / failed.
+- Do not install or update third-party Skills without user permission.
+- **shadcn/ui library components are not evidence that a shadcn agent Skill is installed.**
+
+For a substantial rendered Product Demo, run **Hallmark audit (read-only)** first, evaluate its findings against accepted product constraints, and apply validated fixes separately. Never run Hallmark's default design or redesign mode without an explicit user request.
+
 After substantial UI implementation:
 1. render/review the interface with realistic data and states;
-2. run Impeccable critique if available;
-3. fix material findings;
-4. run Impeccable audit if available;
+2. run the original Hallmark **audit** if available; do not edit during the audit;
+3. evaluate its findings and separately fix grounded issues;
+4. run original Impeccable critique if available;
 5. fix material findings;
-6. use polish only when further refinement is justified.
+6. run original Impeccable audit if available;
+7. fix material findings;
+8. use polish only when further refinement is justified;
+9. record which companion Skills actually ran before asking for user Demo approval.
 
 ## Product UI defaults
 
