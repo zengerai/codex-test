@@ -6,7 +6,7 @@
 
 | Condition | Companion | Action |
 |---|---|---|
-| New product / no established visual direction | UI UX Pro Max | Generate 2–3 materially different product-appropriate directions, recommend one, then pause for user selection |
+| New product / no established visual direction | UI UX Pro Max + product-ui HTML preview | Generate 2–3 materially different directions and a browser-previewable Style Demo Gallery; then pause for user visual selection |
 | Applicable `DESIGN.md` exists | UI UX Pro Max | Do not re-explore by default; follow `DESIGN.md` |
 | Project uses shadcn/ui | shadcn skill | Use it for component discovery, composition, and implementation |
 | Project does not use shadcn/ui | shadcn skill | Do not introduce it solely because product-ui mentions it |
@@ -32,10 +32,13 @@ Do not use it to:
 For a new product or explicit full-product redesign with no accepted visual direction:
 1. use UI UX Pro Max to generate **2–3 materially different** visual directions;
 2. keep all directions compatible with the same product task, density, platform, and user context;
-3. explain each direction in concrete UI terms: layout character, density, typography feel, surfaces, component treatment, and suitable product references when helpful;
-4. recommend one direction and explain why;
-5. **pause before visual implementation and ask the user to select a direction**;
-6. after selection, move to the Demo Checkpoint rather than implementing the entire product.
+3. **implement an HTML/CSS Style Demo Gallery** with the same representative app content for all options;
+4. render/review real previews (and screenshots if available), give the user a working A/B/C switcher or side-by-side comparison rather than only prose;
+5. explain each direction briefly and recommend one;
+6. **pause for user visual choice before building any real Product Demo**;
+7. after selection, move to the Product Demo Checkpoint rather than implementing the entire product.
+
+Read `references/visual-style-demos.md` for the deliverable and quality bar.
 
 Do not ask vague open-ended questions such as “What style do you like?” before professional shortlisting.
 
@@ -46,7 +49,7 @@ Skip the visual-direction checkpoint when:
 
 ### Demo Checkpoint
 
-For a new multi-page product or full-product redesign, after the visual direction is selected:
+For a new multi-page product or full-product redesign, **after the user chooses among visual Style Demos**:
 1. implement the **application shell + one representative core page**;
 2. if one page cannot demonstrate the important interaction model, implement one short representative flow instead;
 3. use realistic data and include the most important normal/loading/empty/error or interaction states relevant to that page;
@@ -78,6 +81,12 @@ Skip staged checkpoints when the user explicitly requests “直接做完”, �
 The checkpoint model applies to **high-cost subjective or systemic decisions**. Routine IA/product decisions should still be made autonomously unless materially ambiguous.
 
 Once accepted, persist decisions into the project's durable design documentation.
+
+## GPT-6 Intelligent UI boundary
+
+Intelligent UI is a capability of supported **ChatGPT Chat** sessions, not a native Codex tool. Never require Codex to invoke it or assert that it has done so. The primary deliverable remains local previewable HTML/CSS.
+
+When the user wants to compare directions here in ChatGPT, Intelligent UI may present visual and interactive comparisons where available. Use a portable visual-direction decision note to hand the selected choices back into Codex. Do not claim shared live state or automatic transfer. See `references/intelligent-ui-bridge.md`.
 
 ## shadcn boundary
 
