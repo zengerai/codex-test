@@ -1,4 +1,4 @@
-# External Skill Invocation Contract — V2.3
+# External Skill Invocation Contract — V2.4
 
 **Rule: delegate to the installed original skill, not a paraphrase copied into product-ui.**
 
@@ -7,6 +7,15 @@ This contract applies to UI UX Pro Max, shadcn (agent skill), Hallmark, Impeccab
 ## 1. Route before invoking
 
 Determine whether the companion is relevant to this task and stage. Do not load all companions on every request.
+
+**Route the project first using `references/project-entry-routing.md`.** Existing-project optimization and existing-product rebuilds do not use the same companion sequence as a greenfield build.
+
+- `EXISTING_IMPROVE` initial baseline: strictly **read-only** audit/report. Hallmark audit is read-only. Impeccable only when its installed original mode/guidance permits report-only inspection with no edits; otherwise mark blocked/skipped for that mode, never apply suggested fixes before user approves the pilot.
+- `EXISTING_REDESIGN`: inspect baseline and contracts, then run UI UX Pro Max only when the new visual direction requires exploration.
+- `EXISTING_REBUILD`: inventory original behavior/route/API contracts first; external Skills never override preservation or migration safety.
+- `NEW_BUILD`: existing Style Demo + one Product Demo checkpoints remain.
+
+**A general QA instruction saying "fix findings" does not apply during the pre-approval read-only audit.** That gate overrides normal post-implementation fix steps.
 
 - UI UX Pro Max: novel/undecided visual system and style exploration.
 - shadcn *agent skill*: project uses shadcn/ui and implementation benefits from it.
@@ -80,7 +89,7 @@ Keep the ledger concise in the final response. For early approval checkpoints, p
 - Only ask about installation when truly necessary to proceed; for a task already in progress, deliver useful work and report the gap.
 - Never run user-unauthorized installers, hidden auto-updaters, or destructive commands.
 
-## 7. Default substantial-UI sequence
+## 7. Default substantial-UI sequence (new build or approved pilot)
 
 1. product-ui: classify product, preserve workflow/density.
 2. UI UX Pro Max original skill (only if direction is undefined) → 2–3 HTML Style Demo previews → **user selects**.
