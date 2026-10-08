@@ -1,4 +1,4 @@
-# product-ui V2.1 Evaluation Cases
+# product-ui V2.2 Evaluation Cases
 
 Use these prompts to check activation, routing, companion-skill behavior, and update behavior.
 
@@ -32,9 +32,12 @@ Expected:
 Expected:
 - product-ui activates;
 - UI UX Pro Max is used if available for visual exploration;
-- 2–3 materially different, product-appropriate visual directions are presented;
+- 2–3 materially different, product-appropriate directions are implemented as **actual browser-previewable HTML/CSS Style Demos**;
+- options show the **same** representative app structure, task, and sample data (as far as practical);
+- a working A/B/C preview switcher or side-by-side HTML comparison is delivered, preferably `design-exploration/style-comparison.html`;
+- actual browser render/screenshot evidence is presented when available, without fabricated claims when unavailable;
 - one direction may be recommended with reasoning;
-- the agent pauses before visual implementation and asks the user to choose;
+- the agent pauses before the real Product Demo and asks the user to choose **visually**;
 - after selection, the agent builds only an app shell + one representative core page/flow;
 - the rendered demo is shown/reviewed and the agent pauses for approval before broad implementation;
 - after approval, accepted visual/interaction rules are persisted into DESIGN.md and implementation expands in batches.
@@ -149,7 +152,7 @@ Expected:
 
 Expected:
 - product-ui activates;
-- visual-choice checkpoint is skipped because the user explicitly delegated it;
+- visual-choice checkpoint (including the HTML style gallery) is skipped because the user explicitly delegated it;
 - demo/expansion pauses are skipped because the user explicitly requested one-shot execution;
 - the agent still follows product-ui, rendered review, and final QA.
 
@@ -186,3 +189,78 @@ Expected:
 - recognize this as a materially new pattern;
 - implement a representative analytics surface first or otherwise expose the new pattern clearly;
 - pause for feedback before replicating the pattern across many analytics pages.
+
+
+## V2.2 visual gallery evaluations
+
+### 18. Visual comparison cannot be text-only
+
+> 做一个新的代账发票处理工作台，还没确定风格。先给我三个设计方向让我选。
+
+Expected:
+- produce a viewable HTML/CSS Style Demo Gallery with A/B/C (not solely an A/B/C written list);
+- include an app shell and a realistic record-processing workspace;
+- same task and underlying example content across variants;
+- visually distinct typography/surfaces/density within suitable operational constraints;
+- pause for user visual selection.
+
+### 19. Only changing the accent color is insufficient
+
+> 做三套 ToB 客户管理后台的 Style Demo。
+
+Expected:
+- distinguish the actual visual language beyond colors (typography, navigation/surface treatment, spacing, contrast, control styling);
+- do not change underlying product purpose/features solely to create differentiation;
+- no landing page/hero mockups.
+
+### 20. HTML output must be genuinely previewable
+
+> 给我可视化的 A/B/C 风格，代码也要能运行。
+
+Expected:
+- create local `design-exploration/style-comparison.html` or equivalent;
+- ensure switching works if offered;
+- use realistic sample data;
+- browser-render when available;
+- do not call static prose or token tables the deliverable.
+
+### 21. Rendering tools unavailable
+
+> 给我三套可视化 Style Demo，但是当前环境不能打开浏览器。
+
+Expected:
+- still generate standalone HTML/CSS;
+- tell user how to open it;
+- do not claim screenshot/browser verification occurred;
+- stop for choice after delivering preview file.
+
+### 22. User chooses a style
+
+> 方案 B 的字体和配色，方案 A 的密度。我就选这个，继续。
+
+Given: user has been shown Style Demo Gallery but Product Demo not approved.
+
+Expected:
+- capture the hybrid choice;
+- build **one** functional representative Product Demo page/flow using the selected design;
+- show/render that page and pause for a separate approval;
+- do not create all pages immediately.
+
+### 23. ChatGPT Intelligent UI boundary
+
+> 在 Codex 中直接调用 GPT-6 Intelligent UI 弹出三套设计让我选。
+
+Expected:
+- explain that Intelligent UI is a ChatGPT Chat capability, not a directly callable Codex skill/tool;
+- implement the local HTML/CSS gallery in Codex instead;
+- optionally offer a portable brief for ChatGPT-assisted comparison;
+- do not claim native integration or automatic state transfer.
+
+### 24. Existing visual system
+
+> 现有产品已经有 DESIGN.md，新增一个列表页，保持风格。
+
+Expected:
+- do not generate unrequested visual style gallery;
+- reuse accepted design system and existing components;
+- use normal implementation and QA workflow.
