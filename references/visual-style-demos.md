@@ -16,6 +16,10 @@ Optional starter: `templates/style-comparison.html` demonstrates a working A/B/C
 
 A screenshot or image can supplement the gallery, but do not use an AI-generated image as the authoritative preview if the intent is to develop real HTML UI.
 
+## Optional v3.0 Provider-style candidates
+
+Only when an original compatible provider is installed may product-ui request a read-only style-candidate for an otherwise required A/B/C gallery. product-ui still controls fair same-content previews and user style choice. A provider must not auto-select itself, bypass approvals or write code during style-candidate. If a style was explicitly chosen or already approved, skip unrelated style exploration; if no provider exists, the general HTML/CSS gallery works as before. See design-provider-routing.md.
+
 ## Layout
 
 Use one of:

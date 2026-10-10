@@ -1,9 +1,9 @@
 ---
 name: product-ui
-description: Design, audit, optimize, redesign, or rebuild real ToB/ToC product application interfaces (SaaS, admin, ERP/CRM, workbenches, tables, dashboards, forms, utilities). For new products, use visual HTML/CSS Style Demos, user choice, then one Product Demo before scaling. For existing projects, default to read-only UI/UX audit, prioritized plan, and user-approved pilot before editing; only initiate full visual redesign or frontend rebuild when explicitly requested. Orchestrate original installed UI UX Pro Max, shadcn agent Skill, Hallmark audit, and Impeccable critique/audit with verified evidence. Also activate for product-ui skill updates. Exclude marketing landing pages and portfolios.
+description: Style-neutral orchestrator to design, audit, optimize, redesign, or rebuild real ToB/ToC product application interfaces (SaaS, admin, ERP/CRM, workbenches, tables, dashboards, forms, utilities). For new products, use visual HTML/CSS Style Demos, user choice, then one Product Demo before scaling. For existing projects, default to read-only UI/UX audit, prioritized plan, and user-approved pilot before editing; only initiate full visual redesign or frontend rebuild when explicitly requested. Orchestrate original installed UI UX Pro Max, shadcn agent Skill, Hallmark audit, and Impeccable critique/audit with verified evidence. Also activate for product-ui skill updates. Exclude marketing landing pages and portfolios.
 ---
 
-# Product UI Orchestrator
+# Product UI Orchestrator · v3.0
 
 `product-ui` is the coordinator for real application interfaces. It owns product interaction decisions and routes work to companion skills when they are installed and relevant.
 
@@ -71,9 +71,21 @@ Use this precedence:
 3. `DESIGN.md` — established visual system and design tokens
 4. project components / implementation conventions
 5. `product-ui` — product interaction patterns and routing
-6. companion skills — specialized exploration, implementation, or review
+6. specialized Design Providers and companion skills — only verified independent originals, subject to project approval
 
 Read `references/design-system-governance.md` when any of these sources exist or conflict. For `EXISTING_REDESIGN` and `EXISTING_REBUILD` with an explicit visual reset, treat the existing `DESIGN.md` as a baseline to preserve for comparison until the user approves its replacement.
+
+## Design Provider Architecture (v3.0)
+
+Read references/design-provider-architecture.md and references/design-provider-routing.md. Before delegating visual-system work, read references/design-provider-protocol.md. A Design Provider is an independently installed specialist Skill, not a built-in callable API or assumed dependency.
+
+- product-ui **owns** product jobs, task IA, navigation/flow decisions, density and behavior, four lifecycle modes, style choice/HTML A/B/C comparisons, user approval checkpoints, DESIGN.md, external Skill dispatch, whole-product QA.
+- The selected Provider **owns** style-specific visual specification, components/variants/presets, token and theme recommendations, specialist motion and style-conformance; implementation only under explicit authorized scope.
+- Never hardcode a style family, color palette, radius, Motion curve, Luma/Rhea/Fluent preset or framework into product-ui. Do not replace an existing accepted design without explicit redesign permission.
+- Choose via explicit user intent > accepted DESIGN.md > observed existing visual conventions > approved visual exploration. No provider is required: the existing project component system and style-neutral fallback remain valid.
+- Provider discovery requires checking/read of actual installed original SKILL.md and needed provider references. Optional manifest metadata is NOT proof of invocation. Do not auto-install/update dependencies.
+- Providers must not rerun product-ui approval gates, mutate PRODUCT.md or competing DESIGN.md, invoke Hallmark/Impeccable/shadcn agent Skill, or replace product business/API contracts.
+- Follow references/design-provider-acceptance.md to distinguish style-conformance from full UX/accessibility/browser review. Log accurate provider execution evidence.
 
 ## Companion-skill orchestration
 
@@ -88,7 +100,7 @@ For each relevant companion:
 4. **Record status** as executed, skipped-not-needed, unavailable, blocked, or failed. Report the meaningful evidence, not imaginary completion.
 5. If unavailable, use product-ui's existing design/review workflow as an explicitly identified fallback when practical. Never claim a missing Skill ran.
 
-The project using shadcn/ui **does not imply** a shadcn agent Skill is installed; check those separately. Do not install or auto-update third-party Skills without user permission.
+The project using shadcn/ui **does not imply** a shadcn agent Skill is installed; check those separately. A Provider may recommend shadcn components, but product-ui alone coordinates original third-party Skill execution; never double-dispatch. Do not install or auto-update third-party Skills without user permission.
 
 ### UI UX Pro Max
 Use UI UX Pro Max when:
@@ -188,6 +200,7 @@ Inspect enough of the existing project to answer:
 - Are existing API, routing, auth and workflow contracts in scope for preservation?
 - Is shadcn/ui installed (`components.json`, shadcn components, or explicit project docs)?
 - Are the original UI UX Pro Max, shadcn agent Skill, Hallmark, and Impeccable Skill installations available and readable?
+- Is a style Provider requested or approved? If so, is its original Skill installed/readable and the desired framework/surface truly supported?
 
 Do not start by inventing a new visual language.
 
@@ -292,6 +305,8 @@ Read `references/visual-style-demos.md`.
 
 If the user already supplied a clear visual reference/style, treat that as the selected direction and skip the style shortlist.
 
+Provider selection belongs HERE, after style direction is explicitly set or approved: follow references/design-provider-routing.md and references/design-provider-protocol.md. A provider may supply a read-only gallery candidate, but cannot select itself. No-provider fallback retains product-ui normal exploration and existing components. An installed provider never waives the real Product Demo approval gate.
+
 After a direction is selected, implement the representative **Product Demo** and pause again before broad implementation. The Style Demo Gallery is a fast visual comparison; the Product Demo is functional application code.
 
 ### Phase 6 — Define states before implementation
@@ -311,6 +326,8 @@ For each major screen/interaction, account for relevant states:
 Read `references/states.md`.
 
 ### Phase 7 — Implement through the project's component system
+
+If a verified compatible Provider is active, follow its approved visual component mapping within the existing stack. A Provider may recommend but not unilaterally install a library, reset accepted tokens or change framework. Provider does not change product-ui's task-first implementation rules.
 
 If shadcn/ui is present, use its components and inspect the existing project implementations. Use the **separate original shadcn agent Skill only if it is installed and readable**, and record if it was not.
 Otherwise use the project's established component library and primitives.
@@ -369,7 +386,7 @@ After demo approval:
 
 A UI is not complete because the code compiles.
 
-Read `references/browser-review.md` and `references/review-checklist.md`.
+Read `references/browser-review.md` and `references/review-checklist.md`. If a Design Provider executed, also check `references/design-provider-acceptance.md` and distinguish specialist style-conformance from universal UX/a11y.
 
 Review with:
 - realistic content and record counts;
@@ -410,7 +427,8 @@ Do not call substantial UI work complete until relevant items are true:
 - rendered UI was reviewed;
 - material Hallmark AI-slop findings were evaluated (accepted/adapted/exempted) when Hallmark actually ran;
 - material Impeccable critique/audit findings were addressed when those modes actually ran;
-- original-skill use was reported honestly using observed status and evidence.
+- original-skill use was reported honestly using observed status and evidence;
+- any Provider's specialist style-conformance was checked independently from product UX QA.
 
 ## Default behavior for ToB
 
@@ -468,6 +486,7 @@ Before implementation, provide or establish:
 10. Risks and edge cases
 11. Visual-system source (`DESIGN.md`, existing product, or new exploration)
 12. Implementation-system source (shadcn or project component system)
+13. Visual Provider ID/version/provenance (or none), proposed vs approved
 
 Then follow the **chosen route**:
 - `NEW_BUILD`: for a new multi-page product, deliver **visual HTML/CSS Style Demos** if visual direction undefined; stop for choice;

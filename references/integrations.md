@@ -1,4 +1,12 @@
-# Companion Skill Integrations
+# Companion Skill Integrations and Design Providers
+
+## v3.0: style-neutral Design Provider handoff
+
+Design Providers are **independent installed original Skills** that contribute visual system, component appearance, token, theme and motion guidance AFTER product-ui resolves the intended style. Read design-provider-architecture.md, design-provider-routing.md and design-provider-protocol.md. product-ui owns UX, lifecycle, approvals, universal QA and separate original companion-Skill invocation.
+
+UI UX Pro Max still explores undefined style options; Providers may supply candidate specimens but not approve themselves. shadcn/ui is a library, not an installed agent Skill. A Provider can recommend shadcn, Fluent UI, etc., but only product-ui orchestrates independent shadcn agent, Hallmark and Impeccable original Skills. Missing provider means honest fallback and no fabricated execution. Existing visual systems are not overridden merely because a Provider is installed.
+
+## Legacy v2.4 companion rules (retained)
 
 `product-ui` owns product interaction decisions. Companion skills add specialized capability; they do not replace the product model.
 

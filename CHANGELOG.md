@@ -2,6 +2,19 @@
 
 All notable changes to `product-ui` are recorded here.
 
+## 3.0.0 — 2026-10-10
+
+### Added
+- Style-neutral Design Provider Architecture, provider selection/routing, written v1 handoff and compatibility checks.
+- Provider capability manifest example, handoff example, manifest validator, explicit style QA and execution evidence rules.
+- V3.0 evaluation scenarios for Apple/Fluent, missing providers, Vue compatibility, style migration and read-only audits.
+
+### Changed
+- product-ui retains product task IA, interactions, lifecycle and approvals. Selected Providers supply style-specific visual tokens/components/motion.
+- No compulsory Apple/Luma/Rhea/Fluent palette, component system, Motion curve, or React migration.
+- Kept v2.4 four project routes, read-only existing app audit, rendered Style Demo and Product Demo checkpoints, original Hallmark/Impeccable/shadcn Skill safety checks.
+- No Provider is required; original Apple Skill v2.0 refactor remains a separate future step.
+
 ## 2.4.0 — 2026-10-08
 
 ### Added

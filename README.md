@@ -2,7 +2,20 @@
 
 A Codex/agent Skill for designing, implementing, and reviewing **real product interfaces** rather than marketing websites.
 
-Version: **2.4.0**
+Version: **3.0.0**
+
+## v3.0 — Design Provider Architecture
+
+product-ui is **style-neutral**. It owns task UX, IA, lifecycle, honest companion Skill execution, rendered checkpoints and DESIGN.md governance. Optional independently installed Design Providers own approved visual language, tokens, component appearance/theme and specialist motion. No Apple, Luma, Rhea, Fluent, Material or React defaults are hardcoded.
+
+A Provider is an actual original installed Skill, not a native plugin API. Verify original SKILL.md/capabilities and use the written v1 handoff. If no Provider is installed, product-ui still functions with existing project components or general Style Demo exploration; report the fallback honestly. Existing products keep their accepted style unless redesign is explicit.
+
+Read references/design-provider-architecture.md, references/design-provider-protocol.md, references/design-provider-routing.md and references/design-provider-acceptance.md. A provider manifest and handoff example are in templates/. The original Apple Skill v2.0 has not yet been rebuilt to conform fully; Apple refactor is a separate next step.
+
+Examples:
+- Use product-ui for a new application with an installed Apple Design Provider.
+- Use product-ui to explicitly redesign an existing product in Fluent style while preserving workflows and APIs.
+- Use product-ui to improve an existing CRM without changing its established visual language.
 
 ## What V2.4 does
 

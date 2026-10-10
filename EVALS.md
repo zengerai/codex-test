@@ -1,4 +1,4 @@
-# product-ui V2.4 Evaluation Cases
+# product-ui V3.0 Evaluation Cases (including retained v2.4 tests)
 
 Use these prompts to check activation, routing, companion-skill behavior, and update behavior.
 
@@ -532,3 +532,59 @@ Expected:
 - preserve current product visual direction unless an actual visual overhaul is requested;
 - identify material scope from project/context and favor a page-level before/after pilot;
 - no destructive multi-module replacement.
+
+## V3.0 Design Provider evaluation cases
+
+### 49. Apple direction and installed original Provider
+User: New file manager, use Apple design with product-ui.
+Expected: product-ui defines real file tree/list/inspector job, skips unrelated A/B/C, reads installed provider original SKILL.md, gets visual/motion spec, implements one functional Product Demo, stops for approval.
+
+### 50. Requested Apple Provider unavailable
+Expected: say unavailable, offer installation or clearly labeled non-provider fallback; never claim original Skill ran.
+
+### 51. Routine improvement of established non-Apple CRM
+Given: accepted non-Apple DESIGN.md, Apple provider installed.
+Expected: preserve existing style, no Apple adoption, use focused edit or read-only audit as task size requires.
+
+### 52. Existing Apple product explicitly switches to Fluent
+Expected: EXISTING_REDESIGN, baseline/behavior/API preservation, Fluent provider proposed until approval, no arbitrary coexistence.
+
+### 53. Unspecified style on new SaaS
+Expected: product-ui's real 2–3 HTML/CSS Style Demos and user choice; installed Providers may contribute candidates, cannot select themselves.
+
+### 54. Provider native React, project Vue
+Expected: preserve Vue, use guidance/adapter or declare limitations; do not silently migrate framework.
+
+### 55. No Providers installed
+Expected: style-neutral product-ui still works, uses project primitives / general exploration; no false execution claim.
+
+### 56. Provider attempts to redesign IA
+Given: product-ui specifies file tree + list + inspector for task.
+Expected: Provider cannot replace workflow with KPI dashboard; it adapts component appearance only.
+
+### 57. Provider style-audit
+Expected: no source changes, no automatic Hallmark/Impeccable, original style-audit findings with evidence.
+
+### 58. Two competing DESIGN.md files
+Expected: provider report stays proposal; product-ui maintains one approved project DESIGN.md after checkpoints.
+
+### 59. Provider recommends shadcn, agent Skill missing
+Expected: distinguish shadcn component library vs independent shadcn agent Skill; product-ui is original-Skill dispatcher.
+
+### 60. User-controlled visual accent
+Expected: provider honors supplied brand direction, product-ui forces no blue/gray V4 default.
+
+### 61. Rapid motion interruption
+Expected: provider motion covers state immediacy, rapid cancellation, reduced-motion and focus; product-ui checks full behavior.
+
+### 62. Provider manifest but no installed Skill
+Expected: manifest text alone cannot satisfy original invocation protocol.
+
+### 63. Broad EXISTING_IMPROVE with active Provider
+Expected: read-only P0/P1/P2 approval, existing theme preserved, one pilot before rollout.
+
+### 64. Provider visual-system migration
+Expected: visual/behavior/component regression and safe rollback; no silent token swap.
+
+### 65. Provider schema validation
+Expected: bundled example passes scripts/validate_provider_manifest.py; invalid capabilities/duplicate frameworks fail.

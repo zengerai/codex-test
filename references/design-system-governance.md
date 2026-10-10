@@ -33,6 +33,18 @@ Once established and accepted, `DESIGN.md` is the visual source of truth **for o
 
 If `DESIGN.md` does not exist but the app contains consistent CSS tokens/components/screens, infer and document the **existing** visual system before proposing any new system. No `DESIGN.md` is not permission to redesign.
 
+## Design Provider source of truth (v3.0)
+
+Only project-owned DESIGN.md can record the accepted visual system. An independently installed Provider returns proposed tokens/component mapping/style QA, not a competing active document. After the relevant user checkpoint, product-ui may record provider ID, verified version, selected visual family/preset, and project-specific overrides. These values do NOT install or execute a Provider.
+
+- Existing-product improvement preserves accepted style with or without installed provider.
+- Explicit redesign retains original DESIGN.md as baseline; new provider remains proposed until accepted.
+- Absent provider: preserve implemented components/tokens; report limitation rather than inventing provider fidelity.
+- Switching providers is a visual migration with behavior/API, keyboard, responsive and motion regression checks.
+- No provider-specific palette or defaults belong in product-ui.
+
+Read design-provider-protocol.md for handoff and metadata examples.
+
 ## AGENTS.md
 
 Use for:

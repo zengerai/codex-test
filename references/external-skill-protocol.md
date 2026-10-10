@@ -114,3 +114,7 @@ Optional `polish` must not substitute for critique or audit.
 | Impeccable audit | blocked | Browser access unavailable; no false pass claimed |
 
 The table is **an example**, not a claim about this session. Never copy these statuses without observing real work.
+
+## v3.0 Design Provider original-Skill rule
+
+The same original-Skill detection, guidance loading and evidence standard applies to separately installed Design Providers. Optional manifest metadata is not evidence that a Skill was installed/executed. product-ui owns third-party shadcn-agent/Hallmark/Impeccable dispatch; visual Providers do not rerun those Skills. See design-provider-protocol.md.

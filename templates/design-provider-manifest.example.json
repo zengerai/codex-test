@@ -1,0 +1,38 @@
+{
+  "contract_version": "1.0",
+  "provider_id": "example-design-provider",
+  "display_name": "Example Design Provider",
+  "entry": "SKILL.md",
+  "design_families": [
+    "example-family"
+  ],
+  "capabilities": [
+    "visual-spec",
+    "component-mapping",
+    "tokens",
+    "themes",
+    "motion",
+    "style-audit",
+    "implementation",
+    "style-candidate"
+  ],
+  "surfaces": [
+    "desktop-web",
+    "responsive-web"
+  ],
+  "framework_support": [
+    {
+      "name": "react",
+      "level": "native",
+      "notes": "components"
+    },
+    {
+      "name": "vue",
+      "level": "guidance",
+      "notes": "recommendations, not React files"
+    }
+  ],
+  "dependencies": {
+    "optional_libraries": []
+  }
+}

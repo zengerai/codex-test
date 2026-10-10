@@ -1,0 +1,28 @@
+# Example written handoff, NOT an executable runtime API.
+contract_version: "1.0"
+request_id: "list-inspector-demo"
+provider_id: "example-design-provider"
+mode: "spec" # style-candidate | spec | implement | style-audit
+project_route: "NEW_BUILD"
+visual_intent:
+  family: "example-family"
+  source: "user-selected style"
+product_job:
+  primary_user: "regular operator"
+  primary_object: "records"
+  primary_task: "find, compare and inspect records"
+  density: "compact; repeated use"
+surface_blueprint:
+  page_type: "list-detail"
+  regions: ["navigation", "filters", "table", "inspector"]
+  states: ["loading", "empty", "error", "selected"]
+environment:
+  framework: "react"
+  existing_component_library: "none"
+  targets: ["desktop-web"]
+design_source: "none"
+change_scope: "read-only"
+deliverable: ["style-spec", "component-mapping", "motion-contract", "QA risks"]
+constraints:
+  preserve_business_and_API_contracts: true
+  accessibility_target: "WCAG 2.2 AA"
