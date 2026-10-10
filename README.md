@@ -1,292 +1,163 @@
 # product-ui
 
-A Codex/agent Skill for designing, implementing, and reviewing **real product interfaces** rather than marketing websites.
+**让 AI 按真实软件产品的工作方式设计、开发和优化前端界面。**
 
-Version: **3.0.0**
+`product-ui` 是一套面向 Codex 等 AI 编程助手的 **产品 UI 工作流 Skill**。它不是某种固定配色的组件库，而是负责理解用户任务、规划信息架构、组织设计与实现、在关键阶段让你确认，并检查最终界面是否真正好用。
 
-## v3.0 — Design Provider Architecture
+适合 SaaS、ERP / CRM、管理后台、数据工作台、工具软件和带有真实操作流程的 Web 应用。**新项目可以从零设计，已有项目可以先检查再优化，也可以明确要求换风格或整体重建。**
 
-product-ui is **style-neutral**. It owns task UX, IA, lifecycle, honest companion Skill execution, rendered checkpoints and DESIGN.md governance. Optional independently installed Design Providers own approved visual language, tokens, component appearance/theme and specialist motion. No Apple, Luma, Rhea, Fluent, Material or React defaults are hardcoded.
+> **快速理解：**你告诉 AI“做什么软件 / 优化什么页面”，`product-ui` 负责推进；需要苹果风或微软 Fluent 风时，再由相应的独立 Design Provider 处理视觉细节。
 
-A Provider is an actual original installed Skill, not a native plugin API. Verify original SKILL.md/capabilities and use the written v1 handoff. If no Provider is installed, product-ui still functions with existing project components or general Style Demo exploration; report the fallback honestly. Existing products keep their accepted style unless redesign is explicit.
+## 它能做什么？
 
-Read references/design-provider-architecture.md, references/design-provider-protocol.md, references/design-provider-routing.md and references/design-provider-acceptance.md. A provider manifest and handoff example are in templates/. The original Apple Skill v2.0 has not yet been rebuilt to conform fully; Apple refactor is a separate next step.
+| 你的需求 | product-ui 会怎么做 |
+|---|---|
+| 从零开发产品界面 | 理清用户任务、页面结构和操作流程；必要时先提供可预览的风格候选，再做一个真实 Demo |
+| 优化已经开发的前端 | 大范围优化先只读审查，给出问题清单与优先级；你确认后先改一个代表性页面 |
+| 给现有产品换视觉风格 | 保留业务功能与 API，重做视觉体系并通过代表性页面验证 |
+| 重建 / 迁移现有前端 | 先盘点页面、功能、接口和依赖，制定可回退的替换方案 |
+| 提升完成度 | 检查真实交互、状态、密度、响应式、键盘访问及视觉一致性；按需调用已安装的审查 Skill |
 
-Examples:
-- Use product-ui for a new application with an installed Apple Design Provider.
-- Use product-ui to explicitly redesign an existing product in Fluent style while preserving workflows and APIs.
-- Use product-ui to improve an existing CRM without changing its established visual language.
+**重点不是生成一张漂亮的后台截图，而是把页面做成能够使用、能够继续迭代的产品。**
 
-## Create your own Design Provider (AI development prompt)
+## 安装（Codex）
 
-**想让其他 AI 开发一个新的苹果风 / Microsoft Fluent / Material 等 Design Provider？**
-
-直接复制 [**Design Provider 开发通用提示词（中文）**](templates/design-provider-development-prompt.md)，填写 Provider 名称、目标设计体系、框架和交付目录，再交给 Codex、Claude Code 或 Cursor。提示词会要求开发 AI 先读取本仓库最新的 Provider v1 协议、清楚划分 product-ui/Provider 职责，并交付独立可安装的 Skill、manifest、示例及测试。
-
-- **复制完整提示词：** [`templates/design-provider-development-prompt.md`](templates/design-provider-development-prompt.md)
-- **协议原文：** [`references/design-provider-protocol.md`](references/design-provider-protocol.md)
-- **职责边界：** [`references/design-provider-architecture.md`](references/design-provider-architecture.md)
-- **能力声明示例：** [`templates/design-provider-manifest.example.json`](templates/design-provider-manifest.example.json)
-
-> 新 Provider 独立开发、安装与升级，不需要复制或改写 product-ui；开发提示词是模板，必须以仓库最新协议为准。Provider 的原始 Skill 真正安装并可读取后，product-ui 才能如实记录其执行状态。
-
-## What V2.4 does
-
-`product-ui` is now an orchestrator:
-
-```text
-Product context
-    ↓
-product-ui
-    ↓
-classify task / page / density / workflow
-    ↓
-UI UX Pro Max   (only when visual direction is undefined)
-    ↓
-2–3 differentiated directions
-    ↓
-HTML/CSS Style Demo Gallery (same app content in A/B/C)
-    ↓
-USER CHOOSES visually ← Style Demo Checkpoint
-    ↓
-shadcn agent Skill (only if installed and project uses shadcn/ui)
-    ↓
-Real App shell + 1 representative core Product Demo page
-    ↓
-render / browser review
-    ↓
-Hallmark audit     (original installed Skill, read-only)
-    ↓
-product-ui evaluates + fixes grounded findings
-    ↓
-Impeccable critique + fixes
-    ↓
-Impeccable audit + fixes
-    ↓
-USER REVIEWS rendered Product Demo ← Approval Checkpoint
-    ↓
-DESIGN.md        (accepted direction/patterns become source of truth)
-    ↓
-expand implementation in batches
-    ↓
-re-run relevant review stages for material changes
-    ↓
-optional polish
-```
-
-The companion skills are conditional, not blindly invoked on every task.
-
-## Project modes in V2.4
-
-The very first decision is whether this is a **new product** or an **existing product**, and whether the user wants **improvement** or **explicit redesign/rebuild**.
-
-| Mode | Typical prompt | First deliverable | Approval gate |
-|---|---|---|---|
-| `NEW_BUILD` | 开发一个新的 SaaS 产品 | 2–3 runnable HTML Style Demos when style undefined | Choose visual direction; then approve one real Product Demo |
-| `EXISTING_IMPROVE` | 用 product-ui 优化当前前端 | **Read-only audit report** with P0/P1/P2 findings and one pilot recommendation | **Approve audit/pilot before changes**; then approve before/after pilot |
-| `EXISTING_REDESIGN` | 把这个已有系统的 UI 全面重新设计 | Existing UI/flow inventory, new HTML Style Demos | Choose new direction; then approve replacement Product Demo |
-| `EXISTING_REBUILD` | 将已有前端整体重写/迁移框架 | Behavior/API/route inventory, preservation & migration plan | Approve high-cost scope/style, one replacement Product Demo and staged migration |
-
-**Existing project + unspecified "优化" defaults to `EXISTING_IMPROVE`.** Do not modify source during the first audit, and do not launch UI UX Pro Max simply because `DESIGN.md` is missing; first recover the real visual system from code and rendered UI.
-
-A small precisely scoped request (e.g. a button or filter issue) does not require a whole-project audit/approval ceremony. A user-authorized one-shot request can skip unnecessary approval pauses, but it does not authorize destructive rewrites or breaking existing APIs.
-
-## Staged approval model (V2.4)
-
-For `NEW_BUILD`, `EXISTING_REDESIGN` and visual-reset `EXISTING_REBUILD`, use the staged style selection and Product Demo checkpoints. For `EXISTING_IMPROVE`, **replace the first style checkpoint with read-only audit approval**, followed by before/after pilot approval. Do not run from brief to all-pages production UI in one uninterrupted pass unless the user explicitly asks for autonomous/one-shot execution.
-
-Default checkpoints:
-
-1. **Visual Direction Checkpoint** (new build / explicit redesign only) — when no accepted visual direction exists, use UI UX Pro Max if available to generate 2–3 materially different, product-appropriate directions; **build and show actual HTML/CSS Style Demos** using the same representative product UI; recommend one, then pause for the user to choose visually. A purely written style menu is not sufficient.
-2. **Product Demo Checkpoint** — after direction selection or after approval of the existing-UI audit/pilot scope, implement only the real application shell plus **one representative core page** (or one representative flow if a single page is insufficient), using realistic data and key states. Render/review, complete applicable original Hallmark audit + Impeccable critique/audit with material fixes, then pause for the user to confirm the direction before expanding the product.
-3. **Expansion Checkpoint** — after demo approval, continue in coherent batches. Pause again only when introducing a materially new UI pattern, a major design-system deviation, or after a large module/batch where feedback can still prevent costly rework.
-4. **Final QA** — recheck materially changed modules with original Hallmark audit (when relevant and available), Impeccable critique → fixes → audit → fixes. Polish remains optional. Report real Skill execution status.
-
-Skip unnecessary checkpoints when:
-- an applicable `DESIGN.md` and mature existing UI already establish the direction;
-- the user supplied a clear screenshot/design/reference and only wants faithful continuation;
-- the task is a small isolated change rather than a new surface family;
-- the user explicitly says “直接做完 / 不用问我 / 你自己决定 / one-shot / autopilot”.
-
-The agent should not ask for approval on every page. The purpose is to validate high-cost decisions early, not create approval fatigue.
-
-## V2.2 retained: visual comparison
-
-For new product visual exploration, the expected first artifact is a **working, browser-previewable comparison**, normally:
-
-```text
-design-exploration/
-  style-comparison.html   ← A/B/C gallery, same representative screen
-  previews/               ← actual screenshots when browser capture is available
-```
-
-A working starter is provided at `templates/style-comparison.html`. Codex should adapt it to the actual product rather than blindly reusing the example styles.
-
-The gallery can switch among visual systems or show them side by side. It should illustrate a real product screen (ToB workbench/table/forms or ToC core utility), not a landing page. Short text descriptions supplement the visuals.
-
-**Two distinct reviews:**
-
-- **Style Demo**: choose a visual language from comparable working HTML/CSS previews.
-- **Product Demo**: after choosing the style, validate the first real application page and interactions before scaling.
-
-### GPT-6 Intelligent UI: optional complement, not a Codex dependency
-
-OpenAI's October 7, 2026 release introduced Intelligent UI to supported **ChatGPT Chat** experiences. It can help compare options interactively in ChatGPT, but it is **not a callable Codex Skill or guaranteed renderer inside Codex App**. The primary V2.2 workflow works entirely with browser-previewable HTML/CSS created by Codex. For optional ChatGPT-based visual comparison, transfer the selected direction with a portable decision note; do not assume automatic state/code transfer.
-
-See `references/visual-style-demos.md` and `references/intelligent-ui-bridge.md`.
-
-## V2.3 — original Skill integrations
-
-The project is a **Skill orchestrator, not a Skill collector**. UI UX Pro Max, the independent shadcn agent Skill, Hallmark, and Impeccable must remain **separately installed and independently updateable**. Their prompt catalogs and references are **not copied** into product-ui.
-
-For each relevant Skill, Codex should:
-
-1. Detect the original installed Skill; do not infer installation from a link or a component dependency.
-2. Read the original `SKILL.md` and required original mode references.
-3. Invoke/follow the installed version's **actual workflow**.
-4. Verify output or findings.
-5. Report **executed / skipped-not-needed / unavailable / blocked / failed** with evidence.
-
-### Where Hallmark fits
-
-After rendering a real Product Demo, run **Hallmark `audit` only** when it is installed. This mode produces a **read-only, ranked AI-slop findings report**. product-ui then evaluates findings against the accepted `PRODUCT.md` / `DESIGN.md` / ToB information-density requirements and separately fixes justified issues. Do not allow an anti-slop review to undo the user's chosen style or replace efficient data tables with decorative cards.
-
-Continue with the original Impeccable `critique → fixes → audit → fixes` flow when available, then ask the user to approve the Product Demo before expanding the UI.
-
-**shadcn/ui is a component library, not proof of an installed shadcn agent Skill.** Check both separately. If any Skill is missing, do not claim it ran; continue with labeled fallback behavior when appropriate.
-
-The main documents are `references/external-skill-protocol.md` and `references/hallmark-audit.md`.
-
-## Best for
-
-- ToB SaaS / admin / ERP / CRM / operations consoles
-- high-density data tables and record systems
-- workbenches, review queues, approval workflows
-- search, filtering, sorting, batch actions
-- forms and settings
-- dashboards and analytics
-- ToC utility tools, editors, account areas, mobile/web apps
-
-## Not for
-
-Do not use this as the primary framework for:
-- landing pages
-- portfolios
-- company homepages
-- campaign pages
-- brand-only showcase sites
-
-## Design principles
-
-For ToB operational UI:
-- table/list first when users scan, compare, filter, or batch-process data;
-- optimize for repeated daily use;
-- preserve context across filters, selections, and review workflows;
-- avoid excessive cards, giant headings, and hero whitespace.
-
-For ToC tools:
-- make the primary job obvious;
-- reduce setup before first value;
-- progressively disclose advanced controls;
-- provide clear feedback and safe previews.
-
-## Companion skills
-
-Recommended environment:
-- **UI UX Pro Max** — 0→1 visual/design-system exploration when no established `DESIGN.md` exists.
-- **shadcn skill** — implementation/component composition when the project uses shadcn/ui.
-- **Hallmark** — original, independently installed `audit` mode for read-only AI-slop findings.
-- **Impeccable** — original post-implementation critique/audit; polish is optional and last.
-
-`product-ui` still works without them. It must never claim a companion ran when it is unavailable.
-
-## Durable project context
-
-Recommended files:
-
-```text
-PRODUCT.md  -> users, jobs, workflows, product rules
-DESIGN.md   -> accepted visual system and UI conventions
-AGENTS.md   -> repository/agent workflow and completion rules
-```
-
-Do not maintain two competing design systems.
-
-## Installation model
-
-For easy updates, keep this Skill as a Git checkout and symlink it into Codex's user skill directory.
-
-From the cloned repository:
+在终端执行：
 
 ```bash
-./scripts/install.sh
+git clone https://github.com/zengerai/codex-test.git
+cd codex-test
+bash scripts/install.sh
 ```
 
-Default target:
+默认注册到 `~/.agents/skills/product-ui`（软链接指向你的 Git 仓库）。已存在同名目录时，安装脚本会停止并提示，不会覆盖。安装后如 Codex 没有立刻识别 Skill，重新加载 / 重启 Codex。
+
+> 其他支持 Agent Skills 的 AI 开发工具可以参考各自的 Skill 安装方式；能否识别 `$product-ui` 以实际客户端和安装结果为准。详见 [INSTALL.md](INSTALL.md)。
+
+### 安装后怎么告诉 AI？
+
+**直接在 Codex 的项目对话中使用下面的指令**；`$product-ui` 是本 Skill 的名称。你也可以用自然语言明确指定使用它。
+
+**例 1：做一个新工具**
 
 ```text
-~/.agents/skills/product-ui
+使用 $product-ui，为我开发一个自动整理文件的 Web 软件。
+先梳理核心操作和页面结构。如果还没确定视觉风格，
+请先给我 2～3 套可以在浏览器里查看的 Style Demo。
+我选择后，你先实现一个可操作的核心 Product Demo，等我确认再扩展。
 ```
 
-The target is a symlink, so the Git checkout remains the single source on your machine.
-
-## Update model
-
-Once installed from Git, you can tell Codex:
-
-> 更新 product-ui 技能
-
-The Skill instructs Codex to run:
-
-```bash
-./scripts/update.sh
-```
-
-The updater:
-- refuses to overwrite uncommitted local changes;
-- pulls only the configured remote/branch;
-- uses `git pull --ff-only`;
-- reports previous/new version and changed files.
-
-## Key files
+**例 2：已有项目，只做体验优化**
 
 ```text
-SKILL.md
-VERSION
-CHANGELOG.md
-README.md
-AGENTS.example.md
-EVALS.md
-INSTALL.md
-scripts/
-  install.sh
-  update.sh
-references/
-  integrations.md
-  approval-checkpoints.md
-  visual-style-demos.md
-  intelligent-ui-bridge.md
-  external-skill-protocol.md
-  hallmark-audit.md
-  project-entry-routing.md
-  existing-project-audit.md
-  design-system-governance.md
-  browser-review.md
-  product-type-routing.md
-  information-density.md
-  data-table.md
-  forms.md
-  workflow.md
-  navigation.md
-  filters-search.md
-  bulk-actions.md
-  dashboard.md
-  settings.md
-  onboarding.md
-  mobile-adaptation.md
-  states.md
-  accessibility.md
-  review-checklist.md
-templates/
-  style-comparison.html  ← optional working A/B/C preview starter
+使用 $product-ui 检查当前已经开发的 CRM 前端。
+保持现有视觉风格和业务功能不变。
+先只读审查 UI/UX，列出 P0/P1/P2 问题和建议试点，
+未经我确认不要修改代码。
 ```
+
+**例 3：明确整体换风格**
+
+```text
+使用 $product-ui 将当前后台重新设计为苹果风。
+保留功能、权限和后端 API，不要擅自重写业务。
+如果安装了 $apple-inspired-desktop-saas，请按 Provider 协议使用它。
+先完成一个代表性页面给我确认，再批量推广。
+```
+
+**例 4：重建原有前端**
+
+```text
+使用 $product-ui 重建当前前端，保留全部既有业务功能和 API。
+先盘点页面、路由和功能，给出迁移及回滚计划；
+完成替代版核心页面并让我验收后，再逐步替换。
+```
+
+**例 5：你已经选好风格，希望 AI 不再反复问**
+
+```text
+使用 $product-ui 开发这个新项目。
+视觉方向采用 Apple-inspired，你自行选择合适的组件方案。
+不用再出不同风格的 A/B/C 方案，但先做好一个真实核心页面让我验收。
+```
+
+你不必手动指定内部模式：Skill 会根据项目现状与这次指令自动识别。想让 AI 一次完成，可以明确说“跳过不必要的审批停顿，直接完成”，但不会因此允许破坏现有功能或跳过必要验证。
+
+## 四种项目模式
+
+这四种是 **product-ui 的项目处理模式**，不是 Apple Provider 的视觉任务模式。
+
+| 模式 | 什么时候触发 | 默认流程 |
+|---|---|---|
+| `NEW_BUILD` | 新建产品 / 只有空项目骨架 | 产品结构 → 未定风格时选 Style Demo → 一个真实 Product Demo → 确认后扩展 |
+| `EXISTING_IMPROVE` | 已有界面，需要检查、打磨或提升易用性 | **先只读审查** → 你确认问题 → 优化一个试点 → 前后对比 → 推广 |
+| `EXISTING_REDESIGN` | 明确希望给已有产品换整体视觉风格 | 记录原状 → 新视觉方案 / Provider → 代表性页面 → 验收后分批替换 |
+| `EXISTING_REBUILD` | 需要重写前端、迁移技术栈或更换实现 | 盘点现有功能/API → 迁移和回滚方案 → 替代版 Demo → 分阶段迁移 |
+
+对于**明确的小改动**（如“缩小这个筛选框”），不必先做全站审计或反复审批。对于大范围已有项目优化，“优化”默认不意味着推翻原风格。
+
+## 它是如何工作的？
+
+```text
+你的需求 + 项目代码
+       ↓
+product-ui：识别新建 / 优化 / 重设计 / 重建
+       ↓
+确定用户任务、信息架构、操作流程、页面布局
+       ↓
+确定视觉方向（未指定时提供可预览的候选）
+       ↓
+可选 Design Provider：专业风格、组件表现、主题和动效
+       ↓
+实现一个真实的代表性页面 / 操作流程
+       ↓
+浏览器检查 + 必要的专项审查
+       ↓
+你确认 → DESIGN.md 固化已接受的设计 → 分批实现与验收
+```
+
+**两类 Demo 不一样：**
+
+- **Style Demo**：在浏览器里比较 2～3 套视觉方向；只有风格未定、确实需要探索时才生成。
+- **Product Demo**：在真实项目中实现应用外壳和一个核心页面/流程，检查实际操作、状态和界面是否符合预期。
+
+它不会要求你对每个普通页面都审批一次；只有新视觉体系、新的核心交互模式或成本较高的阶段边界才需要再次确认。
+
+## 与 Design Provider 及其他 Skills 的关系
+
+`product-ui` **不规定必须使用苹果风、微软风，也不锁定某种组件库**。它负责“产品要做什么、怎样推进、何时验收”；专业 Design Provider 负责“选定的风格具体长什么样、组件如何呈现和运动”。
+
+| 专业能力 | 对应资源 | 使用条件 |
+|---|---|---|
+| Apple-inspired 视觉与动效 | [Apple Design Provider](https://github.com/zengerai/Apple_Skill) | 已安装且项目明确选用苹果风 |
+| 未来其他视觉系统 | 各自独立的 Fluent / Material 等 Provider | 需真正开发、安装并满足兼容要求 |
+| 未确定视觉方向时的探索 | UI UX Pro Max | 原始 Skill 已安装且当前任务有必要 |
+| UI 组件代码 | 项目已有组件库、shadcn/ui 等 | 按项目实际技术栈 |
+| AI 味只读审查 | Hallmark | 原始 Skill 已安装且需要审查时 |
+| 体验与代码质量审查 | Impeccable | 原始 Skill 已安装且任务范围需要时 |
+
+上述外部 Skill 都是**按需协作**，并非 product-ui 的强制依赖；不会因为 README 提到了名字就自动安装或声称执行。
+
+### 自己开发一个新的 Design Provider
+
+如果你希望让另一个 AI 开发 Microsoft Fluent、Material 或其他设计体系，直接将 [**Design Provider 通用开发提示词**](templates/design-provider-development-prompt.md) 交给它。模板要求先阅读统一的 [Provider 协议](references/design-provider-protocol.md) 和 [职责架构](references/design-provider-architecture.md)，开发独立 Skill，而不是修改 product-ui 主流程。
+
+## 设计资料与进阶阅读
+
+| 文件 | 内容 |
+|---|---|
+| [SKILL.md](SKILL.md) | Agent 实际执行规则 |
+| [INSTALL.md](INSTALL.md) | 安装与更新 |
+| [项目入口与四模式路由](references/project-entry-routing.md) | 新建 / 优化 / 重设计 / 重建怎样区分 |
+| [视觉确认节点](references/approval-checkpoints.md) | Style Demo、Product Demo 和扩展阶段的审批 |
+| [Style Demo 规范](references/visual-style-demos.md) | 可直接预览的 A/B/C 视觉方案 |
+| [Provider 架构](references/design-provider-architecture.md) · [协议](references/design-provider-protocol.md) | 风格协作边界及交接约定 |
+| [外部 Skill 协作](references/integrations.md) | UI UX Pro Max、shadcn、Hallmark、Impeccable |
+| [EVALS.md](EVALS.md) | 设计的能力评估场景 |
+| [CHANGELOG.md](CHANGELOG.md) | 版本更新记录 |
+
+### 更新 Skill
+
+如果是通过 Git 安装，可在仓库目录运行 `bash scripts/update.sh`，或在 Codex 中说“更新 product-ui 技能”。更新脚本使用 fast-forward，遇到未提交的本地变更会停止，不会直接覆盖。
+
+**适用范围提醒：**本 Skill 主要服务于**软件应用界面**；营销官网、品牌落地页和个人作品集不是它的核心用途。
