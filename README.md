@@ -17,6 +17,19 @@ Examples:
 - Use product-ui to explicitly redesign an existing product in Fluent style while preserving workflows and APIs.
 - Use product-ui to improve an existing CRM without changing its established visual language.
 
+## Create your own Design Provider (AI development prompt)
+
+**想让其他 AI 开发一个新的苹果风 / Microsoft Fluent / Material 等 Design Provider？**
+
+直接复制 [**Design Provider 开发通用提示词（中文）**](templates/design-provider-development-prompt.md)，填写 Provider 名称、目标设计体系、框架和交付目录，再交给 Codex、Claude Code 或 Cursor。提示词会要求开发 AI 先读取本仓库最新的 Provider v1 协议、清楚划分 product-ui/Provider 职责，并交付独立可安装的 Skill、manifest、示例及测试。
+
+- **复制完整提示词：** [`templates/design-provider-development-prompt.md`](templates/design-provider-development-prompt.md)
+- **协议原文：** [`references/design-provider-protocol.md`](references/design-provider-protocol.md)
+- **职责边界：** [`references/design-provider-architecture.md`](references/design-provider-architecture.md)
+- **能力声明示例：** [`templates/design-provider-manifest.example.json`](templates/design-provider-manifest.example.json)
+
+> 新 Provider 独立开发、安装与升级，不需要复制或改写 product-ui；开发提示词是模板，必须以仓库最新协议为准。Provider 的原始 Skill 真正安装并可读取后，product-ui 才能如实记录其执行状态。
+
 ## What V2.4 does
 
 `product-ui` is now an orchestrator:
