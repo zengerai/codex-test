@@ -20,6 +20,8 @@
 
 **重点不是生成一张漂亮的后台截图，而是把页面做成能够使用、能够继续迭代的产品。**
 
+在确实有复杂任务的工作台上，v3.2 可按需选择 Master Detail、Expand in Place、Global Filter、Linked Hover、Sticky Compact Header 和 ⌘K Command Palette，并确保跨组件状态一致；不会为追求炫酷把它们强加给所有页面。
+
 ## 安装（Codex）
 
 在终端执行：
@@ -160,6 +162,7 @@ product-ui：识别新建 / 优化 / 重设计 / 重建
 | [项目入口与四模式路由](references/project-entry-routing.md) | 新建 / 优化 / 重设计 / 重建怎样区分 |
 | [视觉确认节点](references/approval-checkpoints.md) | Style Demo、Product Demo 和扩展阶段的审批 |
 | [Style Demo 规范](references/visual-style-demos.md) | 可直接预览的 A/B/C 视觉方案 |
+| [高级交互选型](references/advanced-interaction-selection.md) | 根据产品任务选择联动交互，明确状态和验收契约 |
 | [外部视觉参考](references/visual-reference-discovery.md) · [参考提炼模板](templates/visual-reference-brief.example.md) | 按需参考第三方 DESIGN.md、保留来源与限制，再转化为真实应用界面 |
 | [Provider 架构](references/design-provider-architecture.md) · [协议](references/design-provider-protocol.md) | 风格协作边界及交接约定 |
 | [外部 Skill 协作](references/integrations.md) | UI UX Pro Max、shadcn、Hallmark、Impeccable |

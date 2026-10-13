@@ -3,7 +3,7 @@ name: product-ui
 description: Style-neutral orchestrator to design, audit, optimize, redesign, or rebuild real ToB/ToC product application interfaces (SaaS, admin, ERP/CRM, workbenches, tables, dashboards, forms, utilities). For new products, use visual HTML/CSS Style Demos, user choice, then one Product Demo before scaling. For existing projects, default to read-only UI/UX audit, prioritized plan, and user-approved pilot before editing; only initiate full visual redesign or frontend rebuild when explicitly requested. Orchestrate original installed UI UX Pro Max, shadcn agent Skill, Hallmark audit, and Impeccable critique/audit with verified evidence. Also activate for product-ui skill updates. Exclude marketing landing pages and portfolios.
 ---
 
-# Product UI Orchestrator · v3.1
+# Product UI Orchestrator · v3.2
 
 `product-ui` is the coordinator for real application interfaces. It owns product interaction decisions and routes work to companion skills when they are installed and relevant.
 
@@ -264,6 +264,8 @@ Defaults:
 
 Avoid false spaciousness, excessive cardification, and marketing-page composition inside operational software.
 
+Advanced interaction routing (v3.2): for repeated record review, coordinated KPI/charts/tables, expandable dashboard cards, long scroll KPI summaries or power-user commands, read references/advanced-interaction-selection.md. Choose only job-justified patterns; define state contracts before delegating visual motion to Provider. Do not insert complex interactions into simple or approved existing screens without permission.
+
 ### Phase 4 — Load only relevant product references
 
 Load only what the current surface needs:
@@ -323,7 +325,7 @@ For each major screen/interaction, account for relevant states:
 - no results
 - offline/retry when relevant
 
-Read `references/states.md`.
+Read `references/states.md`. For advanced multi-region interactions, also apply the contract from references/advanced-interaction-selection.md: canonical state, rapid/latest-action wins, async loading/empty/error, permissions, keyboard/focus, narrow-screen and reduced-motion. Provider owns motion presentation, not business semantics.
 
 ### Phase 7 — Implement through the project's component system
 

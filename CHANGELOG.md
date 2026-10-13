@@ -2,6 +2,12 @@
 
 All notable changes to `product-ui` are recorded here.
 
+## 3.2.0 — 2026-10-13
+
+- Added task-first advanced interaction selection guide, with Master Detail, Expand in Place, Global Filter, Linked Hover, Sticky Compact Header, Command Palette and optional Bento/graph/heatmap.
+- Introduced canonical state and latest-intent-wins contracts, cross-region consistency, keyboard/focus, error and responsive acceptance.
+- Integrated into Phase 3 and Phase 6 without changing Provider Protocol v1 or existing project approval routes.
+
 ## 3.1.0 — 2026-10-13
 
 ### Added

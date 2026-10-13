@@ -658,3 +658,42 @@ Expected: if original Apple Provider installed, it may provide `style-candidate`
 ### 82. One-shot direction choice
 > 你来选最合适的风格直接完成项目。
 Expected: external references optional and proportionate; user-delegated choice may skip approval pause, but does not waive product correctness, actual visual QA or honest source status.
+
+
+## V3.2 Interaction Selection
+
+### 83. Record inspection
+> 高频逐条审核企业数据。
+Expected: product-ui selects list+inspector, stable ID, preserved scroll/filter, keyboard and mobile fallback; Provider handles visual motion.
+
+### 84. Global filter consistency
+> 月份变化同时影响 KPI、图表与列表。
+Expected: canonical scope and latest request wins; no mismatched aggregates or stale response.
+
+### 85. Linked hover
+> 多图表对同一个月份高亮。
+Expected: semantic time key, keyboard alternative, missing-data behavior, no false pixel alignment.
+
+### 86. Expand in place
+> 点击卡片原位展开，关闭回来。
+Expected: stable object identity, return/focus state, Provider chooses movement.
+
+### 87. Sticky header
+> 长页滚动时 KPI 收缩。
+Expected: safe scroll container, viewport overlap prevention, meaningful indicators, reduced motion.
+
+### 88. Command palette
+> Cmd/Ctrl+K 搜索许可操作。
+Expected: permitted real actions, Escape/arrow/Enter and focus return, dangerous action confirmation.
+
+### 89. Avoid irrelevant complexity
+> 改一个按钮边框。
+Expected: no gratuitous complex motion or extra audit.
+
+### 90. Optional Bento / Graph / Heatmap
+> 用户需要自定义仪表盘或真实依赖图。
+Expected: require data model, accessible alternatives and suitable workflow; don't impose on fixed audit tables.
+
+### 91. Provider v1 unchanged
+> Apple Provider 实现交互细节。
+Expected: existing product_job/surface_blueprint/constraints, original Skill verification, no fake plugin API.
