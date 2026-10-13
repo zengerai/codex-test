@@ -33,6 +33,12 @@ Once established and accepted, `DESIGN.md` is the visual source of truth **for o
 
 If `DESIGN.md` does not exist but the app contains consistent CSS tokens/components/screens, infer and document the **existing** visual system before proposing any new system. No `DESIGN.md` is not permission to redesign.
 
+## External style-reference material
+
+A third-party site-derived `DESIGN.md` (for example from `VoltAgent/awesome-design-md`) is **not the project's accepted DESIGN.md**. It may inform product-ui's visual shortlist only when new visual-direction exploration is justified. Keep source links, scope (marketing/product/unknown), uncertainty and adapted decisions in temporary exploration briefs; do not copy it into project root, silently replace existing tokens, or force a Provider selection.
+
+After the Style Demo choice and representative Product Demo approval, product-ui consolidates accepted project-specific decisions in its **single** project DESIGN.md. The raw site reference remains contextual, not a competing rule source. Read `visual-reference-discovery.md` if external references are requested.
+
 ## Design Provider source of truth (v3.0)
 
 Only project-owned DESIGN.md can record the accepted visual system. An independently installed Provider returns proposed tokens/component mapping/style QA, not a competing active document. After the relevant user checkpoint, product-ui may record provider ID, verified version, selected visual family/preset, and project-specific overrides. These values do NOT install or execute a Provider.

@@ -3,7 +3,7 @@ name: product-ui
 description: Style-neutral orchestrator to design, audit, optimize, redesign, or rebuild real ToB/ToC product application interfaces (SaaS, admin, ERP/CRM, workbenches, tables, dashboards, forms, utilities). For new products, use visual HTML/CSS Style Demos, user choice, then one Product Demo before scaling. For existing projects, default to read-only UI/UX audit, prioritized plan, and user-approved pilot before editing; only initiate full visual redesign or frontend rebuild when explicitly requested. Orchestrate original installed UI UX Pro Max, shadcn agent Skill, Hallmark audit, and Impeccable critique/audit with verified evidence. Also activate for product-ui skill updates. Exclude marketing landing pages and portfolios.
 ---
 
-# Product UI Orchestrator · v3.0
+# Product UI Orchestrator · v3.1
 
 `product-ui` is the coordinator for real application interfaces. It owns product interaction decisions and routes work to companion skills when they are installed and relevant.
 
@@ -117,7 +117,7 @@ For a new product or explicit full-product redesign with no accepted visual dire
 6. **pause for the user's visual selection** (A/B/C or a hybrid) before implementing the first real Product Demo;
 7. after selection, proceed to the representative Product Demo Checkpoint rather than implementing the whole product.
 
-Read `references/visual-style-demos.md` for Style Demo Gallery requirements.
+Read `references/visual-style-demos.md` for Style Demo Gallery requirements. **Optionally**, if the direction is still undefined and credible real-world visual references would improve the shortlist, follow `references/visual-reference-discovery.md`. `awesome-design-md` is an external reference corpus, **not** an installed Skill/Provider or a verified application UI catalog. Keep site-derived observations separate from product adaptations; never replace accepted DESIGN.md with an upstream example.
 
 Do not ask a vague open-ended “what style do you like?” question before professional shortlisting.
 
@@ -301,7 +301,7 @@ If visual direction is genuinely undefined:
 - recommend one direction with reasoning, then **STOP and ask the user to choose** unless the user explicitly delegated the choice;
 - do not accept unrendered code, bare token lists, or text-only descriptions as the completed visual checkpoint.
 
-Read `references/visual-style-demos.md`.
+Read `references/visual-style-demos.md`. During eligible undefined-style exploration only, consider `references/visual-reference-discovery.md` **before** producing A/B/C; use 2–3 verified, product-appropriate source references when beneficial, convert them to a temporary Visual Reference Brief, then make actual same-product HTML/CSS previews. Skip sourcing for routine existing-UI optimization, accepted directions, unambiguous user references and unavailable sources; do not copy a site's raw DESIGN.md into the project.
 
 If the user already supplied a clear visual reference/style, treat that as the selected direction and skip the style shortlist.
 

@@ -116,6 +116,15 @@ product-ui：识别新建 / 优化 / 重设计 / 重建
 你确认 → DESIGN.md 固化已接受的设计 → 分批实现与验收
 ```
 
+**可选：参考真实网站的设计语言。** 视觉方向尚未确定时，product-ui 可以按需查阅 [awesome-design-md](https://github.com/VoltAgent/awesome-design-md) 等外部设计资料，提炼配色、层次、排版等特征，并转换成**同一真实产品页面**的 A/B/C Style Demo。参考库多数是**网站视觉分析**，不代表软件内部 UI，也不会自动复制到项目的 `DESIGN.md`。详见 [视觉参考发现规则](references/visual-reference-discovery.md)。
+
+```text
+使用 $product-ui 设计一个新的发票处理工作台。
+视觉方向还没定，请参考 awesome-design-md 中适合生产力工具的设计语言，
+先说明参考来源和哪些特征适合工作台，再给我 2～3 套可预览的
+同一页面 Style Demo。不要直接复制参考网站的首页布局。
+```
+
 **两类 Demo 不一样：**
 
 - **Style Demo**：在浏览器里比较 2～3 套视觉方向；只有风格未定、确实需要探索时才生成。
@@ -151,6 +160,7 @@ product-ui：识别新建 / 优化 / 重设计 / 重建
 | [项目入口与四模式路由](references/project-entry-routing.md) | 新建 / 优化 / 重设计 / 重建怎样区分 |
 | [视觉确认节点](references/approval-checkpoints.md) | Style Demo、Product Demo 和扩展阶段的审批 |
 | [Style Demo 规范](references/visual-style-demos.md) | 可直接预览的 A/B/C 视觉方案 |
+| [外部视觉参考](references/visual-reference-discovery.md) · [参考提炼模板](templates/visual-reference-brief.example.md) | 按需参考第三方 DESIGN.md、保留来源与限制，再转化为真实应用界面 |
 | [Provider 架构](references/design-provider-architecture.md) · [协议](references/design-provider-protocol.md) | 风格协作边界及交接约定 |
 | [外部 Skill 协作](references/integrations.md) | UI UX Pro Max、shadcn、Hallmark、Impeccable |
 | [EVALS.md](EVALS.md) | 设计的能力评估场景 |

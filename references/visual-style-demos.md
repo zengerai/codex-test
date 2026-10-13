@@ -1,4 +1,4 @@
-# Visual Style Demo Gallery — V2.2
+# Visual Style Demo Gallery — current
 
 This reference owns the Visual Direction Checkpoint presentation.
 
@@ -19,6 +19,16 @@ A screenshot or image can supplement the gallery, but do not use an AI-generated
 ## Optional v3.0 Provider-style candidates
 
 Only when an original compatible provider is installed may product-ui request a read-only style-candidate for an otherwise required A/B/C gallery. product-ui still controls fair same-content previews and user style choice. A provider must not auto-select itself, bypass approvals or write code during style-candidate. If a style was explicitly chosen or already approved, skip unrelated style exploration; if no provider exists, the general HTML/CSS gallery works as before. See design-provider-routing.md.
+
+## Optional visual reference discovery (v3.1)
+
+When a NEW_BUILD / explicit visual-redesign project **needs a new style choice**, product-ui may use [`awesome-design-md`](https://github.com/VoltAgent/awesome-design-md) as an external reference **alongside** original UI UX Pro Max (if installed), user screenshots and verified Provider style candidates.
+
+Read `visual-reference-discovery.md` first to decide whether sourcing is appropriate. Read **only a small shortlist of actual source DESIGN.md files**; mark whether they describe marketing pages rather than real in-app surfaces, and note known gaps. Translate relevant appearance features into temporary `Visual Reference Brief` notes (`templates/visual-reference-brief.example.md`), **then build real HTML/CSS Style Demos with the SAME target-app page and workflow**.
+
+References are inspiration, **not** runnable Style Demos, production component libraries, new Providers or accepted project DESIGN.md files. The upstream README can mention example preview files that are absent in a given repository revision; do not link unverified previews.
+
+Do not source external style inspiration for routine EXISTING_IMPROVE or an existing approved style unless the user expressly asks for comparison. Source failures never block the existing gallery workflow.
 
 ## Layout
 

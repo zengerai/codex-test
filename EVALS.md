@@ -1,4 +1,4 @@
-# product-ui V3.0 Evaluation Cases (including retained v2.4 tests)
+# product-ui V3.1 Evaluation Cases (including retained v3.0 and v2.4 tests)
 
 Use these prompts to check activation, routing, companion-skill behavior, and update behavior.
 
@@ -588,3 +588,73 @@ Expected: visual/behavior/component regression and safe rollback; no silent toke
 
 ### 65. Provider schema validation
 Expected: bundled example passes scripts/validate_provider_manifest.py; invalid capabilities/duplicate frameworks fail.
+
+## V3.1 External Visual Reference Discovery — must pass
+
+### 66. New product with unspecified visual direction
+> 开发一个高频处理票据的工作台，没有确定界面风格。试着参考 awesome-design-md。
+Expected: after product tasks and IA, read up to a few verified relevant source files when accessible; record provenance/scope/gaps; create 2–3 **real same-content workbench HTML/CSS Style Demos**; pause for user choice. Avoid marketing homepage layouts.
+
+### 67. Existing CRM routine optimize
+> 用 product-ui 优化当前 CRM 的筛选界面，保持原风格。
+Expected: EXISTING_IMPROVE, read-only audit/pilot as needed, no automatic awesome-design-md retrieval, no redesign.
+
+### 68. Existing app already has approved DESIGN.md
+> 继续给当前 SaaS 增加一个订单详情页，按已有 DESIGN.md。
+Expected: preserve current design; no new reference discovery even if externally available.
+
+### 69. User explicitly specified an Apple style
+> 新项目采用 Apple Provider 的官方 shadcn Rhea 风格。
+Expected: skip unrelated reference library and A/B/C exploration; verify actual installed Provider and use approved style, then real Product Demo.
+
+### 70. Reference document is Apple marketing site
+> 用 awesome-design-md 的 Apple DESIGN.md 做桌面文件管理软件。
+Expected: inspect source scope, identify marketing/store rather than AppKit or app component spec; do not copy photographic hero/marketing typography as native desktop controls; use references for justified visual traits only.
+
+### 71. Linear reference does not prove Linear app behavior
+> 用 Linear DESIGN.md 做一个高密度 ERP 工具。
+Expected: observed source marketing treatments can inform visual candidate; no invented Linear app table controls/keyboard semantics or unrecorded light mode.
+
+### 72. Upstream README claims preview.html but tree lacks it
+> 直接展示 awesome-design-md 的 preview.html 作为 Style Demo。
+Expected: verify actual source paths, never invent/link missing preview files, create original working local HTML/CSS preview.
+
+### 73. External source offline or blocked
+> 请参考 github 上 awesome-design-md，但环境无法访问。
+Expected: report source not verified, do not invent readings, continue with available original references, installed UI UX Pro Max or general HTML/CSS exploration.
+
+### 74. User requests design inspiration, not copy/paste
+> 参考 Notion 和 Airtable 的感觉设计一个审批台。
+Expected: shortlist validated sources, distinguish source-derived facts vs proposed adaptation, preserve task IA and states, give comparable real application demos.
+
+### 75. No replacing active DESIGN.md
+> 项目已有 DESIGN.md，直接把网站第三方 DESIGN.md 覆盖过去。
+Expected: do not silently replace; explicit redesign authorization/checkpoints required and only accepted adapted rules are committed into one project DESIGN.md.
+
+### 76. Source attribution and uncertainty
+> 根据 3 个品牌的 DESIGN.md 生成风格选项。
+Expected: each actually-read source has path/source URL and marketing/app scope; identify approximated tokens, undocumented state, proprietary fonts and adaptations; no unsupported authoritative claims.
+
+### 77. Reference is not a Provider
+> awesome-design-md 已经是我安装的 Design Provider 吗？
+Expected: explain it is an optional external reference corpus, not an installed specialized Skill or runtime plugin. Provider v1 original-Skill verification stays separate.
+
+### 78. Fair comparison with references
+> 用 Linear/Notion/Apple 风格设计一个客户筛选工作台，展示 3 套。
+Expected: identical actual data, table/list, filters, detail and task semantics; vary visual expression only. A branded marketing hero is not a replacement for the workbench.
+
+### 79. Avoid reflexive source usage
+> 帮我把当前页面一个按钮的圆角修改得更小。
+Expected: targeted scoped fix; no external design-reference discovery or full gallery/checkpoint ceremony.
+
+### 80. Project supplied image over site references
+> 界面按我给的截图走，不需要另找风格。
+Expected: honor the screenshot, skip unrequested external references; optionally use Provider only if clearly compatible with accepted direction.
+
+### 81. Candidate Provider vs site reference
+> 新 SaaS 比较 Apple-inspired 和其他视觉方向。
+Expected: if original Apple Provider installed, it may provide `style-candidate`; unrelated awesome-design-md documents are **references**, not provider invocation; user chooses after actual A/B/C.
+
+### 82. One-shot direction choice
+> 你来选最合适的风格直接完成项目。
+Expected: external references optional and proportionate; user-delegated choice may skip approval pause, but does not waive product correctness, actual visual QA or honest source status.

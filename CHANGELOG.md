@@ -2,6 +2,19 @@
 
 All notable changes to `product-ui` are recorded here.
 
+## 3.1.0 — 2026-10-13
+
+### Added
+- Optional, **source-verified** visual-reference discovery at Phase 5 when new product/explicit visual redesign lacks an accepted style.
+- `references/visual-reference-discovery.md`: opt-in decision gates, `VoltAgent/awesome-design-md` reference usage, marketing-vs-in-app source validation, attribution, uncertainty, accessibility/density preservation and fallback.
+- `templates/visual-reference-brief.example.md`: short temporary evidence → adaptation brief, not a second active DESIGN.md.
+- Updated A/B/C Style Demo instructions: translate only relevant reference traits to **the same real product screen**, and create independent browser-previewable HTML/CSS.
+- Added EVALS for existing-style preservation, specific user style, missing/unverified upstream, source-vs-inference honesty, reference quality, Apple Provider boundaries and no duplicate active DESIGN.md.
+
+### Preserved
+- Four product lifecycle routes, UI UX Pro Max and Provider routing, real Style Demo/Product Demo checkpoints, accepted DESIGN.md governance, and all v3.0 Provider Protocol v1 semantics.
+- External reference material is **not** automatically installed, vendored as full design docs, or treated as a callable Provider.
+
 ## 3.0.0 — 2026-10-10
 
 ### Added
