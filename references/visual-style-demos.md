@@ -2,6 +2,8 @@
 
 This reference owns the Visual Direction Checkpoint presentation.
 
+For new or structurally re-planned business areas, complete the applicable two rounds in [module-page-planning.md](module-page-planning.md) first: modules/pages together, then component/content/interaction sketches. Those low-fidelity planning artifacts do not require frontend code. This later HTML gallery validates visual direction and is not a substitute for either planning round; reuse prior approval or explicit one-shot delegation.
+
 ## Default output: visual, not text-only
 
 For a **new product** or an **explicit major UI redesign of an existing product** with no accepted **new** visual direction, generate 2–3 differentiated, product-appropriate directions, then produce **actual previewable HTML/CSS**, not just style names, prose, token tables, or unrendered code snippets.

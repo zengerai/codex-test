@@ -10,6 +10,17 @@ Pause when feedback can prevent large rework.
 
 Do not pause merely because another page was completed.
 
+## Planning checkpoints — before visual implementation
+
+For a new product or substantial new/restructured business area without an approved plan, follow [module-page-planning.md](module-page-planning.md).
+
+1. **Round 1: Module and Page Plan.** Deliver logical modules and their owned pages, responsibilities, counts, per-page core content/actions and main workflows together. Stop for one combined confirmation; do not split module approval and page approval into separate gates.
+2. **Round 2: Page and Interaction Blueprint.** After Round 1 approval, specify each page's components, displayed content, within/across-page behavior and important states, with low-fidelity sketches. Revise until confirmed. Group large scopes by coherent workflow if useful, keeping every page covered.
+
+Round 1 has no application code. In Round 2, lightweight local code may express deliverable A as a clickable grayscale planning prototype; follow [gray-prototype.md](gray-prototype.md). This does not start production implementation or a visual Style Demo. Static sketches remain valid when sufficient or explicitly requested. A concrete style reference skips only Checkpoint A below; it does not approve business structure or sketches. A detailed but unapproved implementation document still feeds the two rounds. Reuse explicit prior approvals, and apply the existing one-shot override when requested. Small precise fixes and routine agreed extensions do not acquire new planning gates.
+
+If a later sketch changes module/page scope, review the changed plan and affected sketches together; preserve unaffected approvals. After planning confirmation, proceed to the applicable visual and Product Demo checkpoints. The existing audit-first route for optimization remains intact.
+
 ## Checkpoint A — Visual Direction
 
 Use when:

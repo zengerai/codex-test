@@ -2,6 +2,22 @@
 
 All notable changes to `product-ui` are recorded here.
 
+## 3.4.0 — 2026-10-14
+
+- Enhanced Round 2 deliverable A: prefer clickable grayscale planning prototypes for multi-page flows, while retaining static and explicit non-code alternatives.
+- Added page/relationship/task review guidance, real-action progression, pause/resume, contextual sample data and proportional prototype verification.
+- Bundled neutral components, a page-map helper, the reusable guide, pinned MIT Driver.js assets and a replaceable order-review example; added a non-overwriting initializer.
+- Reconciled previous blanket no-code wording across routing, checkpoints and examples. Round 1 and all existing approval boundaries remain in place; planning code does not authorize production development.
+- This change covers interaction sketches and their reuse only. It does not redesign the written blueprint format, update Apple Provider, or claim the separate production business-validation/motion proposals are complete.
+
+## 3.3.0 — 2026-10-14
+
+- Added a design-first planning reference for short requests, project descriptions and detailed implementation plans.
+- Round 1 confirms logical modules and their owned pages together, including responsibilities, page counts, core content and principal workflows.
+- Round 2 confirms per-page components, displayed information, within/across-page interactions, relevant states and low-fidelity sketches before frontend code.
+- Integrated both rounds into new-product routing and existing checkpoints; retained prior approvals, scoped existing-product work and explicit one-shot overrides. Supplied style references skip only visual selection.
+- Kept Provider Protocol v1 unchanged. This release does not change the Apple Provider, its gallery, or apply the separate unapproved Skill proposals.
+
 ## 3.2.0 — 2026-10-13
 
 - Added task-first advanced interaction selection guide, with Master Detail, Expand in Place, Global Filter, Linked Hover, Sticky Compact Header, Command Palette and optional Bento/graph/heatmap.

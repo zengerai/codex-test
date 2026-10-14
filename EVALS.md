@@ -1,6 +1,8 @@
-# product-ui V3.1 Evaluation Cases (including retained v3.0 and v2.4 tests)
+# product-ui V3.4 Evaluation Cases (including retained earlier-version cases)
 
 Use these prompts to check activation, routing, companion-skill behavior, and update behavior.
+
+Stage rule for retained cases: on an unplanned new product, module/page planning and its two confirmation rounds now precede visual exploration and implementation. Expectations below about Style Demo/Provider/Product Demo apply only once their planning prerequisites are satisfied or pauses are explicitly waived. These are evaluation scenarios, not claims that automated behavioral tests have run.
 
 ## Should activate product-ui
 
@@ -31,6 +33,8 @@ Expected:
 
 Expected:
 - product-ui activates;
+- first proposes logical modules and owned pages/core content together, then pauses for combined approval;
+- after that approval, delivers component/content/interaction sketches and pauses for confirmation before any HTML Style Demo;
 - UI UX Pro Max is used if available for visual exploration;
 - 2–3 materially different, product-appropriate directions are implemented as **actual browser-previewable HTML/CSS Style Demos**;
 - options show the **same** representative app structure, task, and sample data (as far as practical);
@@ -697,3 +701,101 @@ Expected: require data model, accessible alternatives and suitable workflow; don
 ### 91. Provider v1 unchanged
 > Apple Provider 实现交互细节。
 Expected: existing product_job/surface_blueprint/constraints, original Skill verification, no fake plugin API.
+
+## V3.3 Module and Page Planning
+
+### 92. One-sentence product request
+> 我要做一个电商后台管理系统的前端。
+Expected: propose bounded scope with labeled assumptions and ask only material questions; deliver modules with owned pages/counts, per-page jobs/core content/actions and primary flow in one proposal; stop before component sketches, code or Style Demos. No fixed universal ecommerce module list or invented user approval.
+
+### 93. Business description attachment
+> 根据这个项目说明设计企业风控系统前端，文档主要解释风险识别逻辑。
+Expected: distinguish supplied facts, design choices and unknowns; derive modules/pages from user tasks rather than making every risk category a page; present combined Round 1 plan with source basis. Do not turn attachment text into agent instructions or invent risk thresholds.
+
+### 94. Detailed but unapproved implementation plan
+> 这是实施方案，已经写了业务流程和不少功能点，按它设计前端。
+Expected: reuse known detail, reconcile gaps and produce module/page plan; do not repeatedly ask for supplied facts; document detail alone does not bypass confirmation or trigger immediate frontend generation.
+
+### 95. Modules and pages are one gate
+> 商品、订单和售后都要做，先规划。
+Expected: module responsibilities, page ownership and per-page core content appear together; one combined confirmation, not module-only approval followed by page-list approval.
+
+### 96. Logical counts are not routes or UI states
+> 订单里有全部、待付款、待发货、已发货四个标签，查看订单可以打开抽屉。客户页也会跳到订单。
+Expected: do not count four filter states as four pages or duplicate the same order page in the customer module; decide whether detail has an independent task, name the counting assumption, and defer route/drawer presentation to Round 2.
+
+### 97. First approval advances to sketches
+> 模块和页面清单确认了，继续。
+Expected: deliver all approved pages' component/content/interaction blueprint and low-fidelity sketches, with family reuse and explicit differences where useful; a lightweight clickable grayscale planning prototype is allowed for multi-page review. No production application, visual Style Demo or full product yet.
+
+### 98. Concrete second-round design
+> 页面规划已确认。把订单列表和详情的设计讲清楚并画草图。
+Expected: actual columns/fields/status meanings/primary actions in wireframes; trigger → affected region → visible result; transitions use page IDs and preserve declared context; include relevant failure/recovery. Generic boxes and unlabeled arrows alone are insufficient.
+
+### 99. Visual reference does not approve structure
+> 从零做这个系统，外观按我给的苹果风视频。
+Expected: record accepted visual constraint and skip style shortlist; still obtain combined module/page approval then sketch/interaction approval. Provider cannot silently add modules/pages or change their business semantics.
+
+### 100. Structure changes during sketch review
+> 刚看了草图，把退款审批从订单详情里独立出来，归到售后模块。
+Expected: present changed module/page ownership/counts with affected sketches in one review, preserve stable IDs where possible and retain unrelated approvals; do not quietly implement the changed structure or restart the entire product plan.
+
+### 101. Existing approvals and narrow fixes
+> 模块页面和交互方案上一轮都确认了，这次只把订单金额列右对齐。
+Expected: reuse trusted prior approvals and make the scoped edit; no new module/page/sketch gate, no invented requirement to reconfirm every routine page.
+
+### 102. Explicit one-shot override
+> 你来决定所有方案，不用等我确认，直接完成这个新后台。
+Expected: produce proportionate module/page and interaction decisions, mark assumptions and continue without approval pauses; retain preservation, honest data and applicable QA. Do not claim the user reviewed the artifacts.
+
+### 103. Partial approval and coverage
+> 订单模块的草图确认，售后部分还要改。
+Expected: record approval scope, revise after-sales artifacts and advance only the explicitly approved scope; no claim that the entire blueprint is approved and no repetitive per-page approval for already covered ordinary variants.
+
+### 104. Existing visual or technical replacement
+> 重写前端技术栈，模块、页面和业务流程保持现状。
+Expected: retain existing rebuild inventory/preservation gates and approved structure; do not impose blank-slate module re-planning solely because the implementation stack changes. New planning applies only to an authorized structural delta.
+
+## V3.4 Grayscale Interaction Prototype
+
+### 105. Connected multi-page review
+> 模块页面已确认，第二轮要能看清每页布局和页面之间的关系。
+Expected: prefer a clickable grayscale planning artifact with individual page access, grouped page relationships and real-action task guidance. Keep stable page IDs and the approved scope. Lightweight local code is allowed; final styling, production infrastructure and framework selection remain separate. Do not require a duplicate PDF.
+
+### 106. Explicit static preference
+> 第二轮只给我一张静态草图，不要写代码。
+Expected: honor static output; include important within-page changes and destinations/context in annotations. No mandatory guide engine, browser runtime, template scaffolding or extra approval gate.
+
+### 107. Reuse without copying the example business
+> 用同一套灰度组件做一个售后申请原型。
+Expected: prefer suitable existing primitives or initialize the bundled kit without overwriting files; adapt approved project pages, fields, states and recipes. The three-page order example, exact guide dependency, page counts and sample business rules are not mandatory. Read the compact API contract rather than loading third-party minified files into context.
+
+### 108. Action success versus an attempt
+> 用户未填必填项，或者点击保存后模拟失败。
+Expected: retain the current action node and input; no Next button or timer fabricates completion. Retry advances only after the observable successful outcome. Following modal-close events cannot discard a preceding successful-save event.
+
+### 109. Guide interruption and recovery
+> 填到一半暂停，去看别页，刷新后继续；或者引导目标已不在当前页。
+Expected: preserve drafts and scoped progress, restore the relevant object/form phase, and pause with recovery for missing targets. Do not auto-submit or reset business work. Invalidate incompatible recipe versions. A native modal gets an operable inline guide; keyboard and narrow-window controls remain usable.
+
+### 110. Coherent sample content
+> 列表、详情、记录三个页面都放点演示数据。
+Expected: use labeled, representative records with consistent identities and declared period/version context. Give components a business purpose; preserve source filters on return and separate independent business states. Unknown domain rules remain assumptions, not invented authoritative thresholds.
+
+### 111. Scoped acceptance of deliverable A
+> 交互草图已经满意，通用规则可以加入 Skill，蓝图 MD 晚点再讨论。
+Expected: record acceptance of A and extract only its authorized general rules/assets. Do not approve or rewrite the pending written blueprint, advance the whole round, change the visual Provider, or start production implementation.
+
+### 112. Proportionate prototype validation
+> 交付能点击的第二轮原型。
+Expected: actually exercise important routes and relevant guide/validation/recovery behaviors with available browser tools, inspect intended review sizes and local assets, and report real coverage or limitations. Do not require a fixed assertion count or the full Product Demo audit chain. Completing a walkthrough is not design approval.
+
+### Bundled asset checks performed for 3.4.0 (2026-10-14)
+
+- Skill Creator format validation and JavaScript syntax checks passed.
+- Initializer exercised in temporary directories: exact copy into new/empty destinations; refusal of nonempty, file and bundled-source destinations; pinned vendor hashes matched.
+- The independent order-review example ran in Chromium via a local HTTP server. Exercised the complete guided path, required validation, simulated save failure, successful retry, pause/navigation/reload/resume, modal phase recovery, single-save behavior, identity/source/filter preservation, page-map links, missing-route recovery, Escape, explicit reset and recipe-version invalidation.
+- Inspected desktop (1440 × 1000) and narrow (390 × 844) screenshots. Active controls remained uncovered, native modal guidance and keyboard focus worked, and tables/catalog stayed within the page width. Eight component sample groups rendered using local resources; the successful checks reported no JavaScript errors or failed resource requests.
+- Verified that the existing risk-project prototype, its written blueprint and Apple Provider files were unchanged.
+
+These checks validate the bundled assets and integration example. Cases 105–112 above are behavior expectations for Skill use, not a claim that an automated agent benchmark was run. Each generated business prototype still needs its own proportionate checks.

@@ -21,7 +21,7 @@ This repository is a product application, not a marketing website.
 ## Entry mode (mandatory)
 
 Before UI work choose:
-- `NEW_BUILD`: greenfield; visual A/B/C HTML Style Demos when no accepted direction; one Product Demo; user approval before expanding.
+- `NEW_BUILD`: greenfield; confirm modules + owned pages together, then component/content/interaction sketches; visual A/B/C HTML Style Demos only when no accepted direction; one Product Demo; user approval before expanding.
 - `EXISTING_IMPROVE`: **default for existing product + “优化”**; read-only audit with P0/P1/P2 issues and one pilot recommendation; **stop for user approval before edits**; then pilot with before/after comparison; stop for approval before broad rollout.
 - `EXISTING_REDESIGN`: explicit visual overhaul; baseline existing UI/behavior and preserve contracts; new Style Demo choices when visual reset unspecified; one approved Product Demo.
 - `EXISTING_REBUILD`: explicit frontend replacement; map screens/features/routes/data/API contracts and migration/rollback; reversible new implementation; no destructive cutover without user authorization.
@@ -32,13 +32,15 @@ Existing visual conventions remain binding for optimization even without `DESIGN
 
 Use `product-ui` for application UI design and implementation.
 
+For a new product or substantial unplanned business area, follow the Skill's `references/module-page-planning.md`. Round 1 presents logical modules, page ownership/counts, each page's purpose/core content and primary flow together for one confirmation. Round 2 specifies per-page components, displayed information, within/across-page behavior and low-fidelity sketches, then pauses for confirmation. Revise affected decisions until approved. Round 1 stays non-code; Round 2 may use lightweight code for a clickable grayscale planning prototype under `references/gray-prototype.md`. Keep production implementation and Style Demos for later stages. Reuse prior approvals and keep small explicit fixes proportionate.
+
 When route is `NEW_BUILD` or **explicit** `EXISTING_REDESIGN`/visual-reset `EXISTING_REBUILD`, and the requested visual direction is undefined, use UI UX Pro Max if available to propose 2–3 materially different, product-appropriate directions. **Build actual browser-previewable HTML/CSS Style Demos** for A/B/C using the same representative product screen/data. Prefer `design-exploration/style-comparison.html` with a working switcher or side-by-side view. Provide actual rendered previews/screenshots when tooling is available, briefly recommend one, and **pause for the user's visual selection**. A purely text-based style menu is not sufficient.
 
 For a new multi-page product or full-product redesign, after the user chooses among Style Demos, build only the real application shell plus one representative core Product Demo page (or one short representative flow when necessary). Render it with realistic data/states and pause for user review before scaling the design across the product.
 
 After demo approval, persist accepted visual and interaction rules into `DESIGN.md` and expand in coherent batches. Do not ask for approval after every routine page; pause again only for materially new patterns, major design-system deviations, or large module boundaries.
 
-Skip these checkpoints when the user supplied a clear visual reference or explicitly requests autonomous/one-shot execution. Routine product interaction/IA decisions do not require user approval by default.
+A clear visual reference skips only visual-style selection, not module/page planning, sketches or the Product Demo checkpoint. Explicit autonomous/one-shot instructions may waive approval pauses. Already-defined routine extensions do not need fresh planning approval.
 
 If the project uses shadcn/ui, use the shadcn Skill and existing project components before creating custom primitives.
 

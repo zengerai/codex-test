@@ -1,9 +1,9 @@
 ---
 name: product-ui
-description: Style-neutral orchestrator to design, audit, optimize, redesign, or rebuild real ToB/ToC product application interfaces (SaaS, admin, ERP/CRM, workbenches, tables, dashboards, forms, utilities). For new products, use visual HTML/CSS Style Demos, user choice, then one Product Demo before scaling. For existing projects, default to read-only UI/UX audit, prioritized plan, and user-approved pilot before editing; only initiate full visual redesign or frontend rebuild when explicitly requested. Orchestrate original installed UI UX Pro Max, shadcn agent Skill, Hallmark audit, and Impeccable critique/audit with verified evidence. Also activate for product-ui skill updates. Exclude marketing landing pages and portfolios.
+description: Style-neutral orchestrator to design, audit, optimize, redesign, or rebuild real ToB/ToC product application interfaces (SaaS, admin, ERP/CRM, workbenches, tables, dashboards, forms, utilities). For new products, confirm modules and pages together, then component/content/interaction sketches before visual Style Demos and one Product Demo. For existing projects, default to read-only UI/UX audit, prioritized plan, and user-approved pilot before editing; only initiate full visual redesign or frontend rebuild when explicitly requested. Orchestrate original installed UI UX Pro Max, shadcn agent Skill, Hallmark audit, and Impeccable critique/audit with verified evidence. Also activate for product-ui skill updates. Exclude marketing landing pages and portfolios.
 ---
 
-# Product UI Orchestrator · v3.2
+# Product UI Orchestrator · v3.4
 
 `product-ui` is the coordinator for real application interfaces. It owns product interaction decisions and routes work to companion skills when they are installed and relevant.
 
@@ -48,7 +48,7 @@ Never sacrifice a higher-priority item to improve a lower-priority item.
 
 | Route | Intent and starting point | Mandatory first behavior |
 |---|---|---|
-| `NEW_BUILD` | New product / scaffold with no established UI | Product structure → HTML A/B/C Style Demo choice if visual direction undefined → one real Product Demo → user approval → expand |
+| `NEW_BUILD` | New product / scaffold with no established UI | Module + page plan approval → component/content/interaction sketches approval → HTML A/B/C Style Demo choice if visual direction undefined → one real Product Demo → user approval → expand |
 | `EXISTING_IMPROVE` | Existing UI to optimize, inspect, or remove AI feel | **READ-ONLY audit and P0/P1/P2 optimization plan; STOP for user approval before editing** → one pilot page → before/after review → STOP for pilot approval → expand |
 | `EXISTING_REDESIGN` | User explicitly requests substantial **visual redesign** of an existing product | Inventory and current-state baseline; if new style unspecified, HTML A/B/C Style Demos → user choice → one real Product Demo → approval → staged rollout |
 | `EXISTING_REBUILD` | User explicitly requests rebuilding/replacing an existing frontend (including new stack/repo) | Inventory screens/features/routes/API contracts; preserve vs replace matrix and migration/rollback plan → optional visual Style Demo → one real replacement Product Demo → approval → staged migration |
@@ -169,16 +169,19 @@ Read `references/project-entry-routing.md` first. Read `references/approval-chec
 
 **For `EXISTING_IMPROVE`, the first checkpoint is AUDIT REPORT APPROVAL (no edits yet), not a visual-style selection.** After the user selects improvements, change only one representative pilot page and stop for before/after approval before applying changes elsewhere.
 
-The first checkpoint must show actual visual previews (HTML/CSS, with screenshots when available). Merely describing “Linear-like / Stripe-like / Notion-like” options in text is not sufficient.
+For a new product or substantial unplanned business area, read [references/module-page-planning.md](references/module-page-planning.md). First confirm **logical modules and their owned pages together**, then confirm **per-page components, content, interactions and low-fidelity sketches**. Accept brief requests, project descriptions and detailed implementation plans; reuse prior approvals and make assumptions explicit. Round 1 remains a non-code scope proposal. For Round 2 deliverable A, follow [references/gray-prototype.md](references/gray-prototype.md): prefer a reusable clickable grayscale prototype for multi-page flows, with page relationships and task guidance; use static sketches when sufficient or requested. Lightweight local prototype code is allowed, while production implementation and visual Style Demos remain later stages.
+
+When a **visual-direction checkpoint** is needed later, it must show actual visual previews (HTML/CSS, with screenshots when available). Merely describing “Linear-like / Stripe-like / Notion-like” options in text is not sufficient; planning sketches are a separate deliverable.
 
 ChatGPT's GPT-6 Intelligent UI may help users compare visual directions **in ChatGPT Chat**, but it is not a native callable Codex dependency. Read `references/intelligent-ui-bridge.md` only when cross-product comparison or handoff is requested.
 
 Default staged validation for new multi-page work:
-1. **Visual Style Demo Gallery** — shortlist 2–3 product-appropriate directions, implement the same representative screen in actual HTML/CSS for each, render/review the previews, and let the user choose.
-2. **Representative Product Demo Checkpoint** — after style choice, build only the real app shell + one representative core page/flow, render with realistic data/states, run available Hallmark/Impeccable reviews and material fixes, then pause for user review.
-3. **Expansion** — after Product Demo approval, finalize `DESIGN.md` and expand in coherent batches.
-4. **Expansion Checkpoints** — pause again only for materially new reusable patterns, major design-system changes, or large module boundaries where feedback can prevent costly rework.
-5. **Final QA** — rendered review plus Hallmark audit and Impeccable critique/audit for substantial changes when available, with an honest execution-status summary.
+1. **Module and Page Plan** — propose modules, responsibilities, owned logical pages/counts, each page's core content/actions and principal flows; stop for one combined user confirmation.
+2. **Page and Interaction Blueprint** — after that approval, specify components, displayed content, within/across-page behavior and relevant states; provide low-fidelity sketches or a clickable grayscale planning prototype, revise and stop for user confirmation. Prototype code serves planning only; it does not start production implementation or select the final stack.
+3. **Visual Style Demo Gallery** — only if visual direction is undefined, shortlist 2–3 directions, implement the same approved representative screen in actual HTML/CSS, render/review and let the user choose.
+4. **Representative Product Demo Checkpoint** — after planning/style approval, build only the real app shell + one representative core page/flow, render with realistic data/states, run available Hallmark/Impeccable reviews and material fixes, then pause for user review.
+5. **Expansion** — after Product Demo approval, finalize `DESIGN.md` and expand in coherent batches. Pause again only for materially new patterns, major design-system changes or high-cost module boundaries.
+6. **Final QA** — rendered review plus applicable Hallmark/Impeccable checks, with an honest execution-status summary.
 
 Do **not** ask the user to approve every routine page. The purpose is to validate high-cost decisions early without creating approval fatigue.
 
@@ -237,7 +240,9 @@ Read `references/product-type-routing.md`.
 
 ### Phase 2 — Define the job before the layout
 
-Write internally or explicitly when useful:
+For new or substantially re-planned product areas, use [references/module-page-planning.md](references/module-page-planning.md): deliver Round 1 modules + owned pages together and obtain approval before detailed design. Phases 3–4 and relevant state planning feed Round 2 component/content/interaction sketches; obtain that approval before Phase 5 visual implementation. Supplied style references do not waive either planning round. Reuse accepted plans; do not impose these gates on small precise fixes or already-defined routine extensions.
+
+For each page, express its job (in the planning deliverable when that workflow applies; otherwise internally or explicitly as useful):
 
 `The user comes here to ______ and needs to know ______ before acting.`
 
@@ -284,6 +289,8 @@ Load only what the current surface needs:
 Do not load every reference by default.
 
 ### Phase 5 — Establish or preserve visual direction
+
+If module/page planning applies, both planning rounds must already be approved (or explicitly delegated without pauses). Do not substitute a visual Style Demo for the interaction planning artifacts.
 
 If route is `EXISTING_IMPROVE` or the existing accepted visual direction is being retained:
 - preserve the existing system, whether documented in `DESIGN.md` or inferred from the UI;
@@ -412,7 +419,7 @@ For a substantial Product Demo / UI redesign or when explicitly requested:
 5. Optional `polish` only when justified and not in place of audit/critique.
 6. Report real status/evidence for each relevant companion, including unavailable/blocked/failed ones. Never claim review occurred when original instructions were not loaded or no audit was performed.
 
-Avoid redundant full-site reviews for a small isolated change. For each approval checkpoint, complete relevant reviews **before** asking for the next user go-ahead.
+Avoid redundant full-site reviews for a small isolated change. For rendered UI approval checkpoints, complete relevant reviews **before** asking for the next user go-ahead. Non-code module/page and sketch planning uses its own consistency checks, not implementation audits or browser tests.
 
 Read `references/external-skill-protocol.md` and `references/hallmark-audit.md`.
 
@@ -475,6 +482,8 @@ Avoid:
 
 ## Output for design-first tasks
 
+For a new product, substantial new business area or authorized structure re-plan, use the two explicit deliverables in `references/module-page-planning.md`: (1) modules + owned pages together, then after approval (2) per-page components/content/interaction sketches. Stop after each round unless the user has explicitly waived pauses. The list below supplies design details within those approved stages; it is not permission to deliver all stages at once.
+
 Before implementation, provide or establish:
 1. User and primary task
 2. Page/surface type
@@ -491,7 +500,7 @@ Before implementation, provide or establish:
 13. Visual Provider ID/version/provenance (or none), proposed vs approved
 
 Then follow the **chosen route**:
-- `NEW_BUILD`: for a new multi-page product, deliver **visual HTML/CSS Style Demos** if visual direction undefined; stop for choice;
+- `NEW_BUILD`: obtain combined module/page approval, then component/content/interaction-sketch approval; subsequently deliver **visual HTML/CSS Style Demos** only if visual direction is undefined and stop for choice;
 - `EXISTING_IMPROVE`: inventory and audit **read-only** → report P0/P1/P2 and pilot recommendation → STOP for user plan approval → one pilot page → before/after comparison → STOP for user pilot approval → approved page-family rollout; no visual-direction shortlist by default;
 - `EXISTING_REDESIGN`: baseline existing product, visually explore only when direction truly changing → visual choice → one Product Demo → user approval → gradual UI replacement;
 - `EXISTING_REBUILD`: inventory/preservation/migration plan and replacement boundaries → visual checkpoint if needed → one compatible Product Demo → user approval → staged cutover, not uncontrolled deletion;

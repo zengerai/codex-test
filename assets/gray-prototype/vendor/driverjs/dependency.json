@@ -1,0 +1,11 @@
+{
+  "package": "driver.js",
+  "version": "1.9.0",
+  "license": "MIT",
+  "source": "https://registry.npmjs.org/driver.js/-/driver.js-1.9.0.tgz",
+  "files": {
+    "driver.js.iife.js": "e52b65c66f23cbcdae8a0b68e378bfd7f6e29a664445fe4240067335e11f6843",
+    "driver.css": "d095d440021fcf133ad46d37f18a2745fb76440f14f5208d17e203c039f765c9",
+    "license": "ec3ce3a08736fefd6a03a6d5b52b0705e6919fe06de9d7bd3fb63dcfb492d76d"
+  }
+}

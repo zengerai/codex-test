@@ -2,10 +2,12 @@
 
 Run AFTER product-ui selects the project lifecycle route and inspects the existing DESIGN.md / rendered UI, and BEFORE delegating visual system changes.
 
+For a new or structurally re-planned product area, complete the applicable module/page and interaction-sketch planning rounds before visual implementation. A named Provider or supplied style does not approve those plans; product-ui retains their ownership. See [module-page-planning.md](module-page-planning.md).
+
 | Scenario | product-ui action | Provider handling |
 |---|---|---|
-| NEW_BUILD with explicit Apple style | Skip unrelated A/B/C; preserve one Product Demo approval | Verify original Apple Skill and call spec/implement if compatible |
-| NEW_BUILD without style | Existing fair 2–3 HTML Style Demo and user selection | Installed provider can supply a candidate; never self-approve |
+| NEW_BUILD with explicit Apple style | Confirm applicable planning rounds; skip unrelated A/B/C; preserve one Product Demo approval | Verify original Apple Skill and call spec/implement within approved scope if compatible |
+| NEW_BUILD without style | After planning confirmation, fair 2–3 HTML Style Demo and user selection | Installed provider can supply a candidate; never self-approve |
 | One-shot new build without style | Choose style based on task, honor user's skip permission | Invoke only verified provider if selected |
 | Existing routine extension with DESIGN.md | Preserve approved style and use existing components | Same active provider when available and needed |
 | EXISTING_IMPROVE with no DESIGN.md but live UI | Read-only audit first for broad request; infer existing visual conventions | Do not auto-import Apple/Fluent |
