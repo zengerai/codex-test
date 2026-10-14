@@ -1,4 +1,4 @@
-# product-ui V3.4 Evaluation Cases (including retained earlier-version cases)
+# product-ui V3.5 Evaluation Cases (including retained earlier-version cases)
 
 Use these prompts to check activation, routing, companion-skill behavior, and update behavior.
 
@@ -799,3 +799,39 @@ Expected: actually exercise important routes and relevant guide/validation/recov
 - Verified that the existing risk-project prototype, its written blueprint and Apple Provider files were unchanged.
 
 These checks validate the bundled assets and integration example. Cases 105–112 above are behavior expectations for Skill use, not a claim that an automated agent benchmark was run. Each generated business prototype still needs its own proportionate checks.
+
+## V3.5 Annotated Frontend Blueprint
+
+### 113. Explain an accepted prototype
+> A 已确认。请基于它做 B，让我和后续开发都能看懂，之前的纯文字稿替换掉。
+Expected: reuse actual A images, annotate meaningful regions and map them to stable rules covering composition/content/actions/states, page transitions and reuse. Preserve accepted layouts; replace the active document with one clear current version and keep superseded content identifiable. B is the companion explanation, not a new layout proposal or third planning round.
+
+### 114. Format approval versus content approval
+> B 这种截图标注的形式可以，提取通用规则到 Skill。业务问题以后再讨论。
+Expected: record format approval and authorization to extract B rules. Keep unresolved project rules unresolved; do not start production development or upgrade the visual Provider. Do not generalize this project's page count, business metrics, statuses or required output formats.
+
+### 115. What the screenshot cannot establish
+> 原型里只有搜索，但旧蓝图还写了分页、排序和管理员权限；一起写成已经确定的规则吧。
+Expected: reconcile the user's proposed requirements with the actual artifact. Preserve any newly authorized requirement, but label it as an addition, not an observed or already implemented feature. Separate simulated capability and business unknowns; do not silently omit material differences or infer real authorization from prototype UI.
+
+### 116. Screenshot and intended behavior disagree
+> 空状态截图上的完成标记与正文矛盾，整理 B 时处理一下。
+Expected: locate the affected region, explain the contradiction and proposed correction; edit the artifact only within the authorized scope and keep corresponding evidence/rules consistent. Do not leave developers to infer which version is intended, claim the image proves the corrected behavior, or reopen unrelated accepted pages.
+
+### 117. Avoid a new component-selection loop
+> 组件在 A 里已经确认了，B 是不是还要重新选一遍组件库？
+Expected: explain the accepted semantic composition and rationale. Preserve concrete library mappings if already agreed; otherwise leave visual implementation mapping to the later appropriate stage. Do not impose library installation, five sequential approvals or a redesign of A to produce B.
+
+### 118. State and navigation evidence
+> 把失败重试、从列表进详情再返回的规则也说明白。
+Expected: reference real state images where they materially clarify the behavior, identify the owning logical page, and explain trigger/result, saved versus draft data, recovery, carried context and return preservation as applicable. Do not count each image as another page or fabricate a successful action from a direct URL visit.
+
+### 119. Format choice and screenshot limitations
+> 只需要图文 PDF，已有草图图片，不能运行浏览器。
+Expected: use the supplied static sketches, state their provenance/limits, and provide linked image-to-rule explanations. Render/inspect the PDF when tools permit. Do not require a custom HTML reader, three duplicate formats, browser setup, a production framework or fabricated screenshots.
+
+### 120. One design across delivery formats
+> 蓝图需要可放大阅读版和便于开发检索的文字版，后面还会继续修改。
+Expected: keep one maintained content source and stable IDs, generate or synchronize outputs, validate relevant navigation/zoom/assets and reading sizes, and update affected images and rules together. Review in coherent batches with prior approvals preserved, not a gate after every region or page. Do not require the full production audit chain for the document viewer.
+
+Cases 113–120 are behavioral evaluation scenarios, not a claim that an independent agent benchmark has run. The prior project experiment supplied the observed delivery pattern; reusable guidance must remain domain-neutral and proportional to each task.

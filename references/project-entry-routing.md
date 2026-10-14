@@ -37,7 +37,7 @@ For a **new project** which contains only boilerplate, route `NEW_BUILD` even th
 
 1. Inspect project and task; classify ToB/ToC, user workflow, density, surface patterns.
 2. Follow [module-page-planning.md](module-page-planning.md): propose logical modules and owned pages/counts, per-page responsibilities/core content and main flows together; stop for one combined approval.
-3. After that approval, design per-page components, displayed content, interactions, relevant states and low-fidelity sketches; revise until confirmed. Round 1 stays non-code; Round 2 may use a clickable grayscale planning prototype under [gray-prototype.md](gray-prototype.md), with no production implementation yet. Reuse explicit prior approval.
+3. After that approval, design per-page components, displayed content, interactions, relevant states and low-fidelity sketches; revise until confirmed. Round 1 stays non-code; Round 2 pairs A under [gray-prototype.md](gray-prototype.md) with screenshot-linked rules in B under [frontend-blueprint.md](frontend-blueprint.md). Both are planning artifacts, with no production implementation yet. Reuse explicit prior approval without adding separate gates for every artifact or page.
 4. When visual direction is undefined, use original UI UX Pro Max when available and deliver **2–3 browser-previewable HTML Style Demos** of the same approved representative screen; stop for user choice. A supplied style skips only this selection.
 5. Implement application shell + **one real representative Product Demo**.
 6. Render, run original Hallmark audit-only and Impeccable critique/audit if available, fix material findings separately.

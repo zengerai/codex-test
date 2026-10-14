@@ -1,9 +1,9 @@
 ---
 name: product-ui
-description: Style-neutral orchestrator to design, audit, optimize, redesign, or rebuild real ToB/ToC product application interfaces (SaaS, admin, ERP/CRM, workbenches, tables, dashboards, forms, utilities). For new products, confirm modules and pages together, then component/content/interaction sketches before visual Style Demos and one Product Demo. For existing projects, default to read-only UI/UX audit, prioritized plan, and user-approved pilot before editing; only initiate full visual redesign or frontend rebuild when explicitly requested. Orchestrate original installed UI UX Pro Max, shadcn agent Skill, Hallmark audit, and Impeccable critique/audit with verified evidence. Also activate for product-ui skill updates. Exclude marketing landing pages and portfolios.
+description: Style-neutral orchestrator to design, audit, optimize, redesign, or rebuild real ToB/ToC product application interfaces (SaaS, admin, ERP/CRM, workbenches, tables, dashboards, forms, utilities). For new products, confirm modules and pages together, then interaction sketches and an annotated frontend blueprint before visual Style Demos and one Product Demo. For existing projects, default to read-only UI/UX audit, prioritized plan, and user-approved pilot before editing; only initiate full visual redesign or frontend rebuild when explicitly requested. Orchestrate original installed UI UX Pro Max, shadcn agent Skill, Hallmark audit, and Impeccable critique/audit with verified evidence. Also activate for product-ui skill updates. Exclude marketing landing pages and portfolios.
 ---
 
-# Product UI Orchestrator · v3.4
+# Product UI Orchestrator · v3.5
 
 `product-ui` is the coordinator for real application interfaces. It owns product interaction decisions and routes work to companion skills when they are installed and relevant.
 
@@ -171,13 +171,15 @@ Read `references/project-entry-routing.md` first. Read `references/approval-chec
 
 For a new product or substantial unplanned business area, read [references/module-page-planning.md](references/module-page-planning.md). First confirm **logical modules and their owned pages together**, then confirm **per-page components, content, interactions and low-fidelity sketches**. Accept brief requests, project descriptions and detailed implementation plans; reuse prior approvals and make assumptions explicit. Round 1 remains a non-code scope proposal. For Round 2 deliverable A, follow [references/gray-prototype.md](references/gray-prototype.md): prefer a reusable clickable grayscale prototype for multi-page flows, with page relationships and task guidance; use static sketches when sufficient or requested. Lightweight local prototype code is allowed, while production implementation and visual Style Demos remain later stages.
 
+For Round 2 deliverable B, follow [references/frontend-blueprint.md](references/frontend-blueprint.md): explain the same design through actual sketch/prototype screenshots, numbered regions and corresponding component/content/interaction rules. Reuse accepted A decisions; distinguish shown behavior, proposed additions and unknowns. B serves both user review and development handoff, without introducing another planning round or approval for every page.
+
 When a **visual-direction checkpoint** is needed later, it must show actual visual previews (HTML/CSS, with screenshots when available). Merely describing “Linear-like / Stripe-like / Notion-like” options in text is not sufficient; planning sketches are a separate deliverable.
 
 ChatGPT's GPT-6 Intelligent UI may help users compare visual directions **in ChatGPT Chat**, but it is not a native callable Codex dependency. Read `references/intelligent-ui-bridge.md` only when cross-product comparison or handoff is requested.
 
 Default staged validation for new multi-page work:
 1. **Module and Page Plan** — propose modules, responsibilities, owned logical pages/counts, each page's core content/actions and principal flows; stop for one combined user confirmation.
-2. **Page and Interaction Blueprint** — after that approval, specify components, displayed content, within/across-page behavior and relevant states; provide low-fidelity sketches or a clickable grayscale planning prototype, revise and stop for user confirmation. Prototype code serves planning only; it does not start production implementation or select the final stack.
+2. **Page and Interaction Blueprint** — after that approval, provide A (sketches or a clickable grayscale planning prototype) and B (screenshot-linked component/content/interaction rules) as complementary views of the same design. Revise and obtain confirmation for the scope being advanced, reusing explicit partial approvals. Prototype and document-viewer code serve planning only; they do not start production implementation or select the final stack.
 3. **Visual Style Demo Gallery** — only if visual direction is undefined, shortlist 2–3 directions, implement the same approved representative screen in actual HTML/CSS, render/review and let the user choose.
 4. **Representative Product Demo Checkpoint** — after planning/style approval, build only the real app shell + one representative core page/flow, render with realistic data/states, run available Hallmark/Impeccable reviews and material fixes, then pause for user review.
 5. **Expansion** — after Product Demo approval, finalize `DESIGN.md` and expand in coherent batches. Pause again only for materially new patterns, major design-system changes or high-cost module boundaries.
@@ -482,7 +484,7 @@ Avoid:
 
 ## Output for design-first tasks
 
-For a new product, substantial new business area or authorized structure re-plan, use the two explicit deliverables in `references/module-page-planning.md`: (1) modules + owned pages together, then after approval (2) per-page components/content/interaction sketches. Stop after each round unless the user has explicitly waived pauses. The list below supplies design details within those approved stages; it is not permission to deliver all stages at once.
+For a new product, substantial new business area or authorized structure re-plan, use the two planning rounds in `references/module-page-planning.md`: (1) modules + owned pages together, then after approval (2) interaction sketches A and their annotated frontend blueprint B. Stop after each round unless the user has explicitly waived pauses; A/B may be reviewed together or under existing partial approvals. The list below supplies design details within those approved stages; it is not permission to deliver all stages at once.
 
 Before implementation, provide or establish:
 1. User and primary task

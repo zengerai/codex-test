@@ -2,6 +2,14 @@
 
 All notable changes to `product-ui` are recorded here.
 
+## 3.5.0 — 2026-10-14
+
+- Added Round 2 deliverable B: an annotated frontend blueprint using actual A screenshots, stable region/rule IDs, and corresponding component, content, interaction and state explanations for user review and development handoff.
+- Added a reusable authoring template, shared-rule/component-reuse guidance, cross-page context, relevant state supplements, and explicit distinctions between demonstrated behavior, proposals, simulations and unknowns.
+- Integrated B into existing planning references and checkpoints without creating a third round or reopening approved A decisions. Format acceptance remains distinct from content and implementation approval.
+- Added format-appropriate rendering/navigation checks and single-source maintenance guidance; PDF, HTML and Markdown are options, not three compulsory outputs.
+- Kept project-specific pages, metrics and business rules out of the Skill. Apple Provider, Provider Protocol v1, prototype assets and the separate production business-validation/motion proposals are unchanged.
+
 ## 3.4.0 — 2026-10-14
 
 - Enhanced Round 2 deliverable A: prefer clickable grayscale planning prototypes for multi-page flows, while retaining static and explicit non-code alternatives.
