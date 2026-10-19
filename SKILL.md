@@ -3,7 +3,7 @@ name: product-ui
 description: Style-neutral orchestrator to design, audit, optimize, redesign, or rebuild real ToB/ToC product application interfaces (SaaS, admin, ERP/CRM, workbenches, tables, dashboards, forms, utilities). For new products, confirm modules and pages together, then interaction sketches and an annotated frontend blueprint before visual Style Demos and one Product Demo. For existing projects, default to read-only UI/UX audit, prioritized plan, and user-approved pilot before editing; only initiate full visual redesign or frontend rebuild when explicitly requested. Orchestrate original installed UI UX Pro Max, shadcn agent Skill, Hallmark audit, and Impeccable critique/audit with verified evidence. Also activate for product-ui skill updates. Exclude marketing landing pages and portfolios.
 ---
 
-# Product UI Orchestrator · v3.5
+# Product UI Orchestrator · v3.7
 
 `product-ui` is the coordinator for real application interfaces. It owns product interaction decisions and routes work to companion skills when they are installed and relevant.
 
@@ -66,12 +66,14 @@ Explicit autonomous/one-shot instructions can waive approval pauses, **not** pre
 Before design work, inspect the project for persistent context.
 
 Use this precedence:
-1. `PRODUCT.md` — users, jobs, domain rules, workflow, behavior
-2. explicit current user request — current task and accepted deviations
+1. explicit current user request — current task, constraints and accepted deviations
+2. `PRODUCT.md` — users, jobs, domain rules, workflow, behavior
 3. `DESIGN.md` — established visual system and design tokens
 4. project components / implementation conventions
 5. `product-ui` — product interaction patterns and routing
 6. specialized Design Providers and companion skills — only verified independent originals, subject to project approval
+
+Apply the latest explicit user direction to the authorized scope; reconcile affected project documentation without inventing domain facts or treating missing production rules as confirmed.
 
 Read `references/design-system-governance.md` when any of these sources exist or conflict. For `EXISTING_REDESIGN` and `EXISTING_REBUILD` with an explicit visual reset, treat the existing `DESIGN.md` as a baseline to preserve for comparison until the user approves its replacement.
 
@@ -276,8 +278,9 @@ Advanced interaction routing (v3.2): for repeated record review, coordinated KPI
 ### Phase 4 — Load only relevant product references
 
 Load only what the current surface needs:
-- Lists / records / operations → `references/data-table.md`
+- Lists / records / operations, row density, column grouping and truncated summaries → `references/data-table.md`
 - Forms → `references/forms.md`
+- Login / authentication entry → `references/login.md` for scope, compact fields, accessible names, validation and return context; the chosen Provider handles background, palette and motion.
 - Multi-step / approvals / processing → `references/workflow.md`
 - Search / filters → `references/filters-search.md`
 - Batch actions → `references/bulk-actions.md`
@@ -335,6 +338,8 @@ For each major screen/interaction, account for relevant states:
 - offline/retry when relevant
 
 Read `references/states.md`. For advanced multi-region interactions, also apply the contract from references/advanced-interaction-selection.md: canonical state, rapid/latest-action wins, async loading/empty/error, permissions, keyboard/focus, narrow-screen and reduced-motion. Provider owns motion presentation, not business semantics.
+
+For connected functional pages, use [references/business-flow-validation.md](references/business-flow-validation.md) to carry accepted blueprint rules into record identity, global/local scope, navigation, draft/save and failure contracts. Keep frontend simulations and backend capabilities distinct.
 
 ### Phase 7 — Implement through the project's component system
 
@@ -399,6 +404,8 @@ A UI is not complete because the code compiles.
 
 Read `references/browser-review.md` and `references/review-checklist.md`. If a Design Provider executed, also check `references/design-provider-acceptance.md` and distinguish specialist style-conformance from universal UX/a11y.
 
+For a functional Product Demo or changes affecting connected data/state, exercise the applicable checks in [references/business-flow-validation.md](references/business-flow-validation.md). Verify actual record sets and complete user transitions against accepted rules; a click, screenshot or successful build alone does not establish business correctness. Scope regression checks to affected behavior.
+
 Review with:
 - realistic content and record counts;
 - long labels/values;
@@ -431,6 +438,7 @@ Do not call substantial UI work complete until relevant items are true:
 - primary task is obvious;
 - information hierarchy matches the task;
 - repeated operations are efficient;
+- connected data, states and actions match accepted business rules, with frontend-only simulation limits identified;
 - important states exist;
 - project design language is preserved;
 - responsive behavior was inspected;

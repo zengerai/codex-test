@@ -1,4 +1,4 @@
-# product-ui V3.5 Evaluation Cases (including retained earlier-version cases)
+# product-ui V3.7 Evaluation Cases (including retained earlier-version cases)
 
 Use these prompts to check activation, routing, companion-skill behavior, and update behavior.
 
@@ -835,3 +835,43 @@ Expected: use the supplied static sketches, state their provenance/limits, and p
 Expected: keep one maintained content source and stable IDs, generate or synchronize outputs, validate relevant navigation/zoom/assets and reading sizes, and update affected images and rules together. Review in coherent batches with prior approvals preserved, not a gate after every region or page. Do not require the full production audit chain for the document viewer.
 
 Cases 113–120 are behavioral evaluation scenarios, not a claim that an independent agent benchmark has run. The prior project experiment supplied the observed delivery pattern; reusable guidance must remain domain-neutral and proportional to each task.
+
+## V3.6 Connected Business Validation
+
+### 121. Same count, wrong records and different scopes
+> 点击“逾期 4 单”后列表也显示 4 单，其中有一单并未逾期；顶部本月总额按设计不随局部筛选变化。
+Expected: reject the result membership despite matching counts, preserve the intentional batch-total scope, and check IDs against accepted rules/fixtures. Do not make every statistic follow a local filter or derive expected IDs from the buggy UI calculation.
+
+### 122. Identity, failure and source queue
+> 同一客户在两个月各有一份结果；本月反馈保存失败，页面却显示已完成并进入全量列表的下一家。
+Expected: treat result identity, false completion, lost input and source-queue escape as functional failures; preserve the correct draft and source policy, then exercise successful retry and return. Do not alter computed domain results merely because human feedback changed.
+
+### 123. Frontend evidence limits
+> 只做前端，模拟数据和保存失败已经跑通。能不能把后端持久化和并发检查也写成通过？
+Expected: report the actual simulated frontend coverage and leave backend guarantees untested/out of scope; do not fabricate evidence or build a backend to satisfy the checklist.
+
+### 124. Targeted regression and historical results
+> 上一轮流程已经验收，这次只调整列表摘要的溢出浮层。
+Expected: verify truncation/disclosure, keyboard/touch and immediately affected row behavior without restarting module planning or rerunning unrelated flows. Identify which evidence is new and which belongs to the earlier build.
+
+Cases 121–124 define behavioral expectations; they are not a claim that an independent agent benchmark or a fresh application test run was performed during the Skill edit.
+
+## V3.7 Login refinement
+
+### 125. Accepted placeholder-led login
+> 登录只要账号、密码、验证码；不要可见标签，暂不做忘记密码。
+Expected: honor the stated scope, retain associated semantic labels and error descriptions, inspect filled/autofilled recognition, and keep controls keyboard-operable. Do not add recovery/QR/register routes or remove visible labels from unrelated forms.
+
+### 126. Empty space between login fields
+> 输入框之间空白太多，标签又很小；先改善表单比例。
+Expected: inspect label/control proportions, grouping and permanent error placeholders; remove unjustified idle blank rows while letting real errors wrap in normal flow. Preserve useful targets and adjacent CAPTCHA alignment; no universal pixel values or hidden errors.
+
+### 127. Demonstration is not authentication
+> 只做前端，验证码有展示但不校验；保持现有演示行为，不要那段演示提示。
+Expected: preserve the explicit demo contract and requested page copy, document capability limits in the handoff, and never report server authentication/CAPTCHA validation as implemented. No unsolicited banner, backend integration or standard “accept anything” policy for other products.
+
+### 128. Login interrupted by real use
+> 登录框还在进入，我已开始输入；登录后要回到刚才打开的详情。
+Expected: prioritize input/focus immediately, preserve values through visual updates, prevent duplicate submission and restore only a valid intended in-app destination. Verify affected transitions without introducing animation-driven waiting or claiming unseen runtime results.
+
+Cases 125–128 are behavioral expectations, not an executed independent benchmark.

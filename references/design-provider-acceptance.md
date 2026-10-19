@@ -15,6 +15,7 @@
 - For motion, repeated rapid toggles/open-close, interruption, focus restoration and truthful state updates.
 - Review genuine rendered screen; static screenshot does not prove interaction correctness.
 - Check component mapping retains required product information and density rather than copying vendor demo layouts.
+- When user references inform the design, check the Provider's observed feature → task/region → component/action → verification mapping. Separate source observations, design adaptations and actual evidence; do not require a new reference study for routine reuse of an approved pattern.
 - Record style-conformance separately from Hallmark read-only audit and Impeccable critique/audit.
 - Keep one project-owned DESIGN.md, update only when acceptance/checkpoints permit.
 - Track status executed / skipped-not-needed / unavailable / blocked / failed and evidence. No hypothetical QA passed.

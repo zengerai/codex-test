@@ -28,6 +28,8 @@ v3.4 将交互草图组织为 **统一灰度组件＋项目业务配置＋操作
 
 v3.5 增加交付物 B 的标准表达：**原型截图＋区域编号＋对应规则**，沿用 A 的设计，说明组件组成、展示内容、交互与状态、跨页关系和复用方式，既供用户评审，也供后续开发参考。配有 [蓝图规则](references/frontend-blueprint.md) 和 [可复用模板](templates/frontend-blueprint.example.md)。A 与 B 同属第二轮，可一起评审；已确认的 A 不重新设计。接受交付形式不自动等于接受所有业务规则。
 
+v3.5.1–v3.7 补充 [表格密度与长摘要](references/data-table.md)、[业务流程校验](references/business-flow-validation.md) 和 [登录表单规则](references/login.md)：验证数据、状态和操作能连起来，并在登录优化中保留语义标签、紧凑间距、错误恢复和来源返回。背景构图、配色与动效仍交由所选 Design Provider；具体尺寸、色值和演示行为保留在项目中。
+
 ## 安装（Codex）
 
 在终端执行：

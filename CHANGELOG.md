@@ -2,6 +2,28 @@
 
 All notable changes to `product-ui` are recorded here.
 
+## 3.7.0 — 2026-10-19
+
+- Added scoped login guidance for supported fields, concise actions, compact spacing, semantic labels in accepted placeholder-led forms, validation, CAPTCHA controls and intended-destination continuity.
+- Reconciled persistent-label defaults with explicit short-login choices; preserved filled/autofill usability and keyboard/error semantics.
+- Kept visual composition and motion with the selected Provider, and project-specific authentication simulations, exclusions, dimensions and colors out of universal rules. Added focused review routing and behavioral evaluation cases.
+
+## 3.6.1 — 2026-10-16
+
+- Corrected source precedence so the latest explicit user request takes priority over project documentation; preserved domain-fact and authorized-scope boundaries.
+
+## 3.6.0 — 2026-10-15
+
+- Added blueprint-based business-flow validation for record identity, global/local scope, exact result membership, independent statuses, source queues, drafts/saves, failures and export targets.
+- Integrated proportional connected-flow checks into state planning, rendered review and completion criteria; distinguished observed, source-inspected, simulated and untested behavior in frontend-only work.
+- Added reference-to-product traceability to Provider acceptance without changing Protocol v1, planning approvals or Provider ownership. Preserved the 3.5.1 table guidance.
+
+## 3.5.1 — 2026-10-15
+
+- Added task-based table density guidance: consider separate identity/identifier columns, reduce unnecessary stacking before shrinking text, and preserve meaningful exceptional states.
+- Added overflow-only summary disclosure with hover, keyboard and touch access, responsive remeasurement and proportional interaction verification.
+- Kept row heights and typography project-specific; the 52px / 14px example is guidance rather than a global preset. Provider visual styling and existing approval boundaries remain unchanged.
+
 ## 3.5.0 — 2026-10-14
 
 - Added Round 2 deliverable B: an annotated frontend blueprint using actual A screenshots, stable region/rule IDs, and corresponding component, content, interaction and state explanations for user review and development handoff.

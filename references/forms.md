@@ -5,7 +5,7 @@ Forms should reduce input effort, ambiguity, and recovery cost.
 ## Structure
 - group related fields
 - use section titles when groups are meaningful
-- keep labels persistent
+- keep visible labels persistent by default; for a short familiar login form with an explicitly accepted placeholder-led design, follow [login.md](login.md) and retain semantic labels
 - put help text near the field it explains
 - order fields according to user workflow, not database schema
 

@@ -7,6 +7,9 @@ Review the rendered product, not only the source code.
 - Can the user identify the next action?
 - Are frequent actions easier than rare actions?
 
+## Connected business behavior
+For functional pages, follow [business-flow-validation.md](business-flow-validation.md): verify record identity, declared global/local filter scopes, exact result membership, independent states, navigation context and save/recovery behavior as applicable. Use accepted blueprint rules as expectations and distinguish simulated frontend behavior from backend guarantees.
+
 ## Hierarchy
 - Is the most important information visually dominant?
 - Is decorative content competing with operational content?
@@ -26,6 +29,7 @@ Review the rendered product, not only the source code.
 - Are fields ordered by workflow?
 - Are validation and server errors recoverable?
 - Is entered data preserved?
+- For login, use [login.md](login.md): does the compact form remain identifiable when filled, keyboard-operable, and consistent across validation, submission and return navigation? Keep demo behavior distinct from real authentication.
 
 ## States
 Check realistic examples of:
