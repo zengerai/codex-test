@@ -7,14 +7,14 @@ This is the preferred installation for `product-ui` because it supports one-comm
 ### 1. Clone the Git repository
 
 ```bash
-git clone https://github.com/zengerai/codex-test.git ~/CodexSkills/product-ui-skill
+git clone https://github.com/zengerai/product-ui.git ~/CodexSkills/product-ui-skill
 cd ~/CodexSkills/product-ui-skill
 ```
 
 If the Skill is published from a dedicated branch rather than the repository default branch:
 
 ```bash
-git clone --single-branch --branch main https://github.com/zengerai/codex-test.git ~/CodexSkills/product-ui-skill
+git clone --single-branch --branch main https://github.com/zengerai/product-ui.git ~/CodexSkills/product-ui-skill
 cd ~/CodexSkills/product-ui-skill
 ```
 
@@ -41,6 +41,14 @@ PRODUCT_UI_SKILLS_DIR=/custom/skills/path ./scripts/install.sh
 Codex may detect Skill changes automatically. If the Skill is not visible immediately, restart/reload Codex.
 
 ## Updating
+
+If you cloned before the repository rename, run this once from your existing Git checkout to use the new remote URL:
+
+```bash
+git remote set-url origin https://github.com/zengerai/product-ui.git
+```
+
+Your local directory and installed symlink can stay where they are; no fresh clone or reinstall is needed.
 
 From a terminal:
 

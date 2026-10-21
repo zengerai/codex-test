@@ -1,6 +1,6 @@
 # Design Provider 开发通用提示词
 
-> 面向 Codex、Claude Code、Cursor 等 AI 开发工具。用于从零创建 **可独立安装的 Design Provider Skill**，并接入 [product-ui v3.0](https://github.com/zengerai/codex-test)。
+> 面向 Codex、Claude Code、Cursor 等 AI 开发工具。用于从零创建 **可独立安装的 Design Provider Skill**，并接入 [product-ui v3.0](https://github.com/zengerai/product-ui)。
 >
 > **使用方法：**将下面「复制给开发 AI 的提示词」全文提供给 AI，替换开头的占位符；开发者须先读取仓库中最新协议，不能以本模板代替协议原文。可以将本文件 URL 直接交给能访问 GitHub 的开发 AI。
 >
@@ -27,7 +27,7 @@
 
 ### 2. 先读 product-ui 原始仓库和协议，再动手
 
-主仓库：https://github.com/zengerai/codex-test
+主仓库：https://github.com/zengerai/product-ui
 
 **先读取以下文件在默认分支上的最新完整内容：**
 

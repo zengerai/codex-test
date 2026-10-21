@@ -1,5 +1,7 @@
 # product-ui
 
+当前版本：**v3.7.0** · [更新记录](CHANGELOG.md)
+
 **让 AI 按真实软件产品的工作方式设计、开发和优化前端界面。**
 
 `product-ui` 是一套面向 Codex 等 AI 编程助手的 **产品 UI 工作流 Skill**。它不是某种固定配色的组件库，而是负责理解用户任务、规划信息架构、组织设计与实现、在关键阶段让你确认，并检查最终界面是否真正好用。
@@ -35,8 +37,8 @@ v3.5.1–v3.7 补充 [表格密度与长摘要](references/data-table.md)、[业
 在终端执行：
 
 ```bash
-git clone https://github.com/zengerai/codex-test.git
-cd codex-test
+git clone https://github.com/zengerai/product-ui.git
+cd product-ui
 bash scripts/install.sh
 ```
 
@@ -186,6 +188,12 @@ product-ui：识别新建 / 优化 / 重设计 / 重建
 | [CHANGELOG.md](CHANGELOG.md) | 版本更新记录 |
 
 ### 更新 Skill
+
+仓库更名后，已有安装可在原 Git 仓库目录执行以下命令，更新远程地址；无需重新克隆或移动本地目录：
+
+```bash
+git remote set-url origin https://github.com/zengerai/product-ui.git
+```
 
 如果是通过 Git 安装，可在仓库目录运行 `bash scripts/update.sh`，或在 Codex 中说“更新 product-ui 技能”。更新脚本使用 fast-forward，遇到未提交的本地变更会停止，不会直接覆盖。
 
